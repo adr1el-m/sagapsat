@@ -6,3 +6,6 @@ __pycache__
 requirements.txt
 .env*
 station.local.json
+.ingest-secret
+.publisher-state.json
+node_modules

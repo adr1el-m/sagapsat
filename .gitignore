@@ -5,3 +5,7 @@ __pycache__/
 .env*
 station.local.json
 *.tar.gz
+node_modules/
+.ingest-secret
+.publisher-state.json
+publish-payload.json

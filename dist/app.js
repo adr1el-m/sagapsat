@@ -7,10 +7,14 @@ const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Mani
 const snr=v=>Number.isFinite(v)?v.toFixed(2)+' dB':'Not logged';
 const countdown=v=>{const s=Math.floor((new Date(v)-Date.now())/1000);if(s<=0)return 'IN PASS';return `${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor(s%3600/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
 function make(tag,text,className){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e}
-async function get(url){const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error(`${url}: ${r.status}`);return r.json()}
+async function get(url){const kind=/^(station|archive|orbits)\.json$/.exec(url)?.[1];const local=/localhost|127\.0\.0\.1|\.local$/.test(location.hostname);if(kind&&!local){try{const r=await fetch('/api/feed?kind='+kind,{cache:'no-cache',signal:AbortSignal.timeout(12000)});if(r.ok)return await r.json()}catch{}}const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error(`${url}: ${r.status}`);return r.json()}
 function download(name,data,type){const u=URL.createObjectURL(new Blob([data],{type})),a=make('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000)}
 function upcoming(){if(!orbital||Date.now()>new Date(orbital.valid_until_utc)||Date.now()<new Date(orbital.generated_utc)-300000)return [];return (orbital.passes||[]).filter(p=>new Date(p.los)>new Date())}
+function renderSummary(){$('captureCount').textContent=String(archive.captures.length).padStart(2,'0');$('totalFrames').textContent=fmt.format(archive.captures.reduce((s,c)=>s+c.unique_frames,0));const snrs=archive.captures.map(c=>c.peak_snr_db).filter(Number.isFinite);$('bestSnr').textContent=snrs.length?snr(Math.max(...snrs)):'Not logged';$('policy').textContent=archive.policy;$('updated').textContent='Archive built '+date(archive.generated_utc,{hour:'2-digit',minute:'2-digit'})+' PHT';
+ const feature=archive.captures.find(c=>c.featured);if(feature){$('featureImage').src=feature.featured.preview;$('featureImage').alt=`Original Meteor ${feature.satellite} false-colour image, with visible missing scans`;$('featureSat').textContent='METEOR '+feature.satellite;$('featureTime').textContent=date(feature.started_utc,{hour:'2-digit',minute:'2-digit'})+' PHT · '+fmt.format(feature.unique_frames)+' distinct CADUs';$('featureOpen').onclick=$('featureDetails').onclick=()=>openCapture(feature)}}
 function renderArchive(){
+ renderSummary();
+ if(typeof refreshCoverage==='function')refreshCoverage();
  const q=$('search').value.trim().toLowerCase();$('captureGrid').replaceChildren();
  const captures=archive.captures.filter(c=>(archiveFilter==='all'||c.satellite===archiveFilter)&&(`${c.id} ${date(c.started_utc)} ${c.satellite}`).toLowerCase().includes(q));
  $('emptyArchive').hidden=!!captures.length;
@@ -21,7 +25,7 @@ function renderArchive(){
 }
 function imageSelection(){
  const image=currentCapture.images[Number($('productSelect').value)];if(!image)return;
- $('detailImage').src=image.preview;$('imageLabel').textContent=`${image.label} · ${image.width} × ${image.height} px`;
+ $('detailImage').src=image.preview;if(typeof productHelp==='function')$('productHelp').textContent=productHelp(image);$('imageLabel').textContent=`${image.label} · ${image.width} × ${image.height} px`;
  $('downloadImage').href=image.url;$('downloadImage').download=image.name;
  $('productHash').textContent='Original PNG SHA-256: '+image.sha256;
  const ix=$('compareSelect').value;$('compareFigure').hidden=ix==='';
@@ -35,9 +39,9 @@ function openCapture(c){
  $('viewer').classList.remove('native');$('zoomButton').textContent='View at native size';$('captureNotes').textContent=c.notes;
  $('detailMetrics').replaceChildren();
  for(const [label,value] of [['Distinct CADUs',fmt.format(c.unique_frames)],['Complete records',fmt.format(c.frames)],['Expected ASM',`${fmt.format(c.sync_frames)} / ${fmt.format(c.frames)}`],['Trailing bytes',String(c.trailing_bytes)],['Peak logged SNR',snr(c.peak_snr_db)],['Image variants',String(c.images.length)],['Reported size',c.size_matches_report?'Matches file':'MISMATCH'],['Georeferencing','Unverified']]){const e=make('div');e.append(make('small',label),make('strong',value));$('detailMetrics').append(e)}
- $('evidenceFiles').replaceChildren();for(const f of c.evidence){const e=make('div',undefined,'evidence-file'),a=make('a',`${f.name} · ${fmt.format(f.bytes)} bytes ↓`);a.href=f.url;a.download=f.name;e.append(a,make('code',f.sha256));$('evidenceFiles').append(e)}
+ $('evidenceFiles').replaceChildren();for(const f of c.evidence){const e=make('div',undefined,'evidence-file'),a=make('a',`${f.name} · ${fmt.format(f.bytes)} bytes ↓`);a.href=f.url;a.download=f.name;e.append(a,make('code',f.sha256));if(f.original_sha256&&f.original_sha256!==f.sha256){e.append(make('p','Public log copy: exact station coordinates withheld.','micro'),make('code','Original SHA-256: '+f.original_sha256))}$('evidenceFiles').append(e)}
  const cadu=c.evidence.find(f=>f.name.endsWith('.cadu'));$('downloadCadu').hidden=!cadu;if(cadu)$('downloadCadu').href=cadu.url;
- imageSelection();$('captureDialog').showModal();
+ imageSelection();$('captureDialog').showModal();if(typeof qualityChart==='function')qualityChart(c);if(typeof applyZoom==='function'){zoomScale=1;applyZoom()}$('copyCaptureLink').textContent='Copy capture link ↗';history.replaceState(null,'','#capture='+encodeURIComponent(c.id));
 }
 function exportCalendar(p){const utc=v=>new Date(v).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');const value=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Team Magalona//SagapSat//EN','BEGIN:VEVENT',`UID:${utc(p.aos)}-${p.satellite}@sagapsat.local`,`DTSTAMP:${utc(new Date())}`,`DTSTART:${utc(p.aos)}`,`DTEND:${utc(p.los)}`,`SUMMARY:Meteor ${p.satellite} predicted pass`,`DESCRIPTION:Peak ${p.max_elevation} degrees. 10 degree horizon mask. Predicted geometry only. Recording is not automatically scheduled.`,'END:VEVENT','END:VCALENDAR'].join('\r\n');download(`meteor-${p.satellite}-${utc(p.aos)}.ics`,value,'text/calendar')}
 function renderPasses(){
@@ -68,22 +72,21 @@ function tick(){
  drawMap();drawSky();
 }
 async function stationPoll(){
- try{const state=await get('station.json');const fresh=state.connected&&state.sampled_utc&&Math.abs(Date.now()-new Date(state.sampled_utc))<30000;
- $('stationState').textContent=fresh?'STATION CHECKED':'ARCHIVE MODE';
+ try{const state=await get('station.json');const fresh=state.connected&&state.sampled_utc&&Math.abs(Date.now()-new Date(state.sampled_utc))<360000;
+ $('stationState').textContent=fresh?'STATION ONLINE':'FEED UNAVAILABLE';$('livePhase').textContent=fresh?(state.phase||'checked').toUpperCase():'OFFLINE';$('liveFrames').textContent=fresh?fmt.format(state.frames||0):'—';const rfFresh=fresh&&state.telemetry_utc&&Math.abs(Date.now()-new Date(state.telemetry_utc))<90000;$('liveSnr').textContent=rfFresh?snr(state.snr_db):'—';$('liveLock').textContent=rfFresh&&typeof state.frame_lock==='boolean'?(state.frame_lock?'LOCKED':'SEARCHING'):'—';
  $('probeStatus').textContent=fresh?(state.sdr_present?'SDR detected':'SDR not detected'):'Not connected';
  $('probeHealth').hidden=!fresh;
  if(fresh){$('probeHealth').textContent=`${state.free_gb} GB free · ${state.temperature||'Temperature unavailable'} · ${state.throttled||'Power status unavailable'} · Checked ${time(state.sampled_utc)} PHT`;
- $('probeNote').textContent=state.frames_growing?'CADU file growth observed in the latest 10-second probe interval. Archive below contains finalized captures only.':`Read-only check: ${state.satdump_running?'SatDump process running':'No SatDump process detected'}. No current CADU growth observed; process presence alone does not confirm reception.`;
+ $('probeNote').textContent=state.frames_growing?'CADU file growth observed in the latest 10-second probe interval. Archive below contains finalized captures only.':`Read-only check: ${state.satdump_running?'SatDump process running':'No SatDump process detected'}. No CADU growth observed in the latest sample. Public idle heartbeat: every 5 min; active heartbeat: every min.`;
  }else{$('probeNote').textContent=state.message||'Live station status unavailable. Saved observations remain available.'}
- }catch(e){$('stationState').textContent='ARCHIVE MODE';$('probeStatus').textContent='Unavailable';$('probeHealth').hidden=true;$('probeNote').textContent='Live hardware status is unavailable. Archived captures remain accessible.'}
+ }catch(e){$('stationState').textContent='FEED UNAVAILABLE';for(const id of ['liveFrames','liveSnr','liveLock'])$(id).textContent='—';$('livePhase').textContent='OFFLINE';$('probeStatus').textContent='Unavailable';$('probeHealth').hidden=true;$('probeNote').textContent='Live hardware status is unavailable. Archived captures remain accessible.'}
 }
 async function init(){
- try{archive=await get('archive.json');$('captureCount').textContent=String(archive.captures.length).padStart(2,'0');$('totalFrames').textContent=fmt.format(archive.captures.reduce((s,c)=>s+c.unique_frames,0));const snrs=archive.captures.map(c=>c.peak_snr_db).filter(Number.isFinite);$('bestSnr').textContent=snrs.length?snr(Math.max(...snrs)):'Not logged';$('policy').textContent=archive.policy;$('updated').textContent='Archive built '+date(archive.generated_utc,{hour:'2-digit',minute:'2-digit'})+' PHT';
- const feature=[...archive.captures].filter(c=>c.featured).sort((a,b)=>b.unique_frames-a.unique_frames)[0];if(feature){$('featureImage').src=feature.featured.preview;$('featureImage').alt=`Original Meteor ${feature.satellite} false-colour image, with visible missing scans`;$('featureSat').textContent='METEOR '+feature.satellite;$('featureTime').textContent=date(feature.started_utc,{hour:'2-digit',minute:'2-digit'})+' PHT · '+fmt.format(feature.unique_frames)+' distinct CADUs';$('featureOpen').onclick=$('featureDetails').onclick=()=>openCapture(feature)}renderArchive();
+ try{archive=await get('archive.json');renderArchive();
  }catch(e){$('error').hidden=false;$('error').textContent='Archive unavailable: '+e.message}
  try{orbital=await get('orbits.json');if(orbital.errors.length){$('error').hidden=false;$('error').textContent='Orbit data: '+orbital.errors.join('; ')}renderPasses()}catch(e){$('orbitState').textContent='ORBIT DATA UNAVAILABLE';$('tleInfo').textContent=e.message}
  try{coastline=await get('coastline.json')}catch(e){$('error').hidden=false;$('error').textContent+=' Basemap unavailable; orbit coordinates are still shown.'}
- tick();stationPoll();setInterval(stationPoll,10000);setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
+ if(typeof refreshCoverage==='function')refreshCoverage();const local=/localhost|127\.0\.0\.1|\.local$/.test(location.hostname);$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();stationPoll();setInterval(stationPoll,30000);setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(fresh.generated_utc!==archive?.generated_utc){archive=fresh;renderArchive();$('captureCount').textContent=String(archive.captures.length).padStart(2,'0');$('totalFrames').textContent=fmt.format(archive.captures.reduce((n,c)=>n+c.unique_frames,0));$('updated').textContent='Archive updated '+date(archive.generated_utc,{hour:'2-digit',minute:'2-digit'})+' PHT'}}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
 }
 $('satTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-sat]');if(!b)return;selectedSatellite=b.dataset.sat;for(const button of $('satTabs').children)button.classList.toggle('selected',button===b);tick()});
 $('archiveTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;archiveFilter=b.dataset.filter;for(const button of $('archiveTabs').children)button.classList.toggle('selected',button===b);renderArchive()});

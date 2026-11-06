@@ -1,36 +1,55 @@
 # Verification — 6 November 2026
 
-Built from the five original capture folders in `output/receptions`. Original inputs
-were retained. Every exported PNG, CADU and evidence file was checked against its
-SHA-256 manifest. Five reports match the CADU file sizes; no trailing bytes; all
-4,529 complete records have the expected sync marker. This is not independent
-Reed–Solomon decoding or a measurement of useful geographic coverage.
+## Evidence and scientific boundaries
 
-Captured evidence summary:
+Six original captures (4–6 November) are indexed, totaling 8,517 distinct CADUs when
+summed per capture. The latest M2-4 reception has 3,988 distinct complete records,
+expected ASM throughout, zero trailing bytes, and a 17.00 dB peak logged demodulator
+estimate. Its 2,800 × 3,408 false-colour product has recognizable Philippines imagery
+and visible missing scan bands. It remains a partial capture.
 
-| Capture (PHT) | Distinct CADUs | Largest logged SNR estimate | Non-map variants |
-| --- | ---: | ---: | ---: |
-| 4 Nov, 20:09 / M2-3 | 135 | 4.90 dB | 17 |
-| 5 Nov, 09:42 / M2-3 | 392 | Unavailable in local logs | 17 |
-| 5 Nov, 14:52 / M2-4 | 2,091 | 14.36 dB | 13 |
-| 5 Nov, 20:48 / M2-3 | 1,425 | 10.88 dB | 17 |
-| 6 Nov, 09:18 / M2-3 | 486 | 9.73 dB | 17 |
+All exported original PNG/CADU hashes and public evidence hashes were verified locally.
+The actual outbound Pi publisher then uploaded the latest observation through the
+production API. Its public original PNG (16,567,864 bytes) and CADU (4,083,712 bytes)
+were downloaded and SHA-256 checked against the manifest. The archive retained six
+observations after publication; the index did not duplicate the imported pass.
 
-Capture start times are minute-resolution values from the saved output-folder names.
-Logged SNR is uncalibrated and may be sampled. Variant counts are not observation counts.
+Six Python tests passed: full export integrity, input preservation, duplicate/truncated
+records, stale TLE withholding, telemetry gaps/no-sync, invalid scan dates, and
+non-monotonic scan-time rejection. Two Node tests passed for authorization boundaries,
+including missing, incorrect and Unicode-malformed credentials. JavaScript syntax
+checks passed; production dependency audit reports zero vulnerabilities.
 
-- Python evidence/orbit tests: 3 passed, covering all exported hashes, preservation,
-  duplicate/truncated frames, overlay exclusion, stale orbital elements and actual pass ordering.
-- JavaScript syntax check passed.
-- Desktop (1440×1100) and phone (390×844): no horizontal document overflow.
-- Image files decode successfully after lazy-loading; original PNG and CADU downloads tested.
-- Satellite filters, date/text search, empty results and elevation filter tested.
-- Capture dialog, side-by-side product comparison and native-size viewing tested.
-- CSV index and UTC iCalendar files downloaded successfully.
-- No page script errors observed during interaction tests.
+## UI and publication
 
-The hosted portal is an owner-private static archive. Its orbital snapshot requires
-rebuilding after 48 hours, and its hardware status is deliberately disconnected.
-The separate local server supports a passive station probe with a 30-second freshness
-cutoff. Neither portal starts or stops the SDR. Existing receiver controls, timers,
-SatDump settings and genuine capture data were not modified.
+- Latest reception promoted above the archive; 13 non-map image variants included.
+- Reception timeline shows logged SNR, cumulative frames and sampled lock losses.
+- Zoom and comparison UI checked; phone dialog had no horizontal content overflow.
+- Geographic view distinguishes timing-checked satellite subtracks from image footprints.
+- 5 November afternoon timing metadata is rejected; map placement is withheld.
+- Research section states the Sierra Madre question, validation needs and limits.
+- Stable capture hash links, product explanations and original evidence downloads added.
+- Public station/archive/orbit GET routes returned HTTP 200 anonymously.
+- Unauthenticated publication POST returned HTTP 401.
+- Actual station health and fresh orbit snapshot were accepted from the Pi.
+- Publisher checkpoint contains all six observations after the latest upload.
+- Publisher and LAN observatory services were observed active.
+
+Public idle heartbeat is every five minutes; active heartbeat is every minute.
+Station data expires after six minutes and decoder estimates after 90 seconds.
+Orbital publication refreshes every three hours while the Pi/uplink is operational.
+The static site continues to serve a labelled fallback if feeds are unavailable.
+
+## Geographic limitation
+
+Scan timestamps agreeing with the recording window and a current TLE permit a computed
+satellite subtrack. Independent pixel georeferencing has not been established. Geographic
+image overlays remain withheld. No full-pass completeness or terrain causality is claimed.
+
+## Pi storage cleanup
+
+Removed regenerable APT binary/Python download caches and a redundant SatDump installer
+whose matching copy remains on the Mac SSD. Reclaimed 187,953,152 bytes (~188 MB).
+An inventory of 304 reception/config-log files was unchanged. Raw IQ, CADUs, images,
+native logs, session evidence and replay data were preserved. Filesystem was about
+50% used with ~28 GiB available; it was not close to full.

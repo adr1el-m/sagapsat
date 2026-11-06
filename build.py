@@ -18,6 +18,7 @@ from urllib.request import urlopen, Request
 import numpy as np
 from PIL import Image
 from skyfield.api import EarthSatellite, load, wgs84
+from analysis import timeline, coverage, satellite
 
 ROOT = Path(__file__).resolve().parent
 PROJECT = ROOT.parents[2]
@@ -44,20 +45,19 @@ def archive(source, out):
         result = folder / 'capture-result.json'
         if not folder.is_dir() or not result.is_file():
             continue
-        if not re.search(r'M2-[34](?:$|_)', folder.name):
-            warnings.append({'capture': folder.name, 'error':'Satellite label missing; refusing to infer identity'})
-            continue
         try:
             meta = json.loads(result.read_text())
+            sat_name = satellite(folder, meta)
+            capture_id = folder.name if 'Meteor-M2-' in folder.name else folder.name[:16].replace(' ', '_')+'_Meteor-'+sat_name
             cadu = folder / 'meteor_m2-x_lrpt.cadu'
             raw = cadu.read_bytes() if cadu.exists() else b''
             frames = [raw[i:i+1024] for i in range(0, len(raw)-1023, 1024)]
             sync = sum(f[:4] == b'\x1a\xcf\xfc\x1d' for f in frames)
-            evidence_dir = out / 'evidence' / folder.name
+            evidence_dir = out / 'evidence' / capture_id
             evidence_dir.mkdir(parents=True, exist_ok=True)
             evidence = []
             names = ['capture-result.json', 'meteor_m2-x_lrpt.cadu', 'README.md', 'REFLECTION.md',
-                     'native-reception.log', 'final-processing.log']
+                     'native-reception.log', 'final-processing.log', 'progress.jsonl']
             names += [str(p.relative_to(folder)) for p in folder.rglob('*')
                       if p.name in {'native-reception.log', 'progress.jsonl', 'rf-comparison.json'}
                       and p.parent != folder]
@@ -66,8 +66,14 @@ def archive(source, out):
                 if p.is_file() and not p.is_symlink():
                     (evidence_dir/name).parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(p, evidence_dir / name)
-                    evidence.append({'name': name, 'bytes': p.stat().st_size,
-                                     'sha256': digest(p), 'url': 'evidence/'+quote(folder.name)+'/'+quote(name)})
+                    public_file=evidence_dir/name
+                    original_hash=digest(p)
+                    if p.suffix in {'.log','.md','.json','.jsonl'}:
+                        text=public_file.read_text(errors='replace')
+                        text=re.sub(r'Using QTH [-0-9.]+ [-0-9.]+ Alt [-0-9.]+', 'Using QTH [station coordinates withheld]', text)
+                        public_file.write_text(text)
+                    evidence.append({'name': name, 'bytes': public_file.stat().st_size,
+                                     'original_sha256': original_hash, 'sha256': digest(public_file), 'url': 'evidence/'+quote(capture_id)+'/'+quote(name)})
             images = []
             # Index finalizer-declared products only; omit map overlays whose scan
             # timestamps have not been validated. Composites are product variants.
@@ -87,8 +93,8 @@ def archive(source, out):
                     im.save(preview, 'WEBP', quality=88)
                 images.append({'name': p.name, 'label': p.stem.replace('msu_mr_rgb_', '').replace('_', ' '),
                                'width': width, 'height': height, 'bytes': p.stat().st_size,
-                               'sha256': digest(p), 'url': 'evidence/'+quote(folder.name)+'/'+quote(p.name),
-                               'preview': 'evidence/'+quote(folder.name)+'/'+quote(preview.name)})
+                               'sha256': digest(p), 'url': 'evidence/'+quote(capture_id)+'/'+quote(p.name),
+                               'preview': 'evidence/'+quote(capture_id)+'/'+quote(preview.name)})
             preferred = next((x for x in images if x['name']=='msu_mr_rgb_AVHRR_221_False_Color_corrected.png'),
                              next((x for x in images if x['name']=='MSU-MR-1.png'), images[0] if images else None))
             log = '\n'.join((folder/name).read_text(errors='replace') for name in names
@@ -97,7 +103,8 @@ def archive(source, out):
             notes = '\n\n'.join((folder/n).read_text() for n in ['README.md', 'REFLECTION.md'] if (folder/n).exists())
             match = re.search(r'(\d{4}-\d\d-\d\d)_(\d\d)-(\d\d)_meteor', meta.get('folder', ''))
             started = match[1]+'T'+match[2]+':'+match[3]+':00+00:00' if match else None
-            captures.append({'id': folder.name, 'satellite': 'M2-4' if 'M2-4' in folder.name else 'M2-3',
+            captures.append({'id': capture_id, 'satellite': sat_name,
+                'timeline': timeline(folder), 'coverage': coverage(folder,started,meta.get('finished_utc')),
                 'started_utc': started, 'finished_utc': meta.get('finished_utc'),
                 'frequency_mhz': 137.9, 'outcome': 'partial' if images and frames else 'frames' if frames else 'no_frames',
                 'cadu_bytes': len(raw), 'frames': len(frames), 'unique_frames': len(set(frames)),
@@ -189,7 +196,7 @@ def main():
     args = ap.parse_args()
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    for name in ['index.html', 'app.js', 'style.css', 'coastline.json']:
+    for name in ['index.html', 'app.js', 'style.css', 'coastline.json', 'explorer.js', 'brand.svg']:
         if (ROOT/name).exists(): shutil.copy2(ROOT/name, out/name)
     (out/'archive.json').write_text(json.dumps(archive(args.archive, out), indent=2))
     orbital = orbits(ROOT/'.cache')

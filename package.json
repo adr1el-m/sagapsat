@@ -1,0 +1,30 @@
+{
+  "name": "sagapsat",
+  "version": "1.0.0",
+  "description": "A read-only ground-station portal built from Team Magalona's original Meteor captures. The existing reception dashboard and SatDump settings are separate and untouched.",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "build": "node scripts/build-static.cjs",
+    "bundle": "esbuild scripts/upload-assets.mjs --bundle --platform=node --format=cjs --outfile=scripts/upload-assets.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adr1el-m/sagapsat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/adr1el-m/sagapsat/issues"
+  },
+  "homepage": "https://github.com/adr1el-m/sagapsat#readme",
+  "dependencies": {
+    "@vercel/blob": "^2.8.2"
+  },
+  "overrides": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

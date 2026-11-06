@@ -1,0 +1,7 @@
+# Meteor M2-4, November6 2026 afternoon
+
+Automatic reception completed atLOS around14:45:44PHT. Native image processing completed14:46:43; independent saved-CADUfinalization started14:50andexited0.3,988distinctCADUsreportedfrom4,083,712bytes,19PNGproducts saved. Channel1/2/4 imageheight3408lines. False-colour221image visually inspected: substantial land/cloud coverage with gaps, not a gap-free image. These19productsarevariants ofonecapture,not19independentobservations.
+
+Warning: Analogtelemetrymissingfromtransmission.Calibrationdisabled. Uncalibratedchannelimagesandcompositesaresaved;calibratedtemperature/radianceproductsunavailable. Do not claimphysicaltemperaturemeasurementsorreliablegeographiclabelswithouttimestampvalidation.
+
+RawIQremainsonPi;onlyCADUs,processedproducts,logsandsessiondiagnosticscopiedtoMac. NativeGUIwasresponsiveonViewerafterprocessing;stoppedFFTafterLOSwasnotproof ofcrash. FinalizerstoppedmatchingGUIat14:50;backupGUIstoptimer15:10mayremainpending.

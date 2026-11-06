@@ -1,0 +1,1089 @@
+[05:11:59 - 06/11/2026] (D) Starting with OpenGL 3.1 Mesa 25.0.7-2+rpt4
+[05:11:59 - 06/11/2026] (D) Max texture size: 4096
+[05:11:59 - 06/11/2026] (E) Glfw Error 65548: Wayland: The platform does not support setting the window icon
+[05:11:59 - 06/11/2026] (I)    _____       __  ____                      
+[05:11:59 - 06/11/2026] (I)   / ___/____ _/ /_/ __ \__  ______ ___  ____ 
+[05:11:59 - 06/11/2026] (I)   \__ \/ __ `/ __/ / / / / / / __ `__ \/ __ \
+[05:11:59 - 06/11/2026] (I)  ___/ / /_/ / /_/ /_/ / /_/ / / / / / / /_/ /
+[05:11:59 - 06/11/2026] (I) /____/\__,_/\__/_____/\__,_/_/ /_/ /_/ .___/ 
+[05:11:59 - 06/11/2026] (I)                                     /_/      
+[05:11:59 - 06/11/2026] (I) Starting SatDump v1.2.2
+[05:11:59 - 06/11/2026] (I) 
+[05:11:59 - 06/11/2026] (I) Loading config /usr/share/satdump/satdump_cfg.json
+[05:11:59 - 06/11/2026] (I) Loading user settings /home/adriel/.config/satdump/settings.json
+[05:11:59 - 06/11/2026] (I) Loading plugins from /usr/lib/aarch64-linux-gnu/satdump/plugins
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/librtltcp_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin rtltcp_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libstereo_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin stereo_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libofficial_products_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin official_products_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libhinode_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin hinode_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libsdrpp_server_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin spyserver_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libhimawari_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin himawari_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libmirisdr_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin mirisdr_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libportaudio_audio_sink.so...
+[05:11:59 - 06/11/2026] (T) Plugin rtaudio_audio_sink loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libcluster_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin cluster_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libnoaa_metop_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin noaa_metop_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libmeteosat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin meteosat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libjpss_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin jpss_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/liblandsat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin landsat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libgoes_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin goes_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libdmsp_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin dmsp_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libhackrf_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin hackrf_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libgeonetcast_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin geonetcast_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libcubesat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin cubesat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libdvb_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin dvb_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/liborbcomm_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin orbcomm_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libumka_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin umka_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/librfnm_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin rfnm_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libgk2a_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin gk2a_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libanalog_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin analog_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libtubsat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin tubsat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libfengyun2_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin fengyun2_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libbladerf_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin bladerf_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libusrp_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin usrp_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libairspyhf_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin airspyhf_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libsimd_neon.so...
+[05:11:59 - 06/11/2026] (T) Plugin simd_neon loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libelektro_arktika_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin elektro_arktika_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libairspy_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin airspy_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libaim_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin aim_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libproba_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin proba_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libnet_source_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin network_source_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libofficial_products_loader_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin official_products_loader_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/liboceansat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin oceansat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libjason3_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin jason3_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libbluewalker3_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin bluewalker3_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libinmarsat_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin inmarsat_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libcpp_compos_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin standard_cpp_compos loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/librtlsdr_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin rtlsdr_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libfengyun4_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin fenyun4_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libwsf_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin wsf_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libmeteor_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin meteor_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libfengyun3_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin fengyun3_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libspacex_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin spacex_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libaws_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin aws_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libeos_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin eos_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libmats_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin mats_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libdscovr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin dscovr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libgcom_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin gcom_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libothers_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin others_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/liblimesdr_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin limesdr_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libspyserver_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin spyserver_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libplutosdr_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin plutosdr_sdr_support loaded!
+[05:11:59 - 06/11/2026] (T) Loading plugin /usr/lib/aarch64-linux-gnu/satdump/plugins/libremote_sdr_support.so...
+[05:11:59 - 06/11/2026] (T) Plugin remote_sdr_support loaded!
+[05:11:59 - 06/11/2026] (D) Loaded plugins (56) : 
+[05:11:59 - 06/11/2026] (D)  - aim_support
+[05:11:59 - 06/11/2026] (D)  - airspy_sdr_support
+[05:11:59 - 06/11/2026] (D)  - airspyhf_sdr_support
+[05:11:59 - 06/11/2026] (D)  - analog_support
+[05:11:59 - 06/11/2026] (D)  - aws_support
+[05:11:59 - 06/11/2026] (D)  - bladerf_sdr_support
+[05:11:59 - 06/11/2026] (D)  - bluewalker3_support
+[05:11:59 - 06/11/2026] (D)  - cluster_support
+[05:11:59 - 06/11/2026] (D)  - cubesat_support
+[05:11:59 - 06/11/2026] (D)  - dmsp_support
+[05:11:59 - 06/11/2026] (D)  - dscovr_support
+[05:11:59 - 06/11/2026] (D)  - dvb_support
+[05:11:59 - 06/11/2026] (D)  - elektro_arktika_support
+[05:11:59 - 06/11/2026] (D)  - eos_support
+[05:11:59 - 06/11/2026] (D)  - fengyun2_support
+[05:11:59 - 06/11/2026] (D)  - fengyun3_support
+[05:11:59 - 06/11/2026] (D)  - fenyun4_support
+[05:11:59 - 06/11/2026] (D)  - gcom_support
+[05:11:59 - 06/11/2026] (D)  - geonetcast_support
+[05:11:59 - 06/11/2026] (D)  - gk2a_support
+[05:11:59 - 06/11/2026] (D)  - goes_support
+[05:11:59 - 06/11/2026] (D)  - hackrf_sdr_support
+[05:11:59 - 06/11/2026] (D)  - himawari_support
+[05:11:59 - 06/11/2026] (D)  - hinode_support
+[05:11:59 - 06/11/2026] (D)  - inmarsat_support
+[05:11:59 - 06/11/2026] (D)  - jason3_support
+[05:11:59 - 06/11/2026] (D)  - jpss_support
+[05:11:59 - 06/11/2026] (D)  - landsat_support
+[05:11:59 - 06/11/2026] (D)  - limesdr_sdr_support
+[05:11:59 - 06/11/2026] (D)  - mats_support
+[05:11:59 - 06/11/2026] (D)  - meteor_support
+[05:11:59 - 06/11/2026] (D)  - meteosat_support
+[05:11:59 - 06/11/2026] (D)  - mirisdr_sdr_support
+[05:11:59 - 06/11/2026] (D)  - network_source_support
+[05:11:59 - 06/11/2026] (D)  - noaa_metop_support
+[05:11:59 - 06/11/2026] (D)  - oceansat_support
+[05:11:59 - 06/11/2026] (D)  - official_products_loader_support
+[05:11:59 - 06/11/2026] (D)  - official_products_support
+[05:11:59 - 06/11/2026] (D)  - orbcomm_support
+[05:11:59 - 06/11/2026] (D)  - others_support
+[05:11:59 - 06/11/2026] (D)  - plutosdr_sdr_support
+[05:11:59 - 06/11/2026] (D)  - proba_support
+[05:11:59 - 06/11/2026] (D)  - remote_sdr_support
+[05:11:59 - 06/11/2026] (D)  - rfnm_sdr_support
+[05:11:59 - 06/11/2026] (D)  - rtaudio_audio_sink
+[05:11:59 - 06/11/2026] (D)  - rtlsdr_sdr_support
+[05:11:59 - 06/11/2026] (D)  - rtltcp_support
+[05:11:59 - 06/11/2026] (D)  - simd_neon
+[05:11:59 - 06/11/2026] (D)  - spacex_support
+[05:11:59 - 06/11/2026] (D)  - spyserver_support
+[05:11:59 - 06/11/2026] (D)  - standard_cpp_compos
+[05:11:59 - 06/11/2026] (D)  - stereo_support
+[05:11:59 - 06/11/2026] (D)  - tubsat_support
+[05:11:59 - 06/11/2026] (D)  - umka_support
+[05:11:59 - 06/11/2026] (D)  - usrp_sdr_support
+[05:11:59 - 06/11/2026] (D)  - wsf_support
+[05:11:59 - 06/11/2026] (D) Registered modules (102) : 
+[05:11:59 - 06/11/2026] (D)  - aim_instruments
+[05:11:59 - 06/11/2026] (D)  - angels_argos
+[05:11:59 - 06/11/2026] (D)  - aqua_db_decoder
+[05:11:59 - 06/11/2026] (D)  - aws_instruments
+[05:11:59 - 06/11/2026] (D)  - ax25_decoder
+[05:11:59 - 06/11/2026] (D)  - bw3_decoder
+[05:11:59 - 06/11/2026] (D)  - ccsds_conv_concat_decoder
+[05:11:59 - 06/11/2026] (D)  - ccsds_ldpc_decoder
+[05:11:59 - 06/11/2026] (D)  - ccsds_simple_psk_decoder
+[05:11:59 - 06/11/2026] (D)  - ccsds_turbo_decoder
+[05:11:59 - 06/11/2026] (D)  - cloudsat_cpr
+[05:11:59 - 06/11/2026] (D)  - cluster_instruments
+[05:11:59 - 06/11/2026] (D)  - coriolis_windsat
+[05:11:59 - 06/11/2026] (D)  - cryosat_siral
+[05:11:59 - 06/11/2026] (D)  - dmsp_rtd_decoder
+[05:11:59 - 06/11/2026] (D)  - dmsp_rtd_instruments
+[05:11:59 - 06/11/2026] (D)  - dscovr_instruments
+[05:11:59 - 06/11/2026] (D)  - dvbs2_demod
+[05:11:59 - 06/11/2026] (D)  - dvbs2_ts_extractor
+[05:11:59 - 06/11/2026] (D)  - dvbs_demod
+[05:11:59 - 06/11/2026] (D)  - elektro_arktika_msugs
+[05:11:59 - 06/11/2026] (D)  - elektro_lrit_data_decoder
+[05:11:59 - 06/11/2026] (D)  - eos_instruments
+[05:11:59 - 06/11/2026] (D)  - falcon_decoder
+[05:11:59 - 06/11/2026] (D)  - fengyun_ahrpt_decoder
+[05:11:59 - 06/11/2026] (D)  - fengyun_mpt_decoder
+[05:11:59 - 06/11/2026] (D)  - fengyun_svissr_decoder
+[05:11:59 - 06/11/2026] (D)  - fengyun_svissr_image_decoder
+[05:11:59 - 06/11/2026] (D)  - fsk_demod
+[05:11:59 - 06/11/2026] (D)  - fy3_instruments
+[05:11:59 - 06/11/2026] (D)  - fy4_lrit_data_decoder
+[05:11:59 - 06/11/2026] (D)  - gcom1_instruments
+[05:11:59 - 06/11/2026] (D)  - generic_analog_demod
+[05:11:59 - 06/11/2026] (D)  - geonetcast_decoder
+[05:11:59 - 06/11/2026] (D)  - geoscan_data_decoder
+[05:11:59 - 06/11/2026] (D)  - geoscan_decoder
+[05:11:59 - 06/11/2026] (D)  - gk2a_lrit_data_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_grb_cadu_extractor
+[05:11:59 - 06/11/2026] (D)  - goes_grb_data_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_gvar_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_gvar_image_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_lrit_data_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_mdl_decoder
+[05:11:59 - 06/11/2026] (D)  - goes_sd_image_decoder
+[05:11:59 - 06/11/2026] (D)  - goesn_sd_decoder
+[05:11:59 - 06/11/2026] (D)  - goesr_instruments
+[05:11:59 - 06/11/2026] (D)  - himawaricast_data_decoder
+[05:11:59 - 06/11/2026] (D)  - hinode_instruments
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_decoder
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_parser
+[05:11:59 - 06/11/2026] (D)  - inmarsat_stdc_decoder
+[05:11:59 - 06/11/2026] (D)  - inmarsat_stdc_parser
+[05:11:59 - 06/11/2026] (D)  - jason3_instruments
+[05:11:59 - 06/11/2026] (D)  - jpss_instruments
+[05:11:59 - 06/11/2026] (D)  - ldcm_instruments
+[05:11:59 - 06/11/2026] (D)  - lucky7_decoder
+[05:11:59 - 06/11/2026] (D)  - lucky7_demod
+[05:11:59 - 06/11/2026] (D)  - mats_instruments
+[05:11:59 - 06/11/2026] (D)  - meteor_hrpt_decoder
+[05:11:59 - 06/11/2026] (D)  - meteor_instruments
+[05:11:59 - 06/11/2026] (D)  - meteor_lrpt_decoder
+[05:11:59 - 06/11/2026] (D)  - meteor_msumr_lrpt
+[05:11:59 - 06/11/2026] (D)  - meteor_qpsk_kmss_decoder
+[05:11:59 - 06/11/2026] (D)  - meteor_xband_decoder
+[05:11:59 - 06/11/2026] (D)  - meteor_xband_instruments
+[05:11:59 - 06/11/2026] (D)  - metop_ahrpt_decoder
+[05:11:59 - 06/11/2026] (D)  - metop_dump_decoder
+[05:11:59 - 06/11/2026] (D)  - metop_instruments
+[05:11:59 - 06/11/2026] (D)  - msg_instruments
+[05:11:59 - 06/11/2026] (D)  - network_client
+[05:11:59 - 06/11/2026] (D)  - network_server
+[05:11:59 - 06/11/2026] (D)  - noaa_apt_decoder
+[05:11:59 - 06/11/2026] (D)  - noaa_apt_demod
+[05:11:59 - 06/11/2026] (D)  - noaa_dsb_decoder
+[05:11:59 - 06/11/2026] (D)  - noaa_gac_decoder
+[05:11:59 - 06/11/2026] (D)  - noaa_hrpt_decoder
+[05:11:59 - 06/11/2026] (D)  - noaa_instruments
+[05:11:59 - 06/11/2026] (D)  - oceansat2_db_decoder
+[05:11:59 - 06/11/2026] (D)  - oceansat_ocm
+[05:11:59 - 06/11/2026] (D)  - off2pro
+[05:11:59 - 06/11/2026] (D)  - orb_decoder_test
+[05:11:59 - 06/11/2026] (D)  - orbcomm_plotter
+[05:11:59 - 06/11/2026] (D)  - orbcomm_stx_auto_demod
+[05:11:59 - 06/11/2026] (D)  - orbcomm_stx_demod
+[05:11:59 - 06/11/2026] (D)  - pm_demod
+[05:11:59 - 06/11/2026] (D)  - proba_instruments
+[05:11:59 - 06/11/2026] (D)  - products_processor
+[05:11:59 - 06/11/2026] (D)  - psk_demod
+[05:11:59 - 06/11/2026] (D)  - s2_udp_cadu_extractor
+[05:11:59 - 06/11/2026] (D)  - saral_argos
+[05:11:59 - 06/11/2026] (D)  - scisat1_instruments
+[05:11:59 - 06/11/2026] (D)  - sdpsk_demod
+[05:11:59 - 06/11/2026] (D)  - soft2hard
+[05:11:59 - 06/11/2026] (D)  - spacex_tlm_decoder
+[05:11:59 - 06/11/2026] (D)  - spino_decoder
+[05:11:59 - 06/11/2026] (D)  - stereo_instruments
+[05:11:59 - 06/11/2026] (D)  - terra_db_demod
+[05:11:59 - 06/11/2026] (D)  - tubin_decoder
+[05:11:59 - 06/11/2026] (D)  - umka1_decoder
+[05:11:59 - 06/11/2026] (D)  - wsfm_instruments
+[05:11:59 - 06/11/2026] (D)  - xfsk_burst_demod
+[05:11:59 - 06/11/2026] (D)  - xrit_goesrecv_publisher
+[05:11:59 - 06/11/2026] (I) Loading system pipelines from /usr/share/satdump/pipelines
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Sonate-2.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Cryosat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/ORX.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/UVSQ.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/MATS.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Psyche.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Queqiao.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/NOAA.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Juice.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/ACE.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Orbcomm.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/GK2A.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Stereo.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/DSCOVR.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/TUBSAT.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Cloudsat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/FengYun-2.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Orion.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/ViaSat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Coriolis.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/DMSP.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Work-In-Progress.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/AIM.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/SpaceX.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/SLIM.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/TGO.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Himawari.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Cluster.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/XMM-Newton.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/KPLO.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/ODIN.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/WSF-M.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/BlueWalker3.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/IM-1.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Elektro_Arktika.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/LandSat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/DVB_Test.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Others.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/SAOCOM.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Lucky7.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/JPSS.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Sentinel-6.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Inmarsat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/GeoNetCast.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Iris.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Chandrayaan.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Proba.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Meteor-M.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/MetOp.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Cosmos.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/EOS.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Hinode.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/FORMOSAT.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Test.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/VERONIKA.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Aditya.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/UmKA.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Hera.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/GCOM.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Jason-3.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Peregrine.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/AWS.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/FengYun-4.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Tianwen.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Geoscan.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Oceansat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/GOES.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/FengYun-3.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Integral.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/Insat.json
+[05:11:59 - 06/11/2026] (T) Found system pipeline file /usr/share/satdump/pipelines/MSG.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/ACE.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/AIM.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/AWS.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Aditya.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/BlueWalker3.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Chandrayaan.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Cloudsat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Cluster.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Coriolis.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Cosmos.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Cryosat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/DMSP.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/DSCOVR.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/DVB_Test.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/EOS.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Elektro_Arktika.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/FORMOSAT.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/FengYun-2.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/FengYun-3.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/FengYun-4.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/GCOM.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/GK2A.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/GOES.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/GeoNetCast.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Geoscan.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Hera.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Himawari.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Hinode.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/IM-1.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Inmarsat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Insat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Integral.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Iris.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/JPSS.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Jason-3.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Juice.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/KPLO.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/LandSat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Lucky7.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/MATS.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/MSG.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/MetOp.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Meteor-M.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/NOAA.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/ODIN.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/ORX.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Oceansat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Orbcomm.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Orion.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Others.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Peregrine.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Proba.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Psyche.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Queqiao.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/SAOCOM.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/SLIM.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Sentinel-6.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Sonate-2.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/SpaceX.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Stereo.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/TGO.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/TUBSAT.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Test.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Tianwen.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/UVSQ.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/UmKA.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/VERONIKA.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/ViaSat.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/WSF-M.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/Work-In-Progress.json
+[05:11:59 - 06/11/2026] (I) Loading pipelines from file /usr/share/satdump/pipelines/XMM-Newton.json
+[05:11:59 - 06/11/2026] (D) Registered pipelines :
+[05:11:59 - 06/11/2026] (D)  - ace_s_link
+[05:11:59 - 06/11/2026] (D)  - adityal1_tlm_link
+[05:11:59 - 06/11/2026] (D)  - aeolus_dump
+[05:11:59 - 06/11/2026] (D)  - aim_dump
+[05:11:59 - 06/11/2026] (D)  - spino_2400
+[05:11:59 - 06/11/2026] (D)  - angels_l_band
+[05:11:59 - 06/11/2026] (D)  - aqua_db
+[05:11:59 - 06/11/2026] (D)  - arktika_ggak
+[05:11:59 - 06/11/2026] (D)  - arktika_rdas
+[05:11:59 - 06/11/2026] (D)  - aura_db
+[05:11:59 - 06/11/2026] (D)  - aws_pfm
+[05:11:59 - 06/11/2026] (D)  - bluewalker3_narrow
+[05:11:59 - 06/11/2026] (D)  - bluewalker3_wide
+[05:11:59 - 06/11/2026] (D)  - CALIPSO
+[05:11:59 - 06/11/2026] (D)  - cfosat1_dump
+[05:11:59 - 06/11/2026] (D)  - chandrayaan3_link_1k
+[05:11:59 - 06/11/2026] (D)  - chandrayaan3_link_2k
+[05:11:59 - 06/11/2026] (D)  - chandrayaan3_link_4k
+[05:11:59 - 06/11/2026] (D)  - chandrayaan3_link_8k
+[05:11:59 - 06/11/2026] (D)  - cheops_link
+[05:11:59 - 06/11/2026] (D)  - chinese_spaceplane_sband
+[05:11:59 - 06/11/2026] (D)  - cloudsat_link
+[05:11:59 - 06/11/2026] (D)  - cluster_hr_link
+[05:11:59 - 06/11/2026] (D)  - cluster_lr_link
+[05:11:59 - 06/11/2026] (D)  - colibri_s_uhf
+[05:11:59 - 06/11/2026] (D)  - coriolis_db
+[05:11:59 - 06/11/2026] (D)  - cosmos_2558_dump
+[05:11:59 - 06/11/2026] (D)  - cosmos_2518_sband
+[05:11:59 - 06/11/2026] (D)  - crew_dragon_tlm
+[05:11:59 - 06/11/2026] (D)  - cryosat_dump
+[05:11:59 - 06/11/2026] (D)  - off2pro
+[05:11:59 - 06/11/2026] (D)  - dmsp_rtd
+[05:11:59 - 06/11/2026] (D)  - dscovr_hr
+[05:11:59 - 06/11/2026] (D)  - dscovr_tlm
+[05:11:59 - 06/11/2026] (D)  - dvbs_test
+[05:11:59 - 06/11/2026] (D)  - dvbs2_test
+[05:11:59 - 06/11/2026] (D)  - elektro_ggak
+[05:11:59 - 06/11/2026] (D)  - elektro_hrit
+[05:11:59 - 06/11/2026] (D)  - elektro_lrit
+[05:11:59 - 06/11/2026] (D)  - elektro_rdas
+[05:11:59 - 06/11/2026] (D)  - eumetcast_africa
+[05:11:59 - 06/11/2026] (D)  - falcon9_tlm
+[05:11:59 - 06/11/2026] (D)  - fengyun_svissr
+[05:11:59 - 06/11/2026] (D)  - fengyun3_ab_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_abc_dpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_abc_mpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_c_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_d_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_d_dpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_e_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_e_dpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_f_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_f_dpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_g_ahrpt
+[05:11:59 - 06/11/2026] (D)  - fengyun3_tlm_old
+[05:11:59 - 06/11/2026] (D)  - fengyun3_tlm
+[05:11:59 - 06/11/2026] (D)  - fengyun4_a_hrit23
+[05:11:59 - 06/11/2026] (D)  - fengyun4_a_lrit
+[05:11:59 - 06/11/2026] (D)  - fengyun4_b_lrit
+[05:11:59 - 06/11/2026] (D)  - formosat5_s_dump
+[05:11:59 - 06/11/2026] (D)  - formosat7_s_dump
+[05:11:59 - 06/11/2026] (D)  - gcom_s_band
+[05:11:59 - 06/11/2026] (D)  - gcom_c1_link
+[05:11:59 - 06/11/2026] (D)  - gcom_w1_link
+[05:11:59 - 06/11/2026] (D)  - generic_analog_demod
+[05:11:59 - 06/11/2026] (D)  - geonetcast
+[05:11:59 - 06/11/2026] (D)  - gfsk_test
+[05:11:59 - 06/11/2026] (D)  - gk2a_cdas
+[05:11:59 - 06/11/2026] (D)  - gk2a_hrit
+[05:11:59 - 06/11/2026] (D)  - gk2a_lrit
+[05:11:59 - 06/11/2026] (D)  - gk2a_lrit_tcp
+[05:11:59 - 06/11/2026] (D)  - goes_gvar
+[05:11:59 - 06/11/2026] (D)  - goesn_cda
+[05:11:59 - 06/11/2026] (D)  - goes_lrit
+[05:11:59 - 06/11/2026] (D)  - goes_mdl
+[05:11:59 - 06/11/2026] (D)  - goesn_sd
+[05:11:59 - 06/11/2026] (D)  - goesn_sounder
+[05:11:59 - 06/11/2026] (D)  - goesr_cda
+[05:11:59 - 06/11/2026] (D)  - goesr_cda_4k
+[05:11:59 - 06/11/2026] (D)  - goes_grb
+[05:11:59 - 06/11/2026] (D)  - goes_hrit
+[05:11:59 - 06/11/2026] (D)  - goes_hrit_tcp
+[05:11:59 - 06/11/2026] (D)  - goesr_raw
+[05:11:59 - 06/11/2026] (D)  - grace_fo_link
+[05:11:59 - 06/11/2026] (D)  - hera_x_link
+[05:11:59 - 06/11/2026] (D)  - himawaricast
+[05:11:59 - 06/11/2026] (D)  - hinode_s_dump
+[05:11:59 - 06/11/2026] (D)  - hinode_s_tlm
+[05:11:59 - 06/11/2026] (D)  - horizon_uhf
+[05:11:59 - 06/11/2026] (D)  - im1_s_tlm
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_6
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_12
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_105
+[05:11:59 - 06/11/2026] (D)  - inmarsat_aero_84
+[05:11:59 - 06/11/2026] (D)  - inmarsat_std_c
+[05:11:59 - 06/11/2026] (D)  - insat_3d_imager
+[05:11:59 - 06/11/2026] (D)  - inspiresat7_tlm
+[05:11:59 - 06/11/2026] (D)  - integral_s_link
+[05:11:59 - 06/11/2026] (D)  - iris_s_dump
+[05:11:59 - 06/11/2026] (D)  - iris_dump
+[05:11:59 - 06/11/2026] (D)  - jason3_link
+[05:11:59 - 06/11/2026] (D)  - jpss_hrd
+[05:11:59 - 06/11/2026] (D)  - jpss_tlm
+[05:11:59 - 06/11/2026] (D)  - juice_x_link
+[05:11:59 - 06/11/2026] (D)  - kplo_sband_link
+[05:11:59 - 06/11/2026] (D)  - landsat_ldcm_tlm
+[05:11:59 - 06/11/2026] (D)  - landsat_ldcm_link
+[05:11:59 - 06/11/2026] (D)  - lucky7_link
+[05:11:59 - 06/11/2026] (D)  - tgo_link
+[05:11:59 - 06/11/2026] (D)  - mats_dump
+[05:11:59 - 06/11/2026] (D)  - meteor_hrpt
+[05:11:59 - 06/11/2026] (D)  - meteor_m2_lrpt
+[05:11:59 - 06/11/2026] (D)  - meteor_m2-x_lrpt
+[05:11:59 - 06/11/2026] (D)  - meteor_m2-x_lrpt_80k
+[05:11:59 - 06/11/2026] (D)  - meteor_m_kmss_bpsk_db
+[05:11:59 - 06/11/2026] (D)  - meteor_m_kmss_qpsk_dump
+[05:11:59 - 06/11/2026] (D)  - meteor_m_mtvza_dump
+[05:11:59 - 06/11/2026] (D)  - metop_ahrpt
+[05:11:59 - 06/11/2026] (D)  - metop_dump
+[05:11:59 - 06/11/2026] (D)  - msg_raw
+[05:11:59 - 06/11/2026] (D)  - neossat_dump
+[05:11:59 - 06/11/2026] (D)  - noaa_apt
+[05:11:59 - 06/11/2026] (D)  - noaa_dsb
+[05:11:59 - 06/11/2026] (D)  - noaa_gac
+[05:11:59 - 06/11/2026] (D)  - noaa_hrpt
+[05:11:59 - 06/11/2026] (D)  - oceansat2_db
+[05:11:59 - 06/11/2026] (D)  - oceansat3_argos
+[05:11:59 - 06/11/2026] (D)  - oceansat3_dump
+[05:11:59 - 06/11/2026] (D)  - odin_dump
+[05:11:59 - 06/11/2026] (D)  - ominous_orb
+[05:11:59 - 06/11/2026] (D)  - ops_sat_s_link
+[05:11:59 - 06/11/2026] (D)  - orbcomm_stx
+[05:11:59 - 06/11/2026] (D)  - orbcomm_stx_auto
+[05:11:59 - 06/11/2026] (D)  - orbcomm_stx_auto_plotter
+[05:11:59 - 06/11/2026] (D)  - orion_link
+[05:11:59 - 06/11/2026] (D)  - orx_link
+[05:11:59 - 06/11/2026] (D)  - gazelle_l_band
+[05:11:59 - 06/11/2026] (D)  - paz_s_tlm
+[05:11:59 - 06/11/2026] (D)  - peregrine_x_tlm
+[05:11:59 - 06/11/2026] (D)  - pretty_s_dump
+[05:11:59 - 06/11/2026] (D)  - prisma_dump
+[05:11:59 - 06/11/2026] (D)  - proba1_dump
+[05:11:59 - 06/11/2026] (D)  - proba2_dump
+[05:11:59 - 06/11/2026] (D)  - probav_s_dump
+[05:11:59 - 06/11/2026] (D)  - probav_x_dump
+[05:11:59 - 06/11/2026] (D)  - pvcc_s_dump
+[05:11:59 - 06/11/2026] (D)  - pvcc_x_dump
+[05:11:59 - 06/11/2026] (D)  - psyche_hr
+[05:11:59 - 06/11/2026] (D)  - queqiao2_bpsk_science_s_link
+[05:11:59 - 06/11/2026] (D)  - queqiao2_oqpsk_science_s_link
+[05:11:59 - 06/11/2026] (D)  - queqiao2_s_link
+[05:11:59 - 06/11/2026] (D)  - rtumirea1_uhf
+[05:11:59 - 06/11/2026] (D)  - saocom_1ab_tlm_dump
+[05:11:59 - 06/11/2026] (D)  - saral_l_band
+[05:11:59 - 06/11/2026] (D)  - scisat1_dump
+[05:11:59 - 06/11/2026] (D)  - sentinel6_tlm
+[05:11:59 - 06/11/2026] (D)  - sentinel6_dump
+[05:11:59 - 06/11/2026] (D)  - slim_tlm_link
+[05:11:59 - 06/11/2026] (D)  - smap_s_link
+[05:11:59 - 06/11/2026] (D)  - smos_tlm
+[05:11:59 - 06/11/2026] (D)  - smos_dump
+[05:11:59 - 06/11/2026] (D)  - sonate2_dump
+[05:11:59 - 06/11/2026] (D)  - starship_tlm
+[05:11:59 - 06/11/2026] (D)  - stereo_hr
+[05:11:59 - 06/11/2026] (D)  - stereo_lr
+[05:11:59 - 06/11/2026] (D)  - stratosat_tk1_uhf
+[05:11:59 - 06/11/2026] (D)  - npp_hrd
+[05:11:59 - 06/11/2026] (D)  - swot_tlm
+[05:11:59 - 06/11/2026] (D)  - syracuse3b_tlm
+[05:11:59 - 06/11/2026] (D)  - terra_db
+[05:11:59 - 06/11/2026] (D)  - test_custom
+[05:11:59 - 06/11/2026] (D)  - tiahne1_tlm
+[05:11:59 - 06/11/2026] (D)  - tianwen1_link
+[05:11:59 - 06/11/2026] (D)  - timed_dump
+[05:11:59 - 06/11/2026] (D)  - tubin_x_dump
+[05:11:59 - 06/11/2026] (D)  - tusur_go_uhf
+[05:11:59 - 06/11/2026] (D)  - umka_1_dump
+[05:11:59 - 06/11/2026] (D)  - veronika_link
+[05:11:59 - 06/11/2026] (D)  - viasat3_tlm_12200
+[05:11:59 - 06/11/2026] (D)  - viasat3_tlm
+[05:11:59 - 06/11/2026] (D)  - vizard_ion_uhf
+[05:11:59 - 06/11/2026] (D)  - wsf_m_db
+[05:11:59 - 06/11/2026] (D)  - xmm_newton_s_link
+[05:11:59 - 06/11/2026] (D)  - youthsat_dump
+[05:11:59 - 06/11/2026] (D)  - yunhai_ahrpt
+[05:11:59 - 06/11/2026] (I) Loading TLEs from /home/adriel/.config/satdump/satdump_tles.txt
+[05:11:59 - 06/11/2026] (I) 15900 TLEs loaded!
+[05:11:59 - 06/11/2026] (D) Device File Source
+[05:11:59 - 06/11/2026] (D) Device Network Source
+[05:11:59 - 06/11/2026] (D) Device PlutoSDR IP
+[05:11:59 - 06/11/2026] (D) Device Realtek RTL2838UHIDIR #00000001
+[05:11:59 - 06/11/2026] (D) Device RTL-TCP
+[05:11:59 - 06/11/2026] (D) Device SDR++ Server
+[05:11:59 - 06/11/2026] (D) Device SpyServer
+[05:11:59 - 06/11/2026] (T) FFT Rate 8333, Samplerate 1000000, Final Size 8192, Skip 141
+[05:11:59 - 06/11/2026] (T) Using QTH [station coordinates withheld]
+[05:11:59 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[05:11:59 - 06/11/2026] (T) Updating elements...
+[05:11:59 - 06/11/2026] (T) Update pass trajectory...
+[06:30:20 - 06/11/2026] (C) AOS!!!!!!!!!!!!!! 59051
+[06:30:20 - 06/11/2026] (D) Set RTL-SDR samplerate to 1024000
+[06:30:20 - 06/11/2026] (D) Set RTL-SDR frequency to 137900000
+[06:30:20 - 06/11/2026] (D) Set RTL-SDR Bias to 0
+[06:30:20 - 06/11/2026] (D) Set RTL-SDR AGC to 0
+[06:30:20 - 06/11/2026] (D) Set RTL-SDR Gain to 25.4
+[06:30:20 - 06/11/2026] (T) RTL-SDR Buffer size 17408
+[06:30:20 - 06/11/2026] (T) FFT Rate 68266, Samplerate 1024000, Final Size 8192, Skip 60074
+[06:30:20 - 06/11/2026] (T) Start pipeline...
+[06:30:20 - 06/11/2026] (I) Generated folder name : /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz
+[06:30:20 - 06/11/2026] (D) Parameters :
+[06:30:20 - 06/11/2026] (D)    - baseband_format : "cf32"
+[06:30:20 - 06/11/2026] (D)    - buffer_size : 1000000
+[06:30:20 - 06/11/2026] (D)    - constellation : "oqpsk"
+[06:30:20 - 06/11/2026] (D)    - dc_block : true
+[06:30:20 - 06/11/2026] (D)    - fill_missing : false
+[06:30:20 - 06/11/2026] (D)    - freq_shift : 0
+[06:30:20 - 06/11/2026] (D)    - iq_swap : false
+[06:30:20 - 06/11/2026] (D)    - pll_bw : 0.002
+[06:30:20 - 06/11/2026] (D)    - rrc_alpha : 0.5
+[06:30:20 - 06/11/2026] (D)    - rs_usecheck : true
+[06:30:20 - 06/11/2026] (D)    - samplerate : 1024000
+[06:30:20 - 06/11/2026] (D)    - satellite_number : "M2-4"
+[06:30:20 - 06/11/2026] (D)    - start_timestamp : 1793946620.0
+[06:30:20 - 06/11/2026] (D)    - symbolrate : 72000.0
+[06:30:20 - 06/11/2026] (I) Module psk_demod
+[06:30:20 - 06/11/2026] (D) Parameters :
+[06:30:20 - 06/11/2026] (D)    - baseband_format : "cf32"
+[06:30:20 - 06/11/2026] (D)    - buffer_size : 1000000
+[06:30:20 - 06/11/2026] (D)    - constellation : "oqpsk"
+[06:30:20 - 06/11/2026] (D)    - dc_block : true
+[06:30:20 - 06/11/2026] (D)    - fill_missing : false
+[06:30:20 - 06/11/2026] (D)    - freq_shift : 0
+[06:30:20 - 06/11/2026] (D)    - iq_swap : false
+[06:30:20 - 06/11/2026] (D)    - pll_bw : 0.002
+[06:30:20 - 06/11/2026] (D)    - rrc_alpha : 0.5
+[06:30:20 - 06/11/2026] (D)    - rs_usecheck : true
+[06:30:20 - 06/11/2026] (D)    - samplerate : 1024000
+[06:30:20 - 06/11/2026] (D)    - satellite_number : "M2-4"
+[06:30:20 - 06/11/2026] (D)    - start_timestamp : 1793946620.0
+[06:30:20 - 06/11/2026] (D)    - symbolrate : 72000.0
+[06:30:20 - 06/11/2026] (D) Parameters :
+[06:30:20 - 06/11/2026] (D)    - baseband_format : "cf32"
+[06:30:20 - 06/11/2026] (D)    - buffer_size : 1000000
+[06:30:20 - 06/11/2026] (D)    - cadu_size : 8192
+[06:30:20 - 06/11/2026] (D)    - constellation : "oqpsk"
+[06:30:20 - 06/11/2026] (D)    - dc_block : true
+[06:30:20 - 06/11/2026] (D)    - derandomize : true
+[06:30:20 - 06/11/2026] (D)    - fill_missing : false
+[06:30:20 - 06/11/2026] (D)    - freq_shift : 0
+[06:30:20 - 06/11/2026] (D)    - iq_swap : false
+[06:30:20 - 06/11/2026] (D)    - nrzm : true
+[06:30:20 - 06/11/2026] (D)    - rs_dualbasis : false
+[06:30:20 - 06/11/2026] (D)    - rs_i : 4
+[06:30:20 - 06/11/2026] (D)    - rs_type : "rs223"
+[06:30:20 - 06/11/2026] (D)    - rs_usecheck : true
+[06:30:20 - 06/11/2026] (D)    - samplerate : 1024000
+[06:30:20 - 06/11/2026] (D)    - satellite_number : "M2-4"
+[06:30:20 - 06/11/2026] (D)    - start_timestamp : 1793946620.0
+[06:30:20 - 06/11/2026] (D)    - viterbi_ber_thresold : 0.3
+[06:30:20 - 06/11/2026] (D)    - viterbi_outsync_after : 20
+[06:30:20 - 06/11/2026] (I) Module ccsds_conv_concat_decoder
+[06:30:20 - 06/11/2026] (D) Parameters :
+[06:30:20 - 06/11/2026] (D)    - baseband_format : "cf32"
+[06:30:20 - 06/11/2026] (D)    - buffer_size : 1000000
+[06:30:20 - 06/11/2026] (D)    - cadu_size : 8192
+[06:30:20 - 06/11/2026] (D)    - constellation : "oqpsk"
+[06:30:20 - 06/11/2026] (D)    - dc_block : true
+[06:30:20 - 06/11/2026] (D)    - derandomize : true
+[06:30:20 - 06/11/2026] (D)    - fill_missing : false
+[06:30:20 - 06/11/2026] (D)    - freq_shift : 0
+[06:30:20 - 06/11/2026] (D)    - iq_swap : false
+[06:30:20 - 06/11/2026] (D)    - nrzm : true
+[06:30:20 - 06/11/2026] (D)    - rs_dualbasis : false
+[06:30:20 - 06/11/2026] (D)    - rs_i : 4
+[06:30:20 - 06/11/2026] (D)    - rs_type : "rs223"
+[06:30:20 - 06/11/2026] (D)    - rs_usecheck : true
+[06:30:20 - 06/11/2026] (D)    - samplerate : 1024000
+[06:30:20 - 06/11/2026] (D)    - satellite_number : "M2-4"
+[06:30:20 - 06/11/2026] (D)    - start_timestamp : 1793946620.0
+[06:30:20 - 06/11/2026] (D)    - viterbi_ber_thresold : 0.3
+[06:30:20 - 06/11/2026] (D)    - viterbi_outsync_after : 20
+[06:30:20 - 06/11/2026] (T) Volk has the neonspiral kernel, using it!
+[06:30:20 - 06/11/2026] (T) Volk has the neonspiral kernel, using it!
+[06:30:20 - 06/11/2026] (D) Input SPS : 14.222222
+[06:30:20 - 06/11/2026] (D) Resample : 1
+[06:30:20 - 06/11/2026] (D) Samplerate : 168000.000000
+[06:30:20 - 06/11/2026] (D) Dec factor : 6.095238
+[06:30:20 - 06/11/2026] (D) Final SPS : 2.333333
+[06:30:20 - 06/11/2026] (I) Start processing...
+[06:30:20 - 06/11/2026] (I) Constellation : oqpsk
+[06:30:20 - 06/11/2026] (I) Using input baseband 
+[06:30:20 - 06/11/2026] (I) Demodulating to /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/meteor_m2-x_lrpt.soft
+[06:30:20 - 06/11/2026] (I) Buffer size : 163840
+[06:30:20 - 06/11/2026] (I) Start processing...
+[06:30:20 - 06/11/2026] (I) Using input symbols 
+[06:30:20 - 06/11/2026] (I) Recording to /home/adriel/wni-receiver/raw/2026-11-06_06-30-20_1024000SPS_137900000Hz.cs8
+[06:30:20 - 06/11/2026] (I) Decoding to /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/meteor_m2-x_lrpt.cadu
+[06:30:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:30:20 - 06/11/2026] (T) Updating elements...
+[06:30:20 - 06/11/2026] (T) Update pass trajectory...
+[06:30:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.489502, Deframer : NOSYNC
+[06:30:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:30:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.411377, Deframer : NOSYNC
+[06:30:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:30:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.417480, Deframer : NOSYNC
+[06:30:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:30:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.397949, Deframer : NOSYNC
+[06:31:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.407715, Deframer : NOSYNC
+[06:31:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.423584, Deframer : NOSYNC
+[06:31:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.415039, Deframer : NOSYNC
+[06:31:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.424805, Deframer : NOSYNC
+[06:31:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.391846, Deframer : NOSYNC
+[06:31:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:31:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.418701, Deframer : NOSYNC
+[06:32:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:32:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.404053, Deframer : NOSYNC
+[06:32:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:32:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.405273, Deframer : NOSYNC
+[06:32:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:32:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.404053, Deframer : NOSYNC
+[06:32:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:32:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.385742, Deframer : NOSYNC
+[06:32:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.000000dB
+[06:32:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.416260, Deframer : NOSYNC
+[06:32:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 0.514908dB
+[06:32:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.345459, Deframer : NOSYNC
+[06:33:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 2.166003dB
+[06:33:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.328369, Deframer : SYNCING
+[06:33:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 2.166003dB
+[06:33:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.410156, Deframer : NOSYNC
+[06:33:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 2.166003dB
+[06:33:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.389404, Deframer : NOSYNC
+[06:33:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 2.728993dB
+[06:33:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.209961, Deframer : SYNCING
+[06:33:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 2.728993dB
+[06:33:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.401611, Deframer : NOSYNC
+[06:33:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.184326, Deframer : SYNCED
+[06:33:50 - 06/11/2026] (I) Progress nan%, SNR : 1.445261dB, Peak SNR: 3.638937dB
+[06:34:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 5.403132dB
+[06:34:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.125732, Deframer : SYNCED
+[06:34:10 - 06/11/2026] (I) Progress nan%, SNR : 0.966859dB, Peak SNR: 5.439948dB
+[06:34:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.177002, Deframer : SYNCED
+[06:34:20 - 06/11/2026] (I) Progress nan%, SNR : 2.782807dB, Peak SNR: 5.439948dB
+[06:34:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.180664, Deframer : SYNCED
+[06:34:30 - 06/11/2026] (I) Progress nan%, SNR : 6.047737dB, Peak SNR: 6.319895dB
+[06:34:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.057373, Deframer : SYNCED
+[06:34:40 - 06/11/2026] (I) Progress nan%, SNR : 8.271561dB, Peak SNR: 8.954242dB
+[06:34:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.018311, Deframer : SYNCED
+[06:34:50 - 06/11/2026] (I) Progress nan%, SNR : 6.306536dB, Peak SNR: 8.954242dB
+[06:34:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.041504, Deframer : SYNCED
+[06:35:00 - 06/11/2026] (I) Progress nan%, SNR : 8.904404dB, Peak SNR: 10.005061dB
+[06:35:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:35:10 - 06/11/2026] (I) Progress nan%, SNR : 11.451968dB, Peak SNR: 12.300202dB
+[06:35:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.010986, Deframer : SYNCED
+[06:35:20 - 06/11/2026] (I) Progress nan%, SNR : 9.037695dB, Peak SNR: 12.479462dB
+[06:35:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.013428, Deframer : SYNCED
+[06:35:30 - 06/11/2026] (I) Progress nan%, SNR : 11.345850dB, Peak SNR: 12.479462dB
+[06:35:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.006104, Deframer : SYNCED
+[06:35:40 - 06/11/2026] (I) Progress nan%, SNR : 12.923781dB, Peak SNR: 13.780152dB
+[06:35:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.012207, Deframer : SYNCED
+[06:35:50 - 06/11/2026] (I) Progress nan%, SNR : 6.138727dB, Peak SNR: 13.780152dB
+[06:35:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.035400, Deframer : SYNCED
+[06:36:00 - 06/11/2026] (I) Progress nan%, SNR : 14.573109dB, Peak SNR: 15.391117dB
+[06:36:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.012207, Deframer : SYNCED
+[06:36:10 - 06/11/2026] (I) Progress nan%, SNR : 13.889470dB, Peak SNR: 15.947473dB
+[06:36:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.009766, Deframer : SYNCED
+[06:36:20 - 06/11/2026] (I) Progress nan%, SNR : 13.018445dB, Peak SNR: 15.947473dB
+[06:36:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.006104, Deframer : SYNCED
+[06:36:30 - 06/11/2026] (I) Progress nan%, SNR : 16.419289dB, Peak SNR: 16.996210dB
+[06:36:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:36:40 - 06/11/2026] (I) Progress nan%, SNR : 2.474790dB, Peak SNR: 16.996210dB
+[06:36:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.015869, Deframer : SYNCED
+[06:36:50 - 06/11/2026] (I) Progress nan%, SNR : 14.926177dB, Peak SNR: 16.996210dB
+[06:36:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.007324, Deframer : SYNCED
+[06:37:00 - 06/11/2026] (I) Progress nan%, SNR : 13.453799dB, Peak SNR: 16.996210dB
+[06:37:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.006104, Deframer : SYNCED
+[06:37:10 - 06/11/2026] (I) Progress nan%, SNR : 6.745932dB, Peak SNR: 16.996210dB
+[06:37:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.034180, Deframer : SYNCING
+[06:37:20 - 06/11/2026] (I) Progress nan%, SNR : 12.607980dB, Peak SNR: 16.996210dB
+[06:37:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.006104, Deframer : SYNCED
+[06:37:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:37:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.345459, Deframer : NOSYNC
+[06:37:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:37:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.394287, Deframer : NOSYNC
+[06:37:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:37:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.418701, Deframer : NOSYNC
+[06:38:00 - 06/11/2026] (I) Progress nan%, SNR : 12.563004dB, Peak SNR: 16.996210dB
+[06:38:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:38:10 - 06/11/2026] (I) Progress nan%, SNR : 13.630247dB, Peak SNR: 16.996210dB
+[06:38:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.007324, Deframer : SYNCED
+[06:38:20 - 06/11/2026] (I) Progress nan%, SNR : 12.286635dB, Peak SNR: 16.996210dB
+[06:38:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.009766, Deframer : SYNCED
+[06:38:30 - 06/11/2026] (I) Progress nan%, SNR : 11.952765dB, Peak SNR: 16.996210dB
+[06:38:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:38:40 - 06/11/2026] (I) Progress nan%, SNR : 11.485796dB, Peak SNR: 16.996210dB
+[06:38:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:38:50 - 06/11/2026] (I) Progress nan%, SNR : 11.999504dB, Peak SNR: 16.996210dB
+[06:38:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.007324, Deframer : SYNCED
+[06:39:00 - 06/11/2026] (I) Progress nan%, SNR : 10.502297dB, Peak SNR: 16.996210dB
+[06:39:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:39:10 - 06/11/2026] (I) Progress nan%, SNR : 8.602872dB, Peak SNR: 16.996210dB
+[06:39:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.013428, Deframer : SYNCED
+[06:39:20 - 06/11/2026] (I) Progress nan%, SNR : 10.591687dB, Peak SNR: 16.996210dB
+[06:39:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:39:30 - 06/11/2026] (I) Progress nan%, SNR : 8.929224dB, Peak SNR: 16.996210dB
+[06:39:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.009766, Deframer : SYNCED
+[06:39:40 - 06/11/2026] (I) Progress nan%, SNR : 4.163222dB, Peak SNR: 16.996210dB
+[06:39:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.052490, Deframer : SYNCED
+[06:39:50 - 06/11/2026] (I) Progress nan%, SNR : 8.218163dB, Peak SNR: 16.996210dB
+[06:39:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.017090, Deframer : SYNCED
+[06:40:00 - 06/11/2026] (I) Progress nan%, SNR : 5.673312dB, Peak SNR: 16.996210dB
+[06:40:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.063477, Deframer : SYNCED
+[06:40:10 - 06/11/2026] (I) Progress nan%, SNR : 6.318418dB, Peak SNR: 16.996210dB
+[06:40:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.030518, Deframer : SYNCED
+[06:40:20 - 06/11/2026] (I) Progress nan%, SNR : 9.025167dB, Peak SNR: 16.996210dB
+[06:40:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.013428, Deframer : SYNCED
+[06:40:30 - 06/11/2026] (I) Progress nan%, SNR : 7.699290dB, Peak SNR: 16.996210dB
+[06:40:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.024414, Deframer : SYNCED
+[06:40:40 - 06/11/2026] (I) Progress nan%, SNR : 7.793845dB, Peak SNR: 16.996210dB
+[06:40:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.017090, Deframer : SYNCED
+[06:40:50 - 06/11/2026] (I) Progress nan%, SNR : 8.759777dB, Peak SNR: 16.996210dB
+[06:40:50 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.013428, Deframer : SYNCED
+[06:41:00 - 06/11/2026] (I) Progress nan%, SNR : 10.815236dB, Peak SNR: 16.996210dB
+[06:41:00 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.010986, Deframer : SYNCED
+[06:41:10 - 06/11/2026] (I) Progress nan%, SNR : 10.010015dB, Peak SNR: 16.996210dB
+[06:41:10 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.008545, Deframer : SYNCED
+[06:41:20 - 06/11/2026] (I) Progress nan%, SNR : 8.400608dB, Peak SNR: 16.996210dB
+[06:41:20 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.021973, Deframer : SYNCED
+[06:41:30 - 06/11/2026] (I) Progress nan%, SNR : 5.332420dB, Peak SNR: 16.996210dB
+[06:41:30 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.083008, Deframer : SYNCED
+[06:41:40 - 06/11/2026] (I) Progress nan%, SNR : 2.659220dB, Peak SNR: 16.996210dB
+[06:41:40 - 06/11/2026] (I) Progress nan%, Viterbi : SYNCED BER : 0.218506, Deframer : SYNCED
+[06:41:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:41:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.407715, Deframer : NOSYNC
+[06:42:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.413818, Deframer : NOSYNC
+[06:42:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.412598, Deframer : NOSYNC
+[06:42:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.408936, Deframer : NOSYNC
+[06:42:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.416260, Deframer : NOSYNC
+[06:42:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.413818, Deframer : NOSYNC
+[06:42:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:42:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.408936, Deframer : NOSYNC
+[06:43:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.419922, Deframer : NOSYNC
+[06:43:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.411377, Deframer : NOSYNC
+[06:43:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.410156, Deframer : NOSYNC
+[06:43:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.427246, Deframer : NOSYNC
+[06:43:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.417480, Deframer : NOSYNC
+[06:43:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:43:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.428467, Deframer : NOSYNC
+[06:44:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.417480, Deframer : NOSYNC
+[06:44:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.405273, Deframer : NOSYNC
+[06:44:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.412598, Deframer : NOSYNC
+[06:44:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.406494, Deframer : NOSYNC
+[06:44:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.406494, Deframer : NOSYNC
+[06:44:50 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:44:50 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.415039, Deframer : NOSYNC
+[06:45:00 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:45:00 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.401611, Deframer : NOSYNC
+[06:45:10 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:45:10 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.421143, Deframer : NOSYNC
+[06:45:20 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:45:20 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.428467, Deframer : NOSYNC
+[06:45:30 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:45:30 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.421143, Deframer : NOSYNC
+[06:45:40 - 06/11/2026] (I) Progress nan%, SNR : 0.000000dB, Peak SNR: 16.996210dB
+[06:45:40 - 06/11/2026] (I) Progress nan%, Viterbi : NOSYNC BER : 0.423584, Deframer : NOSYNC
+[06:45:49 - 06/11/2026] (T) Update pass trajectory...
+[06:45:49 - 06/11/2026] (C) LOS!!!!!!!!!!!!!! 59051
+[06:45:49 - 06/11/2026] (T) Stop pipeline...
+[06:45:49 - 06/11/2026] (I) Stop processing
+[06:45:49 - 06/11/2026] (I) Demodulation finished
+[06:45:49 - 06/11/2026] (I) Starting processing pipeline meteor_m2-x_lrpt...
+[06:45:49 - 06/11/2026] (D) Input file (cadu) : /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/meteor_m2-x_lrpt.cadu
+[06:45:49 - 06/11/2026] (D) Output file : /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz
+[06:45:49 - 06/11/2026] (D) Starting meteor_m2-x_lrpt
+[06:45:49 - 06/11/2026] (I) Data is already at level baseband, skipping
+[06:45:49 - 06/11/2026] (I) Data is already at level soft, skipping
+[06:45:49 - 06/11/2026] (I) Data is already at level cadu, skipping
+[06:45:49 - 06/11/2026] (I) Processing data to level products
+[06:45:49 - 06/11/2026] (D) Parameters :
+[06:45:49 - 06/11/2026] (D)    - baseband_format : "cf32"
+[06:45:49 - 06/11/2026] (D)    - buffer_size : 1000000
+[06:45:49 - 06/11/2026] (D)    - dc_block : true
+[06:45:49 - 06/11/2026] (D)    - fill_missing : false
+[06:45:49 - 06/11/2026] (D)    - freq_shift : 0
+[06:45:49 - 06/11/2026] (D)    - iq_swap : false
+[06:45:49 - 06/11/2026] (D)    - m2x_mode : true
+[06:45:49 - 06/11/2026] (D)    - max_fill_lines : 50
+[06:45:49 - 06/11/2026] (D)    - rs_usecheck : true
+[06:45:49 - 06/11/2026] (D)    - samplerate : 1024000
+[06:45:49 - 06/11/2026] (D)    - satellite_number : "M2-4"
+[06:45:49 - 06/11/2026] (D)    - start_timestamp : 1793946620.0
+[06:45:49 - 06/11/2026] (I) Using input frames /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/meteor_m2-x_lrpt.cadu
+[06:45:49 - 06/11/2026] (I) Decoding to /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR
+[06:45:49 - 06/11/2026] (I) Waiting for the thread...
+[06:45:49 - 06/11/2026] (I) Thread stopped
+[06:45:49 - 06/11/2026] (I) Demultiplexing and deframing...
+[06:45:49 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[06:45:49 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[06:45:49 - 06/11/2026] (T) Updating elements...
+[06:45:49 - 06/11/2026] (T) Update pass trajectory...
+[06:45:49 - 06/11/2026] (I) Writing images.... (Can take a while)
+[06:45:49 - 06/11/2026] (T) MSU-MR ID 4
+[06:45:49 - 06/11/2026] (I) ----------- Satellite
+[06:45:49 - 06/11/2026] (I) NORAD : 59051
+[06:45:49 - 06/11/2026] (I) Name  : METEOR-M2-4
+[06:45:49 - 06/11/2026] (I) MSU-MR Channel 1 Lines  : 3424
+[06:45:50 - 06/11/2026] (I) MSU-MR Channel 2 Lines  : 3424
+[06:45:50 - 06/11/2026] (I) MSU-MR Channel 3 Lines  : 0
+[06:45:50 - 06/11/2026] (I) MSU-MR Channel 4 Lines  : 3408
+[06:45:50 - 06/11/2026] (I) MSU-MR Channel 5 Lines  : 0
+[06:45:50 - 06/11/2026] (I) MSU-MR Channel 6 Lines  : 0
+[06:45:50 - 06/11/2026] (W) Analog telemetry missing from transmission. Calibration is disabled!
+[06:45:50 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/MSU-MR-1.png...
+[06:45:50 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/MSU-MR-2.png...
+[06:45:50 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/MSU-MR-4.png...
+[06:45:50 - 06/11/2026] (D) Products processing is enabled! Starting processing module.
+[06:45:50 - 06/11/2026] (I) /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR
+[06:45:50 - 06/11/2026] (I) /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/product.cbor
+[06:45:50 - 06/11/2026] (I) /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/product.cbor
+[06:45:50 - 06/11/2026] (I) Loading MSU-MR-1.png
+[06:45:50 - 06/11/2026] (I) Loading MSU-MR-2.png
+[06:45:50 - 06/11/2026] (I) Loading MSU-MR-4.png
+[06:45:50 - 06/11/2026] (D) Composite needs channel ch1
+[06:45:50 - 06/11/2026] (D) Composite needs channel ch2
+[06:45:50 - 06/11/2026] (T) Max Total Width 1568
+[06:45:50 - 06/11/2026] (T) Max Total Used  1568
+[06:45:50 - 06/11/2026] (T) Offset for ch1 is 0
+[06:45:50 - 06/11/2026] (T) Offset for ch2 is 0
+[06:45:51 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_AVHRR_221_False_Color_corrected.png...
+[06:45:53 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_AVHRR_221_False_Color.png...
+[06:45:53 - 06/11/2026] (D) Skipping AVHRR 3a21 False Color as it can't be made!
+[06:45:53 - 06/11/2026] (D) Composite needs channel ch1
+[06:45:53 - 06/11/2026] (D) Composite needs channel ch2
+[06:45:53 - 06/11/2026] (D) Composite needs channel ch4
+[06:45:53 - 06/11/2026] (T) Max Total Width 1568
+[06:45:53 - 06/11/2026] (T) Max Total Used  1568
+[06:45:53 - 06/11/2026] (T) Offset for ch1 is 0
+[06:45:53 - 06/11/2026] (T) Offset for ch2 is 0
+[06:45:53 - 06/11/2026] (T) Offset for ch4 is 0
+[06:45:55 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png...
+[06:45:56 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSU-MR_124_False_Color.png...
+[06:45:56 - 06/11/2026] (D) Skipping AVHRR 124 False Color as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping Natural Color as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping 10.8µm Thermal IR (Uncalibrated) as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping Day Microphysics as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping Night Microphysics as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping AVHRR 543b IR False Color as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping AVHRR 3b45 IR False Color as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping NO enhancement as it can't be made!
+[06:45:56 - 06/11/2026] (D) Skipping Cloud Top IR as it can't be made!
+[06:45:56 - 06/11/2026] (D) Composite needs channel ch4
+[06:45:56 - 06/11/2026] (T) Max Total Width 1568
+[06:45:56 - 06/11/2026] (T) Max Total Used  1568
+[06:45:56 - 06/11/2026] (T) Offset for ch4 is 0
+[06:45:58 - 06/11/2026] (D) Filtering timestamps...
+[06:46:05 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MCIR_corrected.png...
+[06:46:06 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MCIR.png...
+[06:46:07 - 06/11/2026] (D) Filtering timestamps...
+[06:46:07 - 06/11/2026] (I) Solving TPS equations for 531 GCPs...
+[06:46:07 - 06/11/2026] (I) Solved! Took 0.073636
+[06:46:07 - 06/11/2026] (I) Drawing map overlay...
+[06:46:10 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MCIR_map.png...
+[06:46:11 - 06/11/2026] (I) Drawing map overlay...
+[06:46:14 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MCIR_corrected_map.png...
+[06:46:15 - 06/11/2026] (D) Composite needs channel ch1
+[06:46:15 - 06/11/2026] (T) Max Total Width 1568
+[06:46:15 - 06/11/2026] (T) Max Total Used  1568
+[06:46:15 - 06/11/2026] (T) Offset for ch1 is 0
+[06:46:17 - 06/11/2026] (D) Filtering timestamps...
+[06:46:24 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSA_corrected.png...
+[06:46:25 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSA.png...
+[06:46:26 - 06/11/2026] (D) Filtering timestamps...
+[06:46:26 - 06/11/2026] (I) Solving TPS equations for 531 GCPs...
+[06:46:26 - 06/11/2026] (I) Solved! Took 0.060878
+[06:46:26 - 06/11/2026] (I) Drawing map overlay...
+[06:46:29 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSA_map.png...
+[06:46:30 - 06/11/2026] (I) Drawing map overlay...
+[06:46:33 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_rgb_MSA_corrected_map.png...
+[06:46:34 - 06/11/2026] (D) Composite needs channel ch4
+[06:46:34 - 06/11/2026] (T) Max Total Width 1568
+[06:46:34 - 06/11/2026] (T) Max Total Used  1568
+[06:46:34 - 06/11/2026] (T) Offset for ch4 is 0
+[06:46:34 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png...
+[06:46:35 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png...
+[06:46:35 - 06/11/2026] (D) Filtering timestamps...
+[06:46:35 - 06/11/2026] (I) Solving TPS equations for 531 GCPs...
+[06:46:35 - 06/11/2026] (I) Solved! Took 0.061355
+[06:46:35 - 06/11/2026] (I) Drawing map overlay...
+[06:46:39 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_map.png...
+[06:46:39 - 06/11/2026] (I) Drawing map overlay...
+[06:46:43 - 06/11/2026] (I) Saving /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected_map.png...
+[06:46:43 - 06/11/2026] (D) Skipping 3.9 µm Shortwave IR (Calibrated) as it can't be made!
+[06:46:43 - 06/11/2026] (D) Skipping 3.9 µm Cloud Tops (Transparent) as it can't be made!
+[06:46:43 - 06/11/2026] (I) Done! Goodbye
+[06:46:43 - 06/11/2026] (I) Opening viewer!
+[06:46:43 - 06/11/2026] (I) /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/product.cbor
+[06:46:43 - 06/11/2026] (I) /home/adriel/wni-receiver/decoded/2026-11-06_06-30_meteor_m2-x_lrpt_137.9 MHz/MSU-MR/product.cbor
+[06:46:43 - 06/11/2026] (I) Loading MSU-MR-1.png
+[06:46:43 - 06/11/2026] (I) Loading MSU-MR-2.png
+[06:46:43 - 06/11/2026] (I) Loading MSU-MR-4.png
+[06:46:43 - 06/11/2026] (D) Using handler image_handler for instrument msu_mr
+[06:46:43 - 06/11/2026] (D) Disabling AVHRR 3a21 False Color as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling AVHRR 124 False Color as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Natural Color as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling 10.8µm Thermal IR (Uncalibrated) as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Day Microphysics as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Night Microphysics as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling AVHRR 543b IR False Color as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling AVHRR 3b45 IR False Color as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Sea Surface Temperature as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Night Time Fire Detection (transparent) as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling NO enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling ZA enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling MB enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling MD enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling BD enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling CC enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling EC enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling HE enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling HF enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling JF enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling JJ enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling TA enhancement as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Cloud Top IR as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Enhanced IR as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Enhanced IR (Transparent) as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Color general cloud IR as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling Color convection longwave IR as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling 3.9 µm Shortwave IR (Calibrated) as it can't be made!
+[06:46:43 - 06/11/2026] (D) Disabling 3.9 µm Cloud Tops (Transparent) as it can't be made!
+[06:46:43 - 06/11/2026] (I) Update image...
+[06:46:43 - 06/11/2026] (I) Done
+[06:50:00 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[06:50:00 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[06:50:00 - 06/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
+[06:50:00 - 06/11/2026] (I) UI Exit
+[06:50:00 - 06/11/2026] (I) Exiting!

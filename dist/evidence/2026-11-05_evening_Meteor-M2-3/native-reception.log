@@ -626,7 +626,7 @@
 [12:20:31 - 05/11/2026] (D) Device SDR++ Server
 [12:20:31 - 05/11/2026] (D) Device SpyServer
 [12:20:31 - 05/11/2026] (T) FFT Rate 8333, Samplerate 1000000, Final Size 8192, Skip 141
-[12:20:32 - 05/11/2026] (T) Using QTH [station longitude withheld] [station latitude withheld] Alt 0.000000
+[12:20:32 - 05/11/2026] (T) Using QTH [station coordinates withheld]
 [12:20:32 - 05/11/2026] (I) Saving user config at /home/adriel/.config/satdump/settings.json
 [12:20:32 - 05/11/2026] (T) Updating elements...
 [12:20:32 - 05/11/2026] (T) Update pass trajectory...

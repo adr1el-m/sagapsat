@@ -1,0 +1,2 @@
+const {readState,fallback,reply}=require('../lib/store.cjs');
+module.exports=async(req,res)=>{const kind=req.query.kind;if(!['station','archive','orbits'].includes(kind))return reply(res,404,{error:'Unknown feed'});try{const data=await readState(kind)||fallback(kind);res.setHeader('Cache-Control',kind==='station'?'public, s-maxage=15, max-age=0':'public, s-maxage=60, max-age=0');reply(res,200,data);}catch(e){try{reply(res,200,fallback(kind));}catch{reply(res,503,{error:'Feed unavailable'});}}};

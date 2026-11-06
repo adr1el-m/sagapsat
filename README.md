@@ -44,27 +44,57 @@ original evidence, compressed image previews, and JSON manifests.
   storage, temperature/power flags and observed CADU growth. A successful probe
   expires after 30 seconds; SSH failure clears current hardware indicators.
 
+## Public feeds and automatic publishing
+
+The Vercel site reads `/api/feed?kind=station`, `archive`, and `orbits`. A Pi service
+pushes station health outbound every five minutes while idle and every minute while
+SatDump is running. RF estimates require a native log sample less than 90 seconds old;
+the station heartbeat expires after six minutes. No inbound Pi ports, receiver controls,
+SSH credentials, precise station coordinates, or Blob write credentials are exposed.
+
+The publisher watches finalized `capture-result.json` files. Satellite identity must
+match product TLE metadata or a curated label. It stages a temporary public export,
+withholds QTH values from logs, hashes evidence, uploads assets directly to Blob using
+short-lived constrained client tokens, then updates the archive index. A successful
+publication is checkpointed; failed uploads retry without deleting originals. Captures
+are deduplicated by satellite and recording start time. Unknown identity and incomplete
+processing are held for review rather than published as successful observations.
+
+Orbital snapshots are refreshed on the Pi every three hours and pushed to the feed.
+They use the public approximate Metro Manila location, not exact antenna coordinates.
+If the Pi or uplink is unavailable, feed ages and the 48-hour orbit expiry remain
+visible. Static JSON files provide a deployment fallback, not fabricated live status.
+
+Publisher runtime: `scripts/publisher.py` plus bundled `scripts/upload-assets.cjs`,
+`build.py`, and `analysis.py`. `SAGAPSAT_INGEST_SECRET` is a Vercel production secret;
+the matching Pi secret file has mode 0600. Never commit either secret or `.env*`.
+The Pi uses a dedicated user systemd service, `sagapsat-publisher.service`.
+
 ## Data and scientific limits
 
-The initial archive has five captures (4–6 November 2026), totaling 4,529 distinct
-CADUs when summed per capture. The strongest stored capture has 2,091 CADUs.
-This does not measure useful image coverage or full-pass completion. The displayed
-SNR is the largest estimate found in capture-local native logs or monitor snapshots,
-not calibrated RF SNR. Logs may be sampled and do not prove uninterrupted lock.
+Six original captures (4–6 November 2026) total 8,517 distinct CADUs summed per
+capture. The latest M2-4 reception contains 3,988 frames and a 17.00 dB peak logged
+SNR estimate. Recognizable Philippines imagery contains missing scan bands; it remains
+classified as partial. These metrics do not establish full-pass image completeness.
 
-Composite variants are not separate observations. Original pixel data is retained
-in PNG downloads; WebP previews are lossy presentation assets. Generated map products
-are withheld because scan timestamps/georeferencing have not been validated. The map
-shows predicted orbital geometry only. Orbit/downlink state does not prove reception.
-Exact station coordinates remain in the private local project; this public release uses an approximate observer location.
+Reception timelines show capture-local SNR, cumulative saved frames, and sampled
+lock/no-lock events. SNR is uncalibrated. Gaps remain gaps; lock sample fractions are
+not continuous reception durations. Colour composites are variants of one observation.
+Original PNG/CADU downloads retain their exact bytes. Preview WebP files are lossy.
+Public log copies can withhold exact QTH values; original SHA-256 and public-copy
+SHA-256 are both retained. Original native files remain unchanged on the Pi.
 
-The public Vercel deployment is an **archive snapshot**, without a route into the Pi or receiver
-controls. Orbit position is interpolated from 30-second SGP4 samples, and the prediction
-snapshot expires after 48 hours. Rebuild and redeploy to refresh it; no cloud refresh,
-public live feed, automatic capture scheduling, or remote receiver control is implied.
-The local static export has the same orbital refresh requirement. With `server.py --refresh-orbits`, local orbital data is recomputed hourly and fetched by the page every 15 minutes. This requires the build dependencies on the serving machine. Station health is
-live only when served by `server.py` with a configured reachable probe.
-Raw IQ remains on the Pi where documented in capture notes; the portal does not copy it.
+Observation geography checks embedded scan times against the capture window (60-second
+tolerance), rejects non-monotonic scan sequences and orbital elements over seven days
+from epoch, and draws a computed satellite subtrack only for observations passing these
+checks. A subtrack is not an image footprint. Pixel-level georeferencing has not been
+independently validated, so geographic image overlays remain withheld. The earlier
+5 November afternoon capture fails timing validation and is explicitly withheld.
+
+The Sierra Madre research section explains observation, geographic validation, and
+comparison with independent rainfall/wind data. The exploratory study does not establish
+terrain-caused rainfall enhancement, and a cloud image alone does not measure rainfall.
+Raw IQ stays on the Pi. This portal neither controls reception nor removes old captures.
 
 ## Verification
 
@@ -97,3 +127,7 @@ Production domain: https://sagapsat.adrielmagalona.com
 ## Independent hosting
 
 Production: https://sagapsat.adrielmagalona.com (Vercel). The site is public and does not require an OpenAI or ChatGPT account. The GitHub `main` branch is connected to Vercel project `sagapsat` in the owner's personal project scope. `vercel.json` serves `dist` as static assets without a framework build. Pushes to `main` deploy the committed snapshot. `https://sagapsat.vercel.app` is the alternate production URL.
+
+## Deployment configuration
+
+`npm run build` copies UI assets into `dist`; Vercel also deploys the Node API routes. A connected public Blob store holds durable feed snapshots and future capture assets. Existing static evidence remains available if cloud feeds fail. `npm test` checks authentication boundaries; Python tests check evidence integrity, timestamp gates, and telemetry gaps.
