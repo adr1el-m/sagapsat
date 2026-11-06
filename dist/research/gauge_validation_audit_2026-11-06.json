@@ -1,0 +1,107 @@
+{
+  "source_url": "https://www.ncei.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt",
+  "metadata_sha256": "437ee87f0343bcad408a492cf7a02163fb69255364c541b4006d5d76055d0dc3",
+  "regional_stations": [
+    {
+      "id": "RP000098429",
+      "name": "NINOY AQUINO INTERN",
+      "lat": 14.517,
+      "lon": 121.0,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RP000098430",
+      "name": "SCIENCE GARDEN",
+      "lat": 14.633,
+      "lon": 121.017,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPC00914100",
+      "name": "LUZON CLARK AFB",
+      "lat": 15.1833,
+      "lon": 120.55,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPM00098325",
+      "name": "DAGUPAN",
+      "lat": 16.083,
+      "lon": 120.35,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPM00098328",
+      "name": "BAGUIO",
+      "lat": 16.375,
+      "lon": 120.62,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPM00098330",
+      "name": "CABANATUAN",
+      "lat": 15.467,
+      "lon": 120.95,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041207",
+      "name": "CLARK",
+      "lat": 15.1833,
+      "lon": 120.55,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041227",
+      "name": "MANILA NF",
+      "lat": 14.6,
+      "lon": 121.0,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041228",
+      "name": "MANILA NF",
+      "lat": 14.6,
+      "lon": 121.0,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041229",
+      "name": "MANILA",
+      "lat": 14.55,
+      "lon": 120.9833,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041230",
+      "name": "OLONGAPO",
+      "lat": 14.8167,
+      "lon": 120.2833,
+      "inside_west": false,
+      "inside_east": false
+    },
+    {
+      "id": "RPW00041231",
+      "name": "CUBI POINT NF",
+      "lat": 14.8,
+      "lon": 120.2667,
+      "inside_west": false,
+      "inside_east": false
+    }
+  ],
+  "stations_in_either_locked_box": 0,
+  "cabanatuan_latest_PRCP_year": 2018,
+  "baler_daily_file_status": "404",
+  "GSOD_2026_Cabanatuan_Baler": "both requested station files returned 404",
+  "validation_status": "No suitable in-box 2026 gauge pair found in these public NOAA sources; no gauge-validation statistic computed. PAGASA historical radar/gauge data request remains external."
+}

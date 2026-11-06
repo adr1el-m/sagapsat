@@ -1,3 +1,29 @@
+# Current extension — v1.7, 6 November 2026
+
+Rainfall is additionally evaluated using spherical native-cell/box intersections,
+with no interpolation and no missing-as-zero substitution. The original and
+larger 0.30° boxes remain separate analyses. All four original wet-hour cases
+lose three-product east-greater agreement under original-box area means.
+
+Three fixed October dates retain all 72 cloud snapshots, 68 complete rain pairs
+and four empty CMORPH source intervals. No qualifying wet east-greater easterly
+case occurs. A separately declared four-times-daily October screen retains all
+124 candidates and all three wet/easterly follow-ups on October 11–12. Two have
+opposing rain-product signs. The concordant case has 98.2% western cloud occupancy,
+so the original complete-saturation result is not universal. No new IMERG was
+retrieved for these three follow-ups; adjacent dates are not independent storms.
+
+See [the versioned protocol](protocol.md), [fixed-date pairs](replication_pairs.csv),
+[all candidates](weather_first_candidates.csv), and [all follow-ups](weather_first_cases.csv).
+The interactive worked examples use the original 48 September hours and a local
+case that abstains because independent geographic registration remains unresolved.
+No suitable in-box gauge reference was obtained from the audited public sources.
+No forecast accuracy or terrain causality is claimed.
+
+---
+
+## Historical September and reception method
+
 # SagapSat: evidence and limits
 
 Updated 6 November 2026. This public summary accompanies a research-progress manuscript; no final submission is claimed.

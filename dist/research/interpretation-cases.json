@@ -1,0 +1,3615 @@
+{
+  "version": "1.7",
+  "scope": "Educational worked evidence cases; not a validated rainfall forecast or warning system. Original September dates; October replication is reported separately.",
+  "cases": [
+    {
+      "id": "2026-09-17_00",
+      "label": "2026-09-17 00:00\u201301:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 0.5614035087719298,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.22484043789249614,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.027516475458639188,
+            "east": 0.22526738325467446,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.225
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_01",
+      "label": "2026-09-17 01:00\u201302:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.3333333333333333,
+      "cloud_west": 0.3157894736842105,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.022752169925287506,
+            "east": 0.04695349407028321,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.05683336707463721,
+            "east": 0.0699575577478447,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.025,
+            "east": 0.025
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_02",
+      "label": "2026-09-17 02:00\u201303:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.37037037037037035,
+      "cloud_west": 0.15789473684210525,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.05160524543414208,
+            "east": 0.03834156937193656,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.06345277970280273,
+            "east": 0.0389121491030336,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0006939723910739127,
+            "east": 0.0009715613475035564,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.075,
+            "east": 0.025
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_03",
+      "label": "2026-09-17 03:00\u201304:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.12962962962962962,
+      "cloud_west": 0.08771929824561403,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.07666773490854595,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.015477479795756977,
+            "east": 0.08164971225592929,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.06749999895691872,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_04",
+      "label": "2026-09-17 04:00\u201305:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.12962962962962962,
+      "cloud_west": 0.21052631578947367,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.03733374359029342,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.008571463682060292,
+            "east": 0.041226562069475524,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.032499998807907104,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_05",
+      "label": "2026-09-17 05:00\u201306:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.1111111111111111,
+      "cloud_west": 0.7017543859649122,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.02480793906038259,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.10897105460477866,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.014174512140405287,
+            "east": 0.026514676469431713,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_06",
+      "label": "2026-09-17 06:00\u201307:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.8888888888888888,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.2973373749446774,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.36837156603359844,
+            "east": 0.004665515630128578,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.28089705263348624,
+            "east": 0.0005337070141230235,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.33128680985792336,
+            "east": 0.07291928885951457,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.3325,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.4399999976158142,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_07",
+      "label": "2026-09-17 07:00\u201308:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.16010309279651616,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.3622122113113361,
+            "east": 0.21264577846139437,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.1383659356104581,
+            "east": 0.019717229059156002,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.3844382217544995,
+            "east": 0.257178846763341,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.17,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.2849999964237213,
+            "east": 0.1399999954737723,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_08",
+      "label": "2026-09-17 08:00\u201309:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.15193205424210224,
+            "east": 0.6585431373689592,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.5782334113973656,
+            "east": 1.2059010618019284,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.31458483459418857,
+            "east": 0.7224591420953703,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0001110424913346288,
+            "east": 0.00014156333085484977,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.9043439848758003,
+            "east": 1.196421375182369,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.15,
+            "east": 0.85
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.2149999961256981,
+            "east": 0.8299999609589577,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_09",
+      "label": "2026-09-17 09:00\u201310:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.21495904986951703,
+            "east": 0.5011427007570652,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 1.9702338836056388,
+            "east": 3.996780901760769,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.6682122237710288,
+            "east": 0.7832533739119527,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.010887791449009766,
+            "east": 0.004214100382295721,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 2.557140133545821,
+            "east": 3.577730761015449,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.2,
+            "east": 0.625
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.800000011920929,
+            "east": 3.127499997615814,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_10",
+      "label": "2026-09-17 10:00\u201311:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.9115200321091999,
+            "east": 0.6691787759773389,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.012092758825131014,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 2.8464236458596783,
+            "east": 2.359039901825267,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 1.0075753657821598,
+            "east": 1.3929429775476656,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0001721090262132034,
+            "east": 0.03227383819176357,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 3.271258227901908,
+            "east": 2.438752029253325,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 1.2,
+            "east": 0.9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 1.3199999928474426,
+            "east": 2.6024999022483826,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_11",
+      "label": "2026-09-17 11:00\u201312:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.8346124182028944,
+            "east": 1.5779889338226851,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.01600074977460305,
+            "east": 0.8494792125472346,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 8.561777072263038,
+            "east": 5.147741225173169,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 1.0820820218308589,
+            "east": 2.295665173668114,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.5691843218377134,
+            "east": 1.2512029889971836,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 7.476518154674707,
+            "east": 4.991664969883832,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 1.175,
+            "east": 1.725
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.000833,
+            "east": 1.545
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 8.929999828338623,
+            "east": 6.382499694824219,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_12",
+      "label": "2026-09-17 12:00\u201313:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.6620969424063288,
+            "east": 1.9689834121921495,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.1510319570845793,
+            "east": 0.5977728261883697,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 16.235549385587515,
+            "east": 9.781059123969122,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 1.4649862794168191,
+            "east": 3.66721124313694,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.618945770823153,
+            "east": 1.0001857061972403,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 13.377269240710294,
+            "east": 8.53110058493068,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.85,
+            "east": 2.6
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.016667,
+            "east": 0.601667
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 16.399999618530273,
+            "east": 11.87999963760376,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_13",
+      "label": "2026-09-17 13:00\u201314:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 1.6347926665605736,
+            "east": 5.1783926527953605,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.9253788611048304,
+            "east": 2.850247786883379,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 12.413846744150455,
+            "east": 5.914169554007117,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 2.433696160722425,
+            "east": 5.410985161391426,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.4263087595119526,
+            "east": 2.833767629452443,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 13.675420364021285,
+            "east": 6.134089996028319,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 1.85,
+            "east": 6.775
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.834167,
+            "east": 2.9075
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 13.114999294281006,
+            "east": 8.747499823570251,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_14",
+      "label": "2026-09-17 14:00\u201315:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 1.790294971759177,
+            "east": 5.383765370772612,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.477788409465325,
+            "east": 5.055478823804547,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 13.010230182145083,
+            "east": 3.5130265389120856,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 2.5810203359145873,
+            "east": 5.688270180995016,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.2278329138140562,
+            "east": 4.097591561530332,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 10.541102432034098,
+            "east": 3.6752260878089,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 2.1,
+            "east": 6.625
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.585,
+            "east": 5.420833
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 16.809999465942383,
+            "east": 3.70499986410141,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_15",
+      "label": "2026-09-17 15:00\u201316:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 1.934779261836984,
+            "east": 5.369463796187122,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.0250380298748856,
+            "east": 1.3910895779270902,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.723533852237325,
+            "east": 4.452853830280938,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 2.584665748476737,
+            "east": 5.742218925324051,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 2.603268255008639,
+            "east": 2.1540589138854696,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.989869391901736,
+            "east": 4.675708056860025,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 2.45,
+            "east": 6.675
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 3.139167,
+            "east": 1.179167
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.8399999141693115,
+            "east": 5.487499833106995,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_16",
+      "label": "2026-09-17 16:00\u201317:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 2.1933178096871324,
+            "east": 5.232301047049614,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.15051600792365927,
+            "east": 4.247099314616765,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.52143837741848,
+            "east": 4.351517007780201,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 3.011267593257345,
+            "east": 5.3438245272820915,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.8880267536491784,
+            "east": 4.386981308260062,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.678540398089444,
+            "east": 4.055714007331372,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 2.75,
+            "east": 6.55
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.135833,
+            "east": 4.1825
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 5.004999876022339,
+            "east": 5.590000003576279,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_17",
+      "label": "2026-09-17 17:00\u201318:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 4.120562093760475,
+            "east": 2.0595366471239966,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 5.6672728325166775,
+            "east": 5.733081425369372,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.214826798081819,
+            "east": 2.634147928747814,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 4.283512980214535,
+            "east": 2.8033386350193004,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 5.78365057173505,
+            "east": 5.089922342036566,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.140903358650399,
+            "east": 2.7494517902297035,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 5.125,
+            "east": 2.1
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 4.71,
+            "east": 5.796667
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 4.744999885559082,
+            "east": 3.7149999141693115,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_18",
+      "label": "2026-09-17 18:00\u201319:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 2.2446984624999056,
+            "east": 0.05761113559168784,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 4.555552441469698,
+            "east": 1.4979739848600147,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 5.590780146257392,
+            "east": 3.9447712005613997,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 2.3254354046351855,
+            "east": 0.4325243516050375,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 5.023581035193015,
+            "east": 1.241772980270657,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 5.383362726423386,
+            "east": 3.35158221503187,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 3.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 4.665833,
+            "east": 1.599167
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 5.614999771118164,
+            "east": 4.784999847412109,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_19",
+      "label": "2026-09-17 19:00\u201320:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.2635263645020562,
+            "east": 0.03474939101697824,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 1.398562076619914,
+            "east": 2.0688510846394546,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 2.658393712133312,
+            "east": 0.562669203355394,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.9999051041680594,
+            "east": 0.17609757420488026,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.9566252942073005,
+            "east": 1.1734641126910126,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 2.288991577119876,
+            "east": 0.5517137759287374,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.325,
+            "east": 0.05
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 1.556667,
+            "east": 2.611667
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 2.7049999237060547,
+            "east": 0.6949999891221523,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_20",
+      "label": "2026-09-17 20:00\u201321:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.1640650541151753,
+            "east": 0.15852642805361217,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.1556264664588109,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0033337443503901895,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.4153641675943427,
+            "east": 0.14083669694042714,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.39287270115293194,
+            "east": 0.008063167016697986,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.029057036981287608,
+            "east": 0.0003403826842095709,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.25,
+            "east": 0.175
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.004999999888241291,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_21",
+      "label": "2026-09-17 21:00\u201322:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.05555555555555555,
+      "cloud_west": 0.7192982456140351,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.003482799988936659,
+            "east": 0.20000000298023224,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.1261968304417772,
+            "east": 0.18601306619274185,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.2
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_22",
+      "label": "2026-09-17 22:00\u201323:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.08375996988943592,
+            "east": 0.004431625636955,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0679156427370013,
+            "east": 0.016400504212577258,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0017019134663343,
+            "east": 0.002382678852868213,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.1,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-17_23",
+      "label": "2026-09-17 23:00\u201324:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.05263157894736842,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0925740073928829,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0840993573280154,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.125,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_00",
+      "label": "2026-09-19 00:00\u201301:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0032517998796041353,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_01",
+      "label": "2026-09-19 01:00\u201302:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.1111111111111111,
+      "cloud_west": 0.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_02",
+      "label": "2026-09-19 02:00\u201303:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.2777777777777778,
+      "cloud_west": 0.05263157894736842,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.002480911930689703,
+            "east": 0.03251490528535524,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.05632699858578586,
+            "east": 0.04958711123008547,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.009067519069770347,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.025
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_03",
+      "label": "2026-09-19 03:00\u201304:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.037037037037037035,
+      "cloud_west": 0.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.10047610839680493,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.1438452290822742,
+            "east": 0.010515973025745284,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.08640199192441636,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.125,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_04",
+      "label": "2026-09-19 04:00\u201305:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.05555555555555555,
+      "cloud_west": 0.08771929824561403,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.049219518190360446,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0950004090714488,
+            "east": 0.06067044549029759,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.11726601706506333,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.3058344821344485,
+            "east": 0.05694718027335487,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.075,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.10499999672174454,
+            "east": 0.0949999950826168,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_05",
+      "label": "2026-09-19 05:00\u201306:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.12280701754385964,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.20944375326517367,
+            "east": 0.07966378854911785,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.008824213348796,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.311703939342584,
+            "east": 0.08839787812507546,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.22499999403953552,
+            "east": 0.08500000089406967,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_06",
+      "label": "2026-09-19 06:00\u201307:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.17543859649122806,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.3057654762025292,
+            "east": 0.0017896615955456108,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.19332962711830137,
+            "east": 0.0219945727271973,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.2466177745703881,
+            "east": 0.01137164718367967,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.21329213679405523,
+            "east": 0.040867982584777696,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.25,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.2199999913573265,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_07",
+      "label": "2026-09-19 07:00\u201308:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.49122807017543857,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.3525062867599799,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.7154583783020707,
+            "east": 0.008664528672679602,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.3946916439105498,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.7986025139069415,
+            "east": 0.051559368146156775,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.275,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.4349999949336052,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_08",
+      "label": "2026-09-19 08:00\u201309:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.7017543859649122,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.4538538407381253,
+            "east": 0.0058378071175251844,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.9593010862829773,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.5142327057244089,
+            "east": 0.016456843730598483,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.025789446485776513,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 1.0457905955644824,
+            "east": 0.04329701168001887,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.35,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.5300000011920929,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_09",
+      "label": "2026-09-19 09:00\u201310:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.018518518518518517,
+      "cloud_west": 1.0,
+      "flow_group": "easterly",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.2593450490899699,
+            "east": 0.03502684270515111,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.013506529607141464,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.8126775825381463,
+            "east": 0.024993833626423025,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.2927449085944666,
+            "east": 0.10435816831679462,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.05968325886213087,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.7576814884697775,
+            "east": 0.04168676229977655,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.2,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.000833,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.6099999696016312,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_10",
+      "label": "2026-09-19 10:00\u201311:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.07407407407407407,
+      "cloud_west": 1.0,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.06483626227249248,
+            "east": 0.06421587872772755,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.6019991944312428,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.19498437136852084,
+            "east": 0.5292530722065486,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.07125711361152913,
+            "east": 0.19225949245509327,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.17494959682422773,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.25879631781988166,
+            "east": 0.4453821572119768,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.05,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.634167,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.1599999964237213,
+            "east": 0.20499999076128006,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_11",
+      "label": "2026-09-19 11:00\u201312:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 1.0,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.10989834518293451,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.10960655119302144,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.03499136598450884,
+            "east": 0.7242066919414165,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.18033315156462343,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.00046665568384140024,
+            "east": 0.24806040702632287,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.14279743676909953,
+            "east": 0.6569049276190548,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.075
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.21249999478459358,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_12",
+      "label": "2026-09-19 12:00\u201313:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 0.9824561403508771,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.5078429253094023,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0048005484777499195,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.1788883357336263,
+            "east": 1.3799289029820312,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0037654727407733487,
+            "east": 0.3020614252061296,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.009023787624734268,
+            "east": 0.23803701561119794,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.24982433185432243,
+            "east": 1.065852923157005,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.575
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.17499999701976776,
+            "east": 1.0999999642372131,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_13",
+      "label": "2026-09-19 13:00\u201314:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 1.0,
+      "cloud_west": 0.3684210526315789,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.6061600042363651,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.22000164069093714,
+            "east": 1.7703243283006138,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0056482091111600225,
+            "east": 0.3165210230225573,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.1406846244630839,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.2533294121878526,
+            "east": 1.0989298122595068,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.7
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.22999999672174454,
+            "east": 1.747499942779541,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_14",
+      "label": "2026-09-19 14:00\u201315:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.7222222222222222,
+      "cloud_west": 0.07017543859649122,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.42729195853485974,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.3696647678175697,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.003886125476499166,
+            "east": 0.23122159672057815,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.01530441696705434,
+            "east": 0.22479981277624006,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.45
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.36499999091029167,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_15",
+      "label": "2026-09-19 15:00\u201316:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.037037037037037035,
+      "cloud_west": 0.14035087719298245,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.08375454794484398,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0010016945530562458,
+            "east": 0.047784863892898086,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.075
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_16",
+      "label": "2026-09-19 16:00\u201317:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.018518518518518517,
+      "cloud_west": 0.15789473684210525,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.011665234928850902,
+            "east": 0.005414328461330623,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_17",
+      "label": "2026-09-19 17:00\u201318:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.018518518518518517,
+      "cloud_west": 0.14035087719298245,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.005998519936264154,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0161459672198294,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_18",
+      "label": "2026-09-19 18:00\u201319:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.018518518518518517,
+      "cloud_west": 0.017543859649122806,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.02699333915453298,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.03811960869356226,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_19",
+      "label": "2026-09-19 19:00\u201320:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.3157894736842105,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.012996793009020428,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.01070329394801181,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_20",
+      "label": "2026-09-19 20:00\u201321:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.07407407407407407,
+      "cloud_west": 0.631578947368421,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.17666353680790464,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.010414468561868607,
+            "east": 0.16797488876790925,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.16499999538064003,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_21",
+      "label": "2026-09-19 21:00\u201322:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.017543859649122806,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.10398963816794785,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0015267393430905684,
+            "east": 0.10837540863755693,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.06249999813735485,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_22",
+      "label": "2026-09-19 22:00\u201323:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.0,
+      "cloud_west": 0.05263157894736842,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.030325850850963124,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0006592738025432023,
+            "east": 0.039161856233461544,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "2026-09-19_23",
+      "label": "2026-09-19 23:00\u201324:00 UTC",
+      "geography": "provider_geolocated",
+      "cloud_east": 0.9259259259259259,
+      "cloud_west": 0.5263157894736842,
+      "flow_group": "other",
+      "modes": {
+        "weighted": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 9,
+            "east_cells": 9
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 20,
+            "east_cells": 25
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 4,
+            "east_cells": 4
+          }
+        ],
+        "expanded": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 25,
+            "east_cells": 25
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 72,
+            "east_cells": 81
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.013222861795957516,
+            "west_cells": 16,
+            "east_cells": 16
+          }
+        ],
+        "centers": [
+          {
+            "product": "CMORPH",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "PERSIANN_CCS",
+            "west": 0.0,
+            "east": 0.0
+          },
+          {
+            "product": "IMERG_Late",
+            "west": 0.0,
+            "east": 0.0,
+            "west_cells": 1,
+            "east_cells": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "local_2026-11-06",
+      "label": "Local Meteor capture \u00b7 6 Nov \u00b7 06:32\u201306:41 UTC",
+      "geography": "unverified_local_pixels",
+      "flow_group": "not_evaluated",
+      "cloud_east": null,
+      "cloud_west": null,
+      "modes": {}
+    }
+  ]
+}

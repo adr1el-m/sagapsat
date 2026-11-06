@@ -1,0 +1,91 @@
+{
+  "dates": [
+    "2026-10-06",
+    "2026-10-16",
+    "2026-10-26"
+  ],
+  "scheduled_hours": 72,
+  "cloud_source_subsets_verified": 72,
+  "cloud_box_records_verified": 144,
+  "rain_source_files_verified": 140,
+  "wind_source_files_verified": 72,
+  "rain_box_records_verified": 420,
+  "area_box_records_verified": 420,
+  "source_errors": [
+    {
+      "date": "2026-10-26",
+      "hour_utc": "15",
+      "product": "CMORPH",
+      "error": "Local source audit retained; see documented availability limits."
+    },
+    {
+      "date": "2026-10-26",
+      "hour_utc": "16",
+      "product": "CMORPH",
+      "error": "Local source audit retained; see documented availability limits."
+    },
+    {
+      "date": "2026-10-26",
+      "hour_utc": "17",
+      "product": "CMORPH",
+      "error": "Local source audit retained; see documented availability limits."
+    },
+    {
+      "date": "2026-10-26",
+      "hour_utc": "14",
+      "product": "CMORPH",
+      "error": "Local source audit retained; see documented availability limits."
+    }
+  ],
+  "date_summary": [
+    {
+      "date": "2026-10-06",
+      "scheduled_hours": 24,
+      "cloud_snapshots": 24,
+      "easterly_hours": 7,
+      "center_complete_rain_pairs": 24,
+      "area_complete_rain_pairs": 24,
+      "cloud_positive_hours": 6,
+      "both_cloud_saturated_hours": 0,
+      "centers_easterly_east_wet_hours": 0,
+      "centers_selected_saturated_cloud_hours": 0,
+      "centers_selected_positive_cloud_hours": 0,
+      "area_easterly_east_wet_hours": 0,
+      "area_selected_saturated_cloud_hours": 0,
+      "area_selected_positive_cloud_hours": 0
+    },
+    {
+      "date": "2026-10-16",
+      "scheduled_hours": 24,
+      "cloud_snapshots": 24,
+      "easterly_hours": 24,
+      "center_complete_rain_pairs": 24,
+      "area_complete_rain_pairs": 24,
+      "cloud_positive_hours": 15,
+      "both_cloud_saturated_hours": 0,
+      "centers_easterly_east_wet_hours": 0,
+      "centers_selected_saturated_cloud_hours": 0,
+      "centers_selected_positive_cloud_hours": 0,
+      "area_easterly_east_wet_hours": 0,
+      "area_selected_saturated_cloud_hours": 0,
+      "area_selected_positive_cloud_hours": 0
+    },
+    {
+      "date": "2026-10-26",
+      "scheduled_hours": 24,
+      "cloud_snapshots": 24,
+      "easterly_hours": 6,
+      "center_complete_rain_pairs": 20,
+      "area_complete_rain_pairs": 20,
+      "cloud_positive_hours": 3,
+      "both_cloud_saturated_hours": 0,
+      "centers_easterly_east_wet_hours": 0,
+      "centers_selected_saturated_cloud_hours": 0,
+      "centers_selected_positive_cloud_hours": 0,
+      "area_easterly_east_wet_hours": 0,
+      "area_selected_saturated_cloud_hours": 0,
+      "area_selected_positive_cloud_hours": 0
+    }
+  ],
+  "scope": "Three out-of-sample calendar dates at ten-day spacing; two rainfall algorithms only. No automatic claim of independent storms, gauge validation, forecasting skill or causal terrain effect. All missing intervals retained."
+}

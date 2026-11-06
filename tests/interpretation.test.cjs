@@ -1,0 +1,5 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const {assessInterpretation}=require('../interpretation.js');
+const cases=JSON.parse(fs.readFileSync('dist/research/interpretation-cases.json')).cases;
+test('the actual16 UTC case changes from center agreement to area-weighted disagreement',()=>{const c=cases.find(c=>c.id==='2026-09-17_16');assert.equal(assessInterpretation(c,'centers').status,'east');assert.equal(assessInterpretation(c,'weighted').status,'mixed');assert.equal(assessInterpretation(c,'weighted').saturated,true)});
+test('local geography cannot silently become a measured cloud/rain case',()=>{const c=cases.find(c=>c.id==='local_2026-11-06');assert.equal(assessInterpretation(c).status,'abstain');assert.equal(assessInterpretation(c).values.length,0)});
+test('an incomplete source is never treated as dry weather',()=>{const c=structuredClone(cases[0]);c.modes.weighted[0].east=null;assert.equal(assessInterpretation(c).status,'abstain')});

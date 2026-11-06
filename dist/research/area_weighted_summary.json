@@ -1,0 +1,181 @@
+{
+  "source_files_hash_verified": 192,
+  "tiles_verified": 144,
+  "base_records_verified": 864,
+  "shift_records_verified": 7776,
+  "daily": [
+    {
+      "date": "2026-09-17",
+      "variant": "original",
+      "product": "CMORPH",
+      "west_mm": 17.375331374182206,
+      "east_mm": 29.364750558661083,
+      "east_minus_west_mm": 11.989419184478876
+    },
+    {
+      "date": "2026-09-17",
+      "variant": "original",
+      "product": "PERSIANN_CCS",
+      "west_mm": 24.00501623909456,
+      "east_mm": 24.303166795661358,
+      "east_minus_west_mm": 0.29815055656679945
+    },
+    {
+      "date": "2026-09-17",
+      "variant": "original",
+      "product": "IMERG_Late",
+      "west_mm": 78.05918473283242,
+      "east_mm": 48.194990250765564,
+      "east_minus_west_mm": -29.864194482066857
+    },
+    {
+      "date": "2026-09-17",
+      "variant": "expanded_0p30",
+      "product": "CMORPH",
+      "west_mm": 23.598322673121146,
+      "east_mm": 35.13617862363314,
+      "east_minus_west_mm": 11.537855950511997
+    },
+    {
+      "date": "2026-09-17",
+      "variant": "expanded_0p30",
+      "product": "PERSIANN_CCS",
+      "west_mm": 26.02970136274827,
+      "east_mm": 23.293891148315858,
+      "east_minus_west_mm": -2.735810214432412
+    },
+    {
+      "date": "2026-09-17",
+      "variant": "expanded_0p30",
+      "product": "IMERG_Late",
+      "west_mm": 74.0701214000181,
+      "east_mm": 46.41233935878686,
+      "east_minus_west_mm": -27.657782041231236
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "original",
+      "product": "CMORPH",
+      "west_mm": 1.5884834535809518,
+      "east_mm": 1.8743328766397103,
+      "east_minus_west_mm": 0.2858494230587585
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "original",
+      "product": "PERSIANN_CCS",
+      "west_mm": 0.6155057240383843,
+      "east_mm": 0.11440709967077137,
+      "east_minus_west_mm": -0.501098624367613
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "original",
+      "product": "IMERG_Late",
+      "west_mm": 3.614076550355711,
+      "east_mm": 5.326332610240528,
+      "east_minus_west_mm": 1.712256059884817
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "expanded_0p30",
+      "product": "CMORPH",
+      "west_mm": 1.8601081063747507,
+      "east_mm": 1.4624712963487834,
+      "east_minus_west_mm": -0.3976368100259673
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "expanded_0p30",
+      "product": "PERSIANN_CCS",
+      "west_mm": 0.26991274548071076,
+      "east_mm": 0.6267820471006047,
+      "east_minus_west_mm": 0.35686930161989394
+    },
+    {
+      "date": "2026-09-19",
+      "variant": "expanded_0p30",
+      "product": "IMERG_Late",
+      "west_mm": 4.472692299441039,
+      "east_mm": 4.216995829770167,
+      "east_minus_west_mm": -0.25569646967087234
+    }
+  ],
+  "groups": {
+    "original": {
+      "all_three_east_positive_hours": [
+        {
+          "date": "2026-09-19",
+          "hour_utc": 11
+        },
+        {
+          "date": "2026-09-19",
+          "hour_utc": 12
+        }
+      ]
+    },
+    "expanded_0p30": {
+      "all_three_east_positive_hours": [
+        {
+          "date": "2026-09-17",
+          "hour_utc": 8
+        },
+        {
+          "date": "2026-09-19",
+          "hour_utc": 11
+        },
+        {
+          "date": "2026-09-19",
+          "hour_utc": 12
+        },
+        {
+          "date": "2026-09-19",
+          "hour_utc": 13
+        }
+      ]
+    }
+  },
+  "original_four_hours": [
+    {
+      "date": "2026-09-17",
+      "hour_utc": 11,
+      "variant": "original",
+      "CMORPH_delta_mm": 0.7433765156197907,
+      "PERSIANN_CCS_delta_mm": 0.8334784627726315,
+      "IMERG_Late_delta_mm": -3.4140358470898686,
+      "all_three_positive_placements_0.02": 0,
+      "all_three_positive_placements_0.05": 0
+    },
+    {
+      "date": "2026-09-17",
+      "hour_utc": 13,
+      "variant": "original",
+      "CMORPH_delta_mm": 3.5435999862347867,
+      "PERSIANN_CCS_delta_mm": -0.07513107422145149,
+      "IMERG_Late_delta_mm": -6.499677190143338,
+      "all_three_positive_placements_0.02": 0,
+      "all_three_positive_placements_0.05": 0
+    },
+    {
+      "date": "2026-09-17",
+      "hour_utc": 14,
+      "variant": "original",
+      "CMORPH_delta_mm": 3.593470399013435,
+      "PERSIANN_CCS_delta_mm": 1.577690414339222,
+      "IMERG_Late_delta_mm": -9.497203643232996,
+      "all_three_positive_placements_0.02": 0,
+      "all_three_positive_placements_0.05": 0
+    },
+    {
+      "date": "2026-09-17",
+      "hour_utc": 16,
+      "variant": "original",
+      "CMORPH_delta_mm": 3.038983237362481,
+      "PERSIANN_CCS_delta_mm": 4.096583306693105,
+      "IMERG_Late_delta_mm": -0.16992136963827953,
+      "all_three_positive_placements_0.02": 4,
+      "all_three_positive_placements_0.05": 4
+    }
+  ],
+  "scope": "Declared post-v1.6 sensitivity extension; native-cell area overlaps; not gauge truth or terrain causality"
+}

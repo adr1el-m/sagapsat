@@ -1,0 +1,56 @@
+{
+  "candidate_hours": 124,
+  "prior_fixed_date_candidates": 12,
+  "new_calendar_candidates": 112,
+  "rain_source_files_hash_verified": 248,
+  "rain_subsets_verified": 248,
+  "wind_source_files_verified": 124,
+  "cloud_followup_subsets_verified": 3,
+  "eligible_hours": 3,
+  "eligible_dates": [
+    "2026-10-11",
+    "2026-10-12"
+  ],
+  "center_positive_pair_hours": 1,
+  "positive_pair_saturated_cloud_hours": 0,
+  "cases": [
+    {
+      "date": "2026-10-11",
+      "hour_utc": 0,
+      "CMORPH_center_delta_mm": 1.55,
+      "PERSIANN_center_delta_mm": -0.259167,
+      "cloud_west": 1.0,
+      "cloud_east": 1.0,
+      "cloud_both_saturated": true,
+      "cloud_delta_pp": 0.0,
+      "CMORPH_area_delta_mm": 1.269168589840929,
+      "PERSIANN_area_delta_mm": -0.22113049636075302
+    },
+    {
+      "date": "2026-10-11",
+      "hour_utc": 18,
+      "CMORPH_center_delta_mm": 2.9,
+      "PERSIANN_center_delta_mm": -0.838333,
+      "cloud_west": 1.0,
+      "cloud_east": 1.0,
+      "cloud_both_saturated": true,
+      "cloud_delta_pp": 0.0,
+      "CMORPH_area_delta_mm": 2.5666613041967037,
+      "PERSIANN_area_delta_mm": -0.8220563458934285
+    },
+    {
+      "date": "2026-10-12",
+      "hour_utc": 12,
+      "CMORPH_center_delta_mm": 0.4,
+      "PERSIANN_center_delta_mm": 3.38,
+      "cloud_west": 0.9824561403508771,
+      "cloud_east": 1.0,
+      "cloud_both_saturated": false,
+      "cloud_delta_pp": 1.7543859649122862,
+      "CMORPH_area_delta_mm": 0.4052429361833921,
+      "PERSIANN_area_delta_mm": 3.417874539837384
+    }
+  ],
+  "abstract_sentence": "A separate rain/flow-conditioned October screen of124 candidate hours retains3 follow-ups across two adjacent dates, including contradictory product signs; these do not establish independent-storm replication.",
+  "scope": "Systematic four-times-daily calendar screen with sign-symmetric rain/flow conditioning; neither a random weather sample nor a forecast-validation set."
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "capture": "2026-11-04_Meteor-M2-3",
+    "timing_status": "timing_verified",
+    "product_sha256": "9ac32b8cd9b448e190bb7b4e99eba8e46dbc8bfdc4a5402cae61b6e75885ab83",
+    "status": "projection_only_geography_not_validated",
+    "raster_path": "data/processed/local_projection_audit/2026-11-04_Meteor-M2-3/channel1.tif",
+    "raster_sha256": "24b99230be78dc3962c2e57fecd9f4f62f7c92ecd1611e0b8d32a01a669e0ab9",
+    "pixel_spacing_deg": 0.016,
+    "west_sampled_pixels": 0,
+    "west_nonzero_pixels": 0,
+    "west_nonzero_fraction": 0,
+    "east_sampled_pixels": 0,
+    "east_nonzero_pixels": 0,
+    "east_nonzero_fraction": 0
+  },
+  {
+    "capture": "2026-11-05_Meteor-M2-3",
+    "timing_status": "timing_verified",
+    "product_sha256": "4b3249289c56bc7862e1a8545a94ea15fc463994fb51baa58002b7628b5ef0f5",
+    "status": "projection_only_geography_not_validated",
+    "raster_path": "data/processed/local_projection_audit/2026-11-05_Meteor-M2-3/channel1.tif",
+    "raster_sha256": "706e1ee266b404a331037e6b7b41011dfaa0519ab102b60747a542f04cf0612d",
+    "pixel_spacing_deg": 0.016,
+    "west_sampled_pixels": 0,
+    "west_nonzero_pixels": 0,
+    "west_nonzero_fraction": 0,
+    "east_sampled_pixels": 0,
+    "east_nonzero_pixels": 0,
+    "east_nonzero_fraction": 0
+  },
+  {
+    "capture": "2026-11-05_Meteor-M2-4",
+    "timing_status": "unverified",
+    "product_sha256": "544a11ceecc694944b3c9c0c365089ee81c892d4609ed9b415dc3bab3daf3d09",
+    "status": "excluded_timestamp_failure"
+  },
+  {
+    "capture": "2026-11-05_evening_Meteor-M2-3",
+    "timing_status": "timing_verified",
+    "product_sha256": "244309339dcc069801bfee793f7b7f5b56f23223e269219b75ee597bcbd9b6e9",
+    "status": "projection_only_geography_not_validated",
+    "raster_path": "data/processed/local_projection_audit/2026-11-05_evening_Meteor-M2-3/channel1.tif",
+    "raster_sha256": "da85cf5412c6756954fff106d5a154635d8753f2e6bd9ea29c7abd3e3435709c",
+    "pixel_spacing_deg": 0.016,
+    "west_sampled_pixels": 90,
+    "west_nonzero_pixels": 90,
+    "west_nonzero_fraction": 1.0,
+    "east_sampled_pixels": 90,
+    "east_nonzero_pixels": 90,
+    "east_nonzero_fraction": 1.0
+  },
+  {
+    "capture": "2026-11-06_morning_Meteor-M2-3",
+    "timing_status": "timing_verified",
+    "product_sha256": "2fa6273ae63844f31a2dd8a1d1305dba0525cda2e1c47a7402018fe05b00ee4d",
+    "status": "projection_failed",
+    "error": "UnidentifiedImageError"
+  },
+  {
+    "capture": "2026-11-06_afternoon_Meteor-M2-4",
+    "timing_status": "timing_verified",
+    "product_sha256": "1280d582bbb43aff4dcea37912bcd0fd5cecd3f1cd6fd6c262a89e0606740a23",
+    "status": "projection_only_geography_not_validated",
+    "raster_path": "data/processed/local_projection_audit/2026-11-06_afternoon_Meteor-M2-4/channel1.tif",
+    "raster_sha256": "a3334ccb7a0fda8083368a5209a0f39803fc3e484064fa2d11cd44fe1ef39e68",
+    "pixel_spacing_deg": 0.016,
+    "west_sampled_pixels": 81,
+    "west_nonzero_pixels": 81,
+    "west_nonzero_fraction": 1.0,
+    "east_sampled_pixels": 81,
+    "east_nonzero_pixels": 81,
+    "east_nonzero_fraction": 1.0
+  }
+]
