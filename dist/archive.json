@@ -1,0 +1,1140 @@
+{
+  "generated_utc": "2026-11-06T04:51:19.034548+00:00",
+  "station": {
+    "name": "Team Magalona",
+    "latitude": 14.6,
+    "longitude": 121.0,
+    "altitude_m": 0,
+    "coordinate_source": "Approximate Metro Manila public location; not the antenna position",
+    "timezone": "Asia/Manila",
+    "mask_deg": 10
+  },
+  "captures": [
+    {
+      "id": "2026-11-06_morning_Meteor-M2-3",
+      "satellite": "M2-3",
+      "started_utc": "2026-11-06T01:18:00+00:00",
+      "finished_utc": "2026-11-06T01:31:35.262727+00:00",
+      "frequency_mhz": 137.9,
+      "outcome": "partial",
+      "cadu_bytes": 497664,
+      "frames": 486,
+      "unique_frames": 486,
+      "sync_frames": 486,
+      "trailing_bytes": 0,
+      "size_matches_report": true,
+      "peak_snr_db": 9.733903,
+      "images": [
+        {
+          "name": "MSU-MR-1.png",
+          "label": "MSU-MR-1",
+          "width": 1568,
+          "height": 1776,
+          "bytes": 419217,
+          "sha256": "d9bda9094fbef67ba34391fab93691d8437da3d73dd122c269794c41567390ce",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-1.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-1.webp"
+        },
+        {
+          "name": "MSU-MR-2.png",
+          "label": "MSU-MR-2",
+          "width": 1568,
+          "height": 1776,
+          "bytes": 449329,
+          "sha256": "07421d2d59d32a02d4514a07f6e63f8b25e88ccf3de777de37b4742491e87605",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-2.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-2.webp"
+        },
+        {
+          "name": "MSU-MR-4.png",
+          "label": "MSU-MR-4",
+          "width": 1568,
+          "height": 1784,
+          "bytes": 289946,
+          "sha256": "7cfd0ba402d43a8511a2a4d77182017f3d117117f47eab4178aaca5ce00f603b",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-4.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/MSU-MR-4.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated)",
+          "width": 1568,
+          "height": 1784,
+          "bytes": 237461,
+          "sha256": "f6a09e2e3e4a7326da8d5dd85469c4836853a4889ff23ee9a6cb4134d78a4c30",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated) corrected",
+          "width": 2800,
+          "height": 1784,
+          "bytes": 336949,
+          "sha256": "06c6ef28df9ec3ea11cca9bacfd5440019f81002f851c11bfb8d92bf8732366b",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated)",
+          "width": 1568,
+          "height": 1784,
+          "bytes": 247276,
+          "sha256": "db7d24918e9ed81bd24ddb0d632a1007c190716fde43779bb366885cb51cb566",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated) corrected",
+          "width": 2800,
+          "height": 1784,
+          "bytes": 387952,
+          "sha256": "66be4c8ea1088d1d877e7dfb3ea989be6787d1420bb98198fb1e5d5bc27e53f1",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent).png",
+          "label": "3.9 um Cloud Tops (Transparent)",
+          "width": 1568,
+          "height": 1784,
+          "bytes": 13503,
+          "sha256": "423f59b4b0ce98db10d78533299daa1227f2d846d65698c81d603d0e3f123a81",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent)_corrected.png",
+          "label": "3.9 um Cloud Tops (Transparent) corrected",
+          "width": 2800,
+          "height": 1784,
+          "bytes": 57041,
+          "sha256": "63556f617613682babe23d16c70ac13718643419e8fd3eb0f14d887e1f4c7ef9",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color.png",
+          "label": "AVHRR 221 False Color",
+          "width": 1568,
+          "height": 1776,
+          "bytes": 1136422,
+          "sha256": "b1c226c8cb1b9bf518741592b45220b02013d509df25785c06caf0141c76ee50",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "label": "AVHRR 221 False Color corrected",
+          "width": 2800,
+          "height": 1776,
+          "bytes": 1957031,
+          "sha256": "27da635f83871060ba74b37d0faf872f242c0480e7a7edd8edbc0ed76392e237",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR.png",
+          "label": "MCIR",
+          "width": 1568,
+          "height": 1784,
+          "bytes": 8226,
+          "sha256": "ee29fc3e3dd5019330358e1b2f0fb4f7ee28e0363c2483bc78e39912b77a445e",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MCIR.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MCIR.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR_corrected.png",
+          "label": "MCIR corrected",
+          "width": 2800,
+          "height": 1784,
+          "bytes": 14652,
+          "sha256": "c39f11c3d282ebbcb7c3641a100ef1a8060dd320945a7c4d053624c7301c4b92",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA.png",
+          "label": "MSA",
+          "width": 1568,
+          "height": 1776,
+          "bytes": 8188,
+          "sha256": "2fc3d1ab1a04232d00ad5c50b9231667bf204221b6fc6acb96d0f7f1f9b6b903",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSA.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSA.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA_corrected.png",
+          "label": "MSA corrected",
+          "width": 2800,
+          "height": 1776,
+          "bytes": 14587,
+          "sha256": "dde3d0064f7cb493508e0b7d1045906d3a86e6dab33661b241555ec19f23b06e",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSA_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSA_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "label": "MSU-MR 124 False Color",
+          "width": 1568,
+          "height": 1744,
+          "bytes": 936185,
+          "sha256": "8c0153324c54e812e2a589c33f8f9b54edb4ac3c5803699cb4ed1c01b7246944",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "label": "MSU-MR 124 False Color corrected",
+          "width": 2800,
+          "height": 1744,
+          "bytes": 2226016,
+          "sha256": "ace9955efe0dd97a74773d6dcd6bbb0a0fb4e059bb61aa2a43699a6a3abac0d2",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.webp"
+        }
+      ],
+      "featured": {
+        "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "label": "AVHRR 221 False Color corrected",
+        "width": 2800,
+        "height": 1776,
+        "bytes": 1957031,
+        "sha256": "27da635f83871060ba74b37d0faf872f242c0480e7a7edd8edbc0ed76392e237",
+        "url": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "preview": "evidence/2026-11-06_morning_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+      },
+      "evidence": [
+        {
+          "name": "capture-result.json",
+          "bytes": 2020,
+          "sha256": "33b09c8a36da1094b401547f2c86f66d5891e37c689520b11e372ffb42e87115",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/capture-result.json"
+        },
+        {
+          "name": "meteor_m2-x_lrpt.cadu",
+          "bytes": 497664,
+          "sha256": "2c8e5c47fe92b5b1d6dc645342337cc7f2cd528f8aaee4b539278bbacba7f98c",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/meteor_m2-x_lrpt.cadu"
+        },
+        {
+          "name": "final-processing.log",
+          "bytes": 57632,
+          "sha256": "9fef4b73f0c4c1cbc75bb8b9ecc5c46af4316cf75d311253467e2ba8079c659d",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/final-processing.log"
+        },
+        {
+          "name": "20261106-morning/progress.jsonl",
+          "bytes": 273640,
+          "sha256": "e86572796d064a06f1a36d542b7da2683f1b6623399d5632a732cc8415c4c167",
+          "url": "evidence/2026-11-06_morning_Meteor-M2-3/20261106-morning/progress.jsonl"
+        }
+      ],
+      "notes": "Image completeness has not been independently measured. Geographic placement is unverified.",
+      "georeferencing": "unverified",
+      "processing_exit_code": 0
+    },
+    {
+      "id": "2026-11-05_evening_Meteor-M2-3",
+      "satellite": "M2-3",
+      "started_utc": "2026-11-05T12:48:00+00:00",
+      "finished_utc": "2026-11-05T12:59:20.104438+00:00",
+      "frequency_mhz": 137.9,
+      "outcome": "partial",
+      "cadu_bytes": 1459200,
+      "frames": 1425,
+      "unique_frames": 1425,
+      "sync_frames": 1425,
+      "trailing_bytes": 0,
+      "size_matches_report": true,
+      "peak_snr_db": 10.875244,
+      "images": [
+        {
+          "name": "MSU-MR-1.png",
+          "label": "MSU-MR-1",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 518702,
+          "sha256": "eb8e398a092ab4a30e26e4afd72f24f6d14e4335fc0a902085b2c24df9566f6b",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-1.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-1.webp"
+        },
+        {
+          "name": "MSU-MR-2.png",
+          "label": "MSU-MR-2",
+          "width": 1568,
+          "height": 1808,
+          "bytes": 557013,
+          "sha256": "a5e5ac5ff61690dfc02c6a589b33880a03c3d7e52467ec148b2685dfa093ea59",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-2.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-2.webp"
+        },
+        {
+          "name": "MSU-MR-4.png",
+          "label": "MSU-MR-4",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 838925,
+          "sha256": "f60b660599e498e58a67e98d538d3bb5f674f6cbcff496dd97b134dcc4b89319",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-4.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/MSU-MR-4.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated)",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 647963,
+          "sha256": "cb1061cfdcd189b9c20a0deb4949398ae1f4b907b117cbe5492dd8f751e803d7",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated) corrected",
+          "width": 2800,
+          "height": 1800,
+          "bytes": 878412,
+          "sha256": "805944ac5c899c5cb2af787549593756dc8c566c6c27b71f010ec3c51b3567aa",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated)",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 775589,
+          "sha256": "4a4ff9b46b957040317b7788e2f2482a35df1847e165ab5a675d278e3a6444ae",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated) corrected",
+          "width": 2800,
+          "height": 1800,
+          "bytes": 1712462,
+          "sha256": "c4687aaf6d3cf1da035c47d96af7ff8a2d1cf9cb094f194473ed02ef27ccc6c5",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent).png",
+          "label": "3.9 um Cloud Tops (Transparent)",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 23851,
+          "sha256": "9cd4b051d781f15d21ca700983f3e5cd6e3bd8a2509ad7dcd4c6f642336bf64b",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent)_corrected.png",
+          "label": "3.9 um Cloud Tops (Transparent) corrected",
+          "width": 2800,
+          "height": 1800,
+          "bytes": 107053,
+          "sha256": "44181eb22a71547f8ef418632a6cecf19859c6bdab56f3e4e635708e72d56abd",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color.png",
+          "label": "AVHRR 221 False Color",
+          "width": 1568,
+          "height": 1768,
+          "bytes": 1286401,
+          "sha256": "2d2ed0cab8ea9ce83dd561216305ada076e9bf5536690abba20be2e4613a3e9a",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "label": "AVHRR 221 False Color corrected",
+          "width": 2800,
+          "height": 1768,
+          "bytes": 4703709,
+          "sha256": "cf88e458deb3cc0f5c7600d3726899ca9456e1d7dab7c8da0b56f752ece68f8c",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR.png",
+          "label": "MCIR",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 1696733,
+          "sha256": "b136548b48d7e2491bfd5aa496b77ff9e1aa174e7629bb987820d9df00f71e04",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MCIR.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MCIR.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR_corrected.png",
+          "label": "MCIR corrected",
+          "width": 2800,
+          "height": 1800,
+          "bytes": 3150600,
+          "sha256": "74bd4c5fa5356f7a6ca0958642ec471b20f21608d672eceddaf3b57afadf86e8",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA.png",
+          "label": "MSA",
+          "width": 1568,
+          "height": 1800,
+          "bytes": 1194081,
+          "sha256": "11684c3e6ec1cbbde09d3da27ceb72fa2dc119d7ee30ef194cece80d9ed27ac1",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSA.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSA.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA_corrected.png",
+          "label": "MSA corrected",
+          "width": 2800,
+          "height": 1800,
+          "bytes": 4354107,
+          "sha256": "815412164fd113dc261b9e2e8f2a1ff6b33242fd6ad6bc50b1ccffb1a7f7f7e6",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSA_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSA_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "label": "MSU-MR 124 False Color",
+          "width": 1568,
+          "height": 1720,
+          "bytes": 2128029,
+          "sha256": "4591a5fec2adba29278d73ab7f8eb5fae8954af70f47bc1e23991686d047d1a6",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "label": "MSU-MR 124 False Color corrected",
+          "width": 2800,
+          "height": 1720,
+          "bytes": 7482392,
+          "sha256": "60eaf0cf9683d66a9ff872c8114257e22c3fe9e83c6e507a3739fbe049e8b303",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.webp"
+        }
+      ],
+      "featured": {
+        "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "label": "AVHRR 221 False Color corrected",
+        "width": 2800,
+        "height": 1768,
+        "bytes": 4703709,
+        "sha256": "cf88e458deb3cc0f5c7600d3726899ca9456e1d7dab7c8da0b56f752ece68f8c",
+        "url": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "preview": "evidence/2026-11-05_evening_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+      },
+      "evidence": [
+        {
+          "name": "capture-result.json",
+          "bytes": 2021,
+          "sha256": "2c294c93bbdbb32cebf027eaa3df7977ec10769ae3a57679aa683f67952d1d34",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/capture-result.json"
+        },
+        {
+          "name": "meteor_m2-x_lrpt.cadu",
+          "bytes": 1459200,
+          "sha256": "bd456b96e5567fe8c64365b991b12f160767b75a83ca2fb58adeff02640b9355",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/meteor_m2-x_lrpt.cadu"
+        },
+        {
+          "name": "README.md",
+          "bytes": 658,
+          "sha256": "4e3eefd1faf561947a4af73cda3667b0968a3e158331a92accf2cb667f36e6bd",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/README.md"
+        },
+        {
+          "name": "native-reception.log",
+          "bytes": 61290,
+          "sha256": "8389bafa498bc197299100ea68ea7b377452aae0737a5a29f331fe6beee7f377",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/native-reception.log",
+          "original_sha256": "2a712f8996012bf3515d41614401a0d8e6986dd18766ef11354c322d30c14534",
+          "privacy_note": "Public copy: exact station coordinate values withheld. Original retained locally."
+        },
+        {
+          "name": "final-processing.log",
+          "bytes": 57744,
+          "sha256": "b219677eff27cb736561dd587698f797838d71489ce46b90249b6639779d4c87",
+          "url": "evidence/2026-11-05_evening_Meteor-M2-3/final-processing.log"
+        }
+      ],
+      "notes": "# Evening Meteor M2-3 reception, November5 2026\n\nNative receiver started20:48:12PHT, stopped at explicit user request around20:59:20PHT before predictedLOS21:03:32. GUI and outstanding timers/monitor stopped. CADU finalizer exit0,27 PNG channel/composite/overlay variants saved.1459200CADUbytes,1425 unique1024byteframes,all expectedASM1acffc1d. RawIQ remains onPi; not copied toMac. Received image has substantial missing data, and higher elevation did not outperform afternoonM2-4. Do not claim perfect or fullpasscapture. Geographic overlays require independent scan-timestamp validation; prior afternoontimestamps were invalid. Original images retained.\n",
+      "georeferencing": "unverified",
+      "processing_exit_code": 0
+    },
+    {
+      "id": "2026-11-05_Meteor-M2-4",
+      "satellite": "M2-4",
+      "started_utc": "2026-11-05T06:52:00+00:00",
+      "finished_utc": "2026-11-05T07:02:42.297089+00:00",
+      "frequency_mhz": 137.9,
+      "outcome": "partial",
+      "cadu_bytes": 2141184,
+      "frames": 2091,
+      "unique_frames": 2091,
+      "sync_frames": 2091,
+      "trailing_bytes": 0,
+      "size_matches_report": true,
+      "peak_snr_db": 14.357452,
+      "images": [
+        {
+          "name": "MSU-MR-1.png",
+          "label": "MSU-MR-1",
+          "width": 1568,
+          "height": 1544,
+          "bytes": 1766866,
+          "sha256": "b086916e928de618ce4c6ae50ec61f187db4ff07f74b89bfd078f5c03cb93ab9",
+          "url": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-1.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-1.webp"
+        },
+        {
+          "name": "MSU-MR-2.png",
+          "label": "MSU-MR-2",
+          "width": 1568,
+          "height": 1544,
+          "bytes": 1851124,
+          "sha256": "170180e056104294bb02ff664bbf2e7475a245874d8b6745ff4e45622bb4612f",
+          "url": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-2.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-2.webp"
+        },
+        {
+          "name": "MSU-MR-4.png",
+          "label": "MSU-MR-4",
+          "width": 1568,
+          "height": 1536,
+          "bytes": 1239834,
+          "sha256": "eee3225cbde4ccd7f0f2b1befccab7397c6939aa0d58eb4e7c1b52e148a5b479",
+          "url": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-4.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/MSU-MR-4.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated)",
+          "width": 1568,
+          "height": 1536,
+          "bytes": 1148808,
+          "sha256": "720ee728dbe1a4783d1771446eff8b8d201132eb7ef9d3cbd15e0e2e79a03763",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated) corrected",
+          "width": 2800,
+          "height": 1536,
+          "bytes": 2522214,
+          "sha256": "60bbc4d6064f33566fa4c13a17320abafbddf7a478ba278ab046aebe5d65d3b6",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color.png",
+          "label": "AVHRR 221 False Color",
+          "width": 1568,
+          "height": 1544,
+          "bytes": 5057698,
+          "sha256": "79379956644810027035d5521a3f2423e851121878aef1cd93e5798274310541",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "label": "AVHRR 221 False Color corrected",
+          "width": 2800,
+          "height": 1544,
+          "bytes": 8750816,
+          "sha256": "d597d380e741db5888ec4f9ceb43324558519253bb66142d13fa957e8ea4666f",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR.png",
+          "label": "MCIR",
+          "width": 1568,
+          "height": 1536,
+          "bytes": 1306661,
+          "sha256": "c2269cf7c9c69e4c2119eabb6f2032e6ee5f8e342ef23812a0ed4961a10a63f3",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MCIR.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MCIR.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR_corrected.png",
+          "label": "MCIR corrected",
+          "width": 2800,
+          "height": 1536,
+          "bytes": 3763122,
+          "sha256": "07727eb4ec1d5bc117843580c62d900f3035d07a09220a24b1c13cd3af588017",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MCIR_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MCIR_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA.png",
+          "label": "MSA",
+          "width": 1568,
+          "height": 1544,
+          "bytes": 1828394,
+          "sha256": "3f8fff913a573478226f57f13017a07ffbbd8ea085614bf7bb901195f9aeb613",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSA.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSA.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA_corrected.png",
+          "label": "MSA corrected",
+          "width": 2800,
+          "height": 1544,
+          "bytes": 4864051,
+          "sha256": "a111dd4c7602c64b52c2176162a47c56885cf768e5ae19af9e5d45d97b7a8457",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSA_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSA_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "label": "MSU-MR 124 False Color",
+          "width": 1568,
+          "height": 1536,
+          "bytes": 5579638,
+          "sha256": "2c77015746d62859fadd1448679c0ec75bccfa5a2a67344cd042997065707d8e",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSU-MR_124_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "label": "MSU-MR 124 False Color corrected",
+          "width": 2800,
+          "height": 1536,
+          "bytes": 11374287,
+          "sha256": "9376db6af1d6afc08c94b6ca484a6112b7d8ba5fc274dff30f437da9e9c281dd",
+          "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_MSU-MR_124_False_Color_corrected.webp"
+        }
+      ],
+      "featured": {
+        "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "label": "AVHRR 221 False Color corrected",
+        "width": 2800,
+        "height": 1544,
+        "bytes": 8750816,
+        "sha256": "d597d380e741db5888ec4f9ceb43324558519253bb66142d13fa957e8ea4666f",
+        "url": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "preview": "evidence/2026-11-05_Meteor-M2-4/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+      },
+      "evidence": [
+        {
+          "name": "capture-result.json",
+          "bytes": 1385,
+          "sha256": "a52e91791d19c7d71261c0064c36675a97a47630f95a588e0e4ef12768232873",
+          "url": "evidence/2026-11-05_Meteor-M2-4/capture-result.json"
+        },
+        {
+          "name": "meteor_m2-x_lrpt.cadu",
+          "bytes": 2141184,
+          "sha256": "ff0f925ca2e704d6e76434501c01751c41bf173a9f36256bef66170233ca101e",
+          "url": "evidence/2026-11-05_Meteor-M2-4/meteor_m2-x_lrpt.cadu"
+        },
+        {
+          "name": "REFLECTION.md",
+          "bytes": 2734,
+          "sha256": "e5fd5b62c84fc2476650b5de2110e5db3b672eac899fea126d43f4682f707ec3",
+          "url": "evidence/2026-11-05_Meteor-M2-4/REFLECTION.md"
+        },
+        {
+          "name": "final-processing.log",
+          "bytes": 55427,
+          "sha256": "07915b989fe0fa8396429f9a7f0ed6749995aec8a8a29f31ad4190eba12769dc",
+          "url": "evidence/2026-11-05_Meteor-M2-4/final-processing.log"
+        },
+        {
+          "name": "20261105-afternoon/native-reception.log",
+          "bytes": 60952,
+          "sha256": "8b89b67bd561ec31aecae40aaeef5852aa80fcb39f95dc2f4c762daee3862a7f",
+          "url": "evidence/2026-11-05_Meteor-M2-4/20261105-afternoon/native-reception.log",
+          "original_sha256": "044cec1ab0fa86ae9df8df3237c67817d08f80c26b82c29b39aeb2be980b6d55",
+          "privacy_note": "Public copy: exact station coordinate values withheld. Original retained locally."
+        },
+        {
+          "name": "20261105-afternoon/rf-comparison.json",
+          "bytes": 763,
+          "sha256": "746dc7a7cf4280e011954e1cd3a79e0b3adf4e04ad5fd140d2ad92f347d6dc85",
+          "url": "evidence/2026-11-05_Meteor-M2-4/20261105-afternoon/rf-comparison.json"
+        },
+        {
+          "name": "20261105-afternoon/progress.jsonl",
+          "bytes": 162373,
+          "sha256": "4d69304617f6a5696f0cf2a667c296ae5e89f20ce76a1fdd95ad423362168210",
+          "url": "evidence/2026-11-05_Meteor-M2-4/20261105-afternoon/progress.jsonl"
+        }
+      ],
+      "notes": "# Afternoon reception findings and next controlled test\n\n2091 distinct CADUs, expected ASM throughout; morning392. Native SatDump logs show repeated deframer sync14:56:10\u201315:00:00, compared with morning09:46:10\u201309:46:50. Logs sampled10sec; these are sampled intervals, not claims of uninterrupted lock. Peak demodulator estimate14.36dB vs5.45dB morning. Afternoon image coverage1568x1544 vs1568x304 morning channel1, with edge/missing data artifacts.\n\nRaw-IQ spot checks used64 FFTs of8192 samples each, Hann window, zero-mean samples; mean power in3\u201365kHz offsets compared with100\u2013220kHz offsets on both sides. This is a comparative band-power metric, NOT calibrated SNR and not a separation of satellite from all interference. Metric13.40dB at14:58:30,8.36dB14:59:30,1.35dB15:00:30. Near-full-scale samples <=0.0001% in inspected windows; no evidence of widespread digital clipping in those windows. This does not rule out analog-stage overload. Signal-band fading is more supported than a display-only lock failure, but physical cause remains unresolved.\n\nPreserved working configuration on Pi: ~/wni-receiver/profiles/meteor-m2-4-successful-20261105.json.137.9MHz72k,1.024MS/s,gain25.4dB,AGCoff,biasoff,USBpoweredLNA,CS8raw+live. Do not attribute improvement solely to LNA: both morning and afternoon used LNA; satellites and pass geometry differed.\n\nNext controlled-test procedure:\n1. Keep successful receiver settings initially. Do not raise gain just because lock drops; substantial SNR was achieved with25.4dB.\n2. Record to predicted LOS even after NOSYNC, unless user explicitly requests stop. Recovery is possible; preserving the ending allows analysis of missed opportunities.\n3. Log exact time and only one change at a time. Compare modest gain changes only with a visible signal, then return to baseline if no benefit. No scheduled automatic gain control exists for this native GUI.\n4. Check safely accessible cable/LNA direction and antenna placement; any physical reorientation test should be from an accessible ground location. Record orientation before/after. No roof climbing during reception.\n5. Prioritize comparable M2-4 passes for a clean comparison, and compare frame growth/lock duration as well as peak SNR. M2-3 remains a different test rather than an equivalent comparison.\n6. Preserve CADUs, native logs, raw IQ and all image products. Always deliver colour and grayscale outputs together. False colour products are channel combinations, not independent captures; more composites do not add missing geography.\n\nCapture stopped at user request around15:02:42PHT. Raw remains on Pi; it is not backed up locally. Images and CADUs are local copies. No new future reception is armed by this reflection.\n",
+      "georeferencing": "unverified",
+      "processing_exit_code": 0
+    },
+    {
+      "id": "2026-11-05_Meteor-M2-3",
+      "satellite": "M2-3",
+      "started_utc": "2026-11-05T01:42:00+00:00",
+      "finished_utc": "2026-11-05T01:55:07.268667+00:00",
+      "frequency_mhz": 137.9,
+      "outcome": "partial",
+      "cadu_bytes": 401408,
+      "frames": 392,
+      "unique_frames": 392,
+      "sync_frames": 392,
+      "trailing_bytes": 0,
+      "size_matches_report": true,
+      "peak_snr_db": null,
+      "images": [
+        {
+          "name": "MSU-MR-1.png",
+          "label": "MSU-MR-1",
+          "width": 1568,
+          "height": 304,
+          "bytes": 343348,
+          "sha256": "59d8e6f2882532b46ffa9bbee206c2e0620e6e0686d52bdde14a55f831e54105",
+          "url": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-1.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-1.webp"
+        },
+        {
+          "name": "MSU-MR-2.png",
+          "label": "MSU-MR-2",
+          "width": 1568,
+          "height": 304,
+          "bytes": 349788,
+          "sha256": "44693e349bafb18b5eff094c4cf8264f29c002093c59cfe533106dbe4350caa9",
+          "url": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-2.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-2.webp"
+        },
+        {
+          "name": "MSU-MR-4.png",
+          "label": "MSU-MR-4",
+          "width": 1568,
+          "height": 296,
+          "bytes": 270616,
+          "sha256": "36fba31677566bbf7a6048f8c203ce654253f291dfa4f36d49dfc9dcf6f4abb2",
+          "url": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-4.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/MSU-MR-4.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated)",
+          "width": 1568,
+          "height": 296,
+          "bytes": 237064,
+          "sha256": "d4e79d3672ae7eb87bc53d193ceb65a284538b0794e4ff9bbfb3ed73a2b58c4d",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated) corrected",
+          "width": 2800,
+          "height": 296,
+          "bytes": 327271,
+          "sha256": "d044297082060b63f915dc478f1a30cd9f71a9e8d5c20b7421ee305517cbf49f",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated)",
+          "width": 1568,
+          "height": 296,
+          "bytes": 256822,
+          "sha256": "52c92a896766d9ac1915e7e0a37f93835d1ac8cf73694061e6212e436d65190e",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated) corrected",
+          "width": 2800,
+          "height": 296,
+          "bytes": 588281,
+          "sha256": "6c4afc396bd72bd5b04fdbfae665345700b2114a21f9230205cb8cd598546ab1",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent).png",
+          "label": "3.9 um Cloud Tops (Transparent)",
+          "width": 1568,
+          "height": 296,
+          "bytes": 2753,
+          "sha256": "00624d0f6a0e074ffdeffc3ccea3ea972689fe5828a542663c61355e810e99ed",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent)_corrected.png",
+          "label": "3.9 um Cloud Tops (Transparent) corrected",
+          "width": 2800,
+          "height": 296,
+          "bytes": 11189,
+          "sha256": "4eecb2ebd98d006ecfc4cb7d174a5981597a7d689e36f1b4acc575b0bb0c5e93",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color.png",
+          "label": "AVHRR 221 False Color",
+          "width": 1568,
+          "height": 296,
+          "bytes": 894684,
+          "sha256": "017db4ab35df90fafe0b147f47c6dc2c277f890b079005ff66c57b679709ba3f",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "label": "AVHRR 221 False Color corrected",
+          "width": 2800,
+          "height": 296,
+          "bytes": 1511819,
+          "sha256": "1ead07ed2a55a79bcd7782ee7e47b835f31cb322213b961ab3b9e5591648b9da",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR.png",
+          "label": "MCIR",
+          "width": 1568,
+          "height": 296,
+          "bytes": 817138,
+          "sha256": "c9a32ce7e2a6d846eac5b784d1d66b6213e2721b1a51b7cdd590f023fb061d5a",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MCIR.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MCIR.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR_corrected.png",
+          "label": "MCIR corrected",
+          "width": 2800,
+          "height": 296,
+          "bytes": 1436703,
+          "sha256": "348d913c3d2152688f8c14496581fa9af47970223b560a84b73b7b0ec44d6d3c",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA.png",
+          "label": "MSA",
+          "width": 1568,
+          "height": 304,
+          "bytes": 889568,
+          "sha256": "a81f3dd1da608994d5e11ca8b363d49b62db5d7c15a440a19ba7c956f6fc5c30",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSA.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSA.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA_corrected.png",
+          "label": "MSA corrected",
+          "width": 2800,
+          "height": 304,
+          "bytes": 1466359,
+          "sha256": "02edf22eb53cdee41f5a31a4a6887500becbfe9ce304cd33f285490dea56a151",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSA_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSA_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "label": "MSU-MR 124 False Color",
+          "width": 1568,
+          "height": 288,
+          "bytes": 1125517,
+          "sha256": "bfe8e9b4772cc4450031aee6daececf35f24c1f3f5f423f6b2a3423d4c797069",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "label": "MSU-MR 124 False Color corrected",
+          "width": 2800,
+          "height": 288,
+          "bytes": 2151490,
+          "sha256": "ff6fddf0c0066259d1b13fe760e1ff5f2367898f38a8659a2f47541100023a6b",
+          "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.webp"
+        }
+      ],
+      "featured": {
+        "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "label": "AVHRR 221 False Color corrected",
+        "width": 2800,
+        "height": 296,
+        "bytes": 1511819,
+        "sha256": "1ead07ed2a55a79bcd7782ee7e47b835f31cb322213b961ab3b9e5591648b9da",
+        "url": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "preview": "evidence/2026-11-05_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+      },
+      "evidence": [
+        {
+          "name": "capture-result.json",
+          "bytes": 2020,
+          "sha256": "22990997b71b56e6b97747db07e89a9b572faece2e1cad18637ebc928b1e1774",
+          "url": "evidence/2026-11-05_Meteor-M2-3/capture-result.json"
+        },
+        {
+          "name": "meteor_m2-x_lrpt.cadu",
+          "bytes": 401408,
+          "sha256": "f9f17d26d3c401e6f097ddd516f38e70a50dfabb70cc72a9ba18743c3dc80488",
+          "url": "evidence/2026-11-05_Meteor-M2-3/meteor_m2-x_lrpt.cadu"
+        },
+        {
+          "name": "README.md",
+          "bytes": 630,
+          "sha256": "af7bf53b398a992489b9b4e40d59c2652e9ea89763a50f5d1a5a644051f64d3e",
+          "url": "evidence/2026-11-05_Meteor-M2-3/README.md"
+        },
+        {
+          "name": "final-processing.log",
+          "bytes": 57667,
+          "sha256": "01eb308a6d38181aef3a4eda86cd1134feb11f52d3736bed731dffd22b90315a",
+          "url": "evidence/2026-11-05_Meteor-M2-3/final-processing.log"
+        }
+      ],
+      "notes": "Morning Meteor M2-3 reception, 5 November 2026.\n\nUser requested early stop; receiver stopped and final processing finished around 09:55 PHT. 392 unique 1024-byte CADUs (401408 bytes), consistent ASM 1acffc1d and header 4005. SatDump CADU processing exit code 0. Channel 1 image inspected: recognizable cloud imagery, short strip with missing sections. This is not a complete pass image.\n\nOriginal raw IQ remains on Pi at /home/adriel/wni-receiver/raw/2026-11-05_01-42-08_1024000SPS_137900000Hz.cs8 (1593180160 bytes); not copied to Mac. Final outputs and CADUs copied here. Autotrack GUI stopped and morning stop timer cancelled.\n",
+      "georeferencing": "unverified",
+      "processing_exit_code": 0
+    },
+    {
+      "id": "2026-11-04_Meteor-M2-3",
+      "satellite": "M2-3",
+      "started_utc": "2026-11-04T12:09:00+00:00",
+      "finished_utc": "2026-11-04T13:32:01.080702+00:00",
+      "frequency_mhz": 137.9,
+      "outcome": "partial",
+      "cadu_bytes": 138240,
+      "frames": 135,
+      "unique_frames": 135,
+      "sync_frames": 135,
+      "trailing_bytes": 0,
+      "size_matches_report": true,
+      "peak_snr_db": 4.903814,
+      "images": [
+        {
+          "name": "MSU-MR-1.png",
+          "label": "MSU-MR-1",
+          "width": 1568,
+          "height": 112,
+          "bytes": 47550,
+          "sha256": "67f7570d839258c0229e88600d1a052e93b5dbe3816d89e7c70f4f64a997ad1b",
+          "url": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-1.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-1.webp"
+        },
+        {
+          "name": "MSU-MR-2.png",
+          "label": "MSU-MR-2",
+          "width": 1568,
+          "height": 112,
+          "bytes": 47752,
+          "sha256": "d29d331e296d3ec6231e030136cacd232c3ce2c433036e228454f305ba3e2e53",
+          "url": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-2.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-2.webp"
+        },
+        {
+          "name": "MSU-MR-4.png",
+          "label": "MSU-MR-4",
+          "width": 1568,
+          "height": 112,
+          "bytes": 76027,
+          "sha256": "6d8e11adf6325adc35ab5929d153cf130b2d5498900199a5176c2a6e9998c463",
+          "url": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-4.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/MSU-MR-4.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated)",
+          "width": 1568,
+          "height": 112,
+          "bytes": 55418,
+          "sha256": "f556c07ae64d17008de2e98cb09a8da616e843b6aa19a8d8c165054e14349f9d",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Calibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Calibrated) corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 76928,
+          "sha256": "82426adbd85e9f979cba6c37787682cac443e552fdb46fcda5682c779a7abb1b",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Calibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated).png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated)",
+          "width": 1568,
+          "height": 112,
+          "bytes": 71872,
+          "sha256": "d6a48ee41e7cad0ac7a287873ca8856b9eeb8508f66f0068b0d045a953137bfb",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29.webp"
+        },
+        {
+          "name": "msu_mr_3.9_um_Shortwave_IR_(Uncalibrated)_corrected.png",
+          "label": "msu mr 3.9 um Shortwave IR (Uncalibrated) corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 177834,
+          "sha256": "31ec40c282e6ef69d6e8a58112785a9708b19b3c53ade7151a26f0b6dc84cabf",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_3.9_um_Shortwave_IR_%28Uncalibrated%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent).png",
+          "label": "3.9 um Cloud Tops (Transparent)",
+          "width": 1568,
+          "height": 112,
+          "bytes": 2109,
+          "sha256": "5ccb6216273aac8a1ce19ca1fd03d985a46ff5ab394b1eb0b0d4dc215d2de6db",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29.webp"
+        },
+        {
+          "name": "msu_mr_rgb_3.9_um_Cloud_Tops_(Transparent)_corrected.png",
+          "label": "3.9 um Cloud Tops (Transparent) corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 9275,
+          "sha256": "4dd93114d0ecaf130cc74520a221995e6ab6ddc3824e003af13df0ace8891e4a",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_3.9_um_Cloud_Tops_%28Transparent%29_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color.png",
+          "label": "AVHRR 221 False Color",
+          "width": 1568,
+          "height": 112,
+          "bytes": 116320,
+          "sha256": "914b0f73941208767dad9d9b78b906ceebac4baedef7d821e5330179a4361c48",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "label": "AVHRR 221 False Color corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 420606,
+          "sha256": "93ef7ec707975d19bd2c0ee0da20d2374b444fba58444509d1ceecf9b33263f0",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR.png",
+          "label": "MCIR",
+          "width": 1568,
+          "height": 112,
+          "bytes": 155021,
+          "sha256": "1856ac81ed8dbb5e315ab8ecb9003e8ccf5b4129017ac41a0b547ebe5d2f5e33",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MCIR.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MCIR.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MCIR_corrected.png",
+          "label": "MCIR corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 394490,
+          "sha256": "a4e17bd4a50075e73de4986206c159939cce4e1d1f3f9ea93c59c00172fda36e",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MCIR_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA.png",
+          "label": "MSA",
+          "width": 1568,
+          "height": 112,
+          "bytes": 100390,
+          "sha256": "9aa6f6f6aa0c8081fb833799319c0456d29bc1779ab0a77c1b77d99a00ab9d69",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSA.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSA.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSA_corrected.png",
+          "label": "MSA corrected",
+          "width": 2800,
+          "height": 112,
+          "bytes": 398167,
+          "sha256": "401f45b2521fbcce4ca4e365774828506f11d0522f4ebbc563f604629f610dde",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSA_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSA_corrected.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "label": "MSU-MR 124 False Color",
+          "width": 1568,
+          "height": 104,
+          "bytes": 181815,
+          "sha256": "dec68552b0aae6ff7fb156c76605b6860b9eb60e2ae93bb041bfa90ba453ce33",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color.webp"
+        },
+        {
+          "name": "msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "label": "MSU-MR 124 False Color corrected",
+          "width": 2800,
+          "height": 104,
+          "bytes": 647556,
+          "sha256": "755ad3978d62b1b96d286b3be4d4154e1e230ebfd235d6d4dee67138dd4269b0",
+          "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.png",
+          "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_MSU-MR_124_False_Color_corrected.webp"
+        }
+      ],
+      "featured": {
+        "name": "msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "label": "AVHRR 221 False Color corrected",
+        "width": 2800,
+        "height": 112,
+        "bytes": 420606,
+        "sha256": "93ef7ec707975d19bd2c0ee0da20d2374b444fba58444509d1ceecf9b33263f0",
+        "url": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.png",
+        "preview": "evidence/2026-11-04_Meteor-M2-3/msu_mr_rgb_AVHRR_221_False_Color_corrected.webp"
+      },
+      "evidence": [
+        {
+          "name": "capture-result.json",
+          "bytes": 2020,
+          "sha256": "c523d9b35aa444942c67c05959527ce07ad39795e4da9c8c17c29773b032912f",
+          "url": "evidence/2026-11-04_Meteor-M2-3/capture-result.json"
+        },
+        {
+          "name": "meteor_m2-x_lrpt.cadu",
+          "bytes": 138240,
+          "sha256": "bb6fe031961a8f30d82594bbcbd8a73b3530432d9818a99b2fca66a7b7a3871c",
+          "url": "evidence/2026-11-04_Meteor-M2-3/meteor_m2-x_lrpt.cadu"
+        },
+        {
+          "name": "README.md",
+          "bytes": 3091,
+          "sha256": "94bbe430c27eedfc61982b2bb7b3e75be6e78d26118156e015b7f6d83246ddcf",
+          "url": "evidence/2026-11-04_Meteor-M2-3/README.md"
+        },
+        {
+          "name": "native-reception.log",
+          "bytes": 137698,
+          "sha256": "0ddb848d05c363d10960237a265ebf162c34a21d57e2777158bfb94eab082438",
+          "url": "evidence/2026-11-04_Meteor-M2-3/native-reception.log"
+        },
+        {
+          "name": "final-processing.log",
+          "bytes": 57683,
+          "sha256": "5a6ad61d35ee578bdaa9c09769c0fe2725166a1112613b2b5a93878c1a308da7",
+          "url": "evidence/2026-11-04_Meteor-M2-3/final-processing.log"
+        }
+      ],
+      "notes": "# Local Meteor reception \u2014 4 November 2026\n\nActual antenna/RTL-SDR/Pi reception, not an archive/sample replay.\n\n- Native SatDump 1.2.2 ran Meteor M2-x LRPT 72k at 137.900 MHz and 1.024 MS/s,\n  with software DC blocking, RS checking, gain 38.6 dB, AGC/bias off.\n- Log polling observed both Viterbi and frame synchronization around\n  21:17:50\u201321:18:00 PHT, with intermittent loss of lock afterward.\n- Automatic capture stop executed at 21:32 PHT. Saved CADUs: 138,240 bytes,\n  or **135 validated 1024-byte frames**. Offline image processing exited 0.\n- Visual inspection of raw channel 4 and corrected MCIR shows a **short image\n  strip with cloud-like structure and missing data**, not a complete pass image.\n  This establishes partial local image reception; regional coverage, calibrated\n  quantities, map registration and scientific suitability are not validated.\n- `final_images/` contains derived outputs. `capture-result.json`, CADUs and\n  processing log were copied directly from the Pi. Multiple generated composites\n  represent the same limited capture, not multiple independent observations.\n- Full original CS8 IQ remains on the Pi at\n  `/home/adriel/wni-receiver/raw/2026-11-04_12-10-32_1024000SPS_137900000Hz.cs8`.\n  It has not been copied to the Mac in this handoff.\n\nPi capture directory:\n`/home/adriel/wni-receiver/decoded/2026-11-04_12-09_meteor_m2-x_lrpt_137.9 MHz/`.\n\n## Recovery and improvement assessment\n\nReplayed a 90-second excerpt spanning 21:17:10\u201321:18:40 PHT from the preserved\nCS8 recording on the Pi, with the standard 72k pipeline, 1.024 MS/s, DC blocking\nand RS checking. It recovered **239 distinct validated CADUs** versus 135 distinct\nCADUs in the original live capture. These are overlapping versions of the same\nreception and must not be added as independent frames/observations.\n\nThe recovered channel 4 image in `replay-baseline/MSU-MR-4.png` is 1568\u00d7336 pixels,\nversus 1568\u00d7112 for the original. Both remain limited fragments. The replay CADUs\nare `replay-baseline.cadu`; the native receiver log is `native-reception.log`.\nThe original raw IQ remains unchanged on the Pi. The excerpt is stored there at\n`~/wni-receiver/tests/recovery-20261104/2026-11-04_13-17-10_1024000SPS_137900000Hz.cs8`.\n\nTwo controlled replay trials changed only PLL bandwidth: 0.001 recovered zero\nframes; 0.004 recovered 61; standard 0.002 recovered 239. Therefore retain the\nstandard setting rather than adopting either trial. Results and replay log are\nin `replay-baseline/`. Higher replay yield does not by itself prove CPU drops,\nand it does not resolve why the received signal was weak/intermittent.\n\nThe user clarified that open ground lies beneath the dipole arms and reported\nno nearby water tank, railing or wall. Metal-roof interference is not established;\nactual antenna height and clearance remain uncertain. Priorities for another\nattempt: confirm dipole geometry and clearance, compare manual receiver gains\nusing valid-frame yield, and verify the existing filtered LNA's power method,\ndirection and SDR compatibility before a powered-vs-bypass comparison.\n",
+      "georeferencing": "unverified",
+      "processing_exit_code": 0
+    }
+  ],
+  "warnings": [],
+  "policy": "Local reception archive only. All displayed captures conservatively classified as partial. Image variants do not represent separate observations. ASM checks confirm framing, not independent RS revalidation. No geographic image overlays until scan timing and georeferencing are validated. Public coordinates are approximate. Two downloadable log copies have station coordinates withheld and their own SHA-256 hashes; original log hashes are retained as original_sha256."
+}

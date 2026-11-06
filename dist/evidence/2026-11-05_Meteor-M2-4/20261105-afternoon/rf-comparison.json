@@ -1,0 +1,38 @@
+[
+  {
+    "time": "14:55:00",
+    "band_to_reference_db": 2.06,
+    "sample_rms": 5.08,
+    "near_full_scale_percent": 0.0
+  },
+  {
+    "time": "14:57:00",
+    "band_to_reference_db": 6.42,
+    "sample_rms": 5.9,
+    "near_full_scale_percent": 0.0
+  },
+  {
+    "time": "14:58:30",
+    "band_to_reference_db": 13.4,
+    "sample_rms": 9.03,
+    "near_full_scale_percent": 0.0001
+  },
+  {
+    "time": "14:59:30",
+    "band_to_reference_db": 8.36,
+    "sample_rms": 6.22,
+    "near_full_scale_percent": 0.0
+  },
+  {
+    "time": "15:00:30",
+    "band_to_reference_db": 1.35,
+    "sample_rms": 4.92,
+    "near_full_scale_percent": 0.0001
+  },
+  {
+    "time": "15:01:30",
+    "band_to_reference_db": 3.97,
+    "sample_rms": 5.25,
+    "near_full_scale_percent": 0.0
+  }
+]

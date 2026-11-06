@@ -1,0 +1,3 @@
+# Evening Meteor M2-3 reception, November5 2026
+
+Native receiver started20:48:12PHT, stopped at explicit user request around20:59:20PHT before predictedLOS21:03:32. GUI and outstanding timers/monitor stopped. CADU finalizer exit0,27 PNG channel/composite/overlay variants saved.1459200CADUbytes,1425 unique1024byteframes,all expectedASM1acffc1d. RawIQ remains onPi; not copied toMac. Received image has substantial missing data, and higher elevation did not outperform afternoonM2-4. Do not claim perfect or fullpasscapture. Geographic overlays require independent scan-timestamp validation; prior afternoontimestamps were invalid. Original images retained.
