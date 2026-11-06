@@ -1,0 +1,8 @@
+.git
+.venv
+.cache
+__pycache__
+*.py
+requirements.txt
+.env*
+station.local.json
