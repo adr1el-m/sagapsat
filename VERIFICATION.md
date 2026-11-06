@@ -53,3 +53,17 @@ whose matching copy remains on the Mac SSD. Reclaimed 187,953,152 bytes (~188 MB
 An inventory of 304 reception/config-log files was unchanged. Raw IQ, CADUs, images,
 native logs, session evidence and replay data were preserved. Filesystem was about
 50% used with ~28 GiB available; it was not close to full.
+
+## Research extension — 6 November, v1.6
+
+The research section adds the verified IMERG Late Run comparison. All 96
+original source hashes, 144 complete box/hour values and 2,736 base/translated
+records reproduce offline in the research checkout. The public site contains
+sanitized result tables, provenance hashes, protocol and a comparison figure;
+full raw research files and the manuscript remain outside this repository.
+
+IMERG reverses three of four originally concordant CMORPH/PERSIANN wet-hour
+contrasts. The sole three-algorithm positive contrast is placement-sensitive.
+No daily contrast sign is shared by all three algorithms on either date. The
+page retains this disagreement and its one-west/two-east native-cell limitation.
+The six local receptions demonstrate acquisition, not validated pixel geography.
