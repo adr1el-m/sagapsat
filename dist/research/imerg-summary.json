@@ -1,0 +1,158 @@
+{
+  "source_hashes_verified": 96,
+  "hourly_records_verified": 144,
+  "placement_records_verified": 2736,
+  "daily": [
+    {
+      "date": "2026-09-17",
+      "west_mm": 81.22999757248908,
+      "east_mm": 57.78749846154824,
+      "pacific_mm": 6.9049998708069324,
+      "east_minus_west_mm": -23.442499110940844
+    },
+    {
+      "date": "2026-09-19",
+      "west_mm": 2.6899999380111694,
+      "east_mm": 4.037499872967601,
+      "pacific_mm": 1.274999987334013,
+      "east_minus_west_mm": 1.3474999349564314
+    }
+  ],
+  "known_four_two_algorithm_hours": [
+    {
+      "hour_utc": 11,
+      "cmorph_mm": 0.55,
+      "persiann_mm": 1.544167,
+      "imerg_mm": -2.5475001335144043,
+      "imerg_placement": {
+        "0.02": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 9,
+          "min_mm": -4.001250058412552,
+          "max_mm": -0.570000171661377
+        },
+        "0.05": {
+          "positive": 3,
+          "zero": 0,
+          "negative": 6,
+          "min_mm": -4.462500095367432,
+          "max_mm": 0.5812497138977051
+        }
+      }
+    },
+    {
+      "hour_utc": 13,
+      "cmorph_mm": 4.925,
+      "persiann_mm": 0.073333,
+      "imerg_mm": -4.367499470710754,
+      "imerg_placement": {
+        "0.02": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 9,
+          "min_mm": -8.732499659061432,
+          "max_mm": -4.367499470710754
+        },
+        "0.05": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 9,
+          "min_mm": -11.183749854564667,
+          "max_mm": -2.184999704360962
+        }
+      }
+    },
+    {
+      "hour_utc": 14,
+      "cmorph_mm": 4.525,
+      "persiann_mm": 1.835833,
+      "imerg_mm": -13.104999601840973,
+      "imerg_placement": {
+        "0.02": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 9,
+          "min_mm": -13.104999601840973,
+          "max_mm": -7.904999703168869
+        },
+        "0.05": {
+          "positive": 0,
+          "zero": 0,
+          "negative": 9,
+          "min_mm": -13.707499474287033,
+          "max_mm": -6.387499988079071
+        }
+      }
+    },
+    {
+      "hour_utc": 16,
+      "cmorph_mm": 3.8,
+      "persiann_mm": 4.046667,
+      "imerg_mm": 0.5850001275539398,
+      "imerg_placement": {
+        "0.02": {
+          "positive": 6,
+          "zero": 0,
+          "negative": 3,
+          "min_mm": -3.1499997973442078,
+          "max_mm": 1.1125000566244125
+        },
+        "0.05": {
+          "positive": 5,
+          "zero": 0,
+          "negative": 4,
+          "min_mm": -3.2124999463558197,
+          "max_mm": 2.980000138282776
+        }
+      }
+    }
+  ],
+  "groups": {
+    "all": {
+      "hours": 48,
+      "all_three_east_positive": 1,
+      "imerg_east_positive": 14,
+      "imerg_east_negative": 16,
+      "all_three_zero": 10
+    },
+    "easterly": {
+      "hours": 33,
+      "all_three_east_positive": 1,
+      "imerg_east_positive": 7,
+      "imerg_east_negative": 15,
+      "all_three_zero": 4
+    }
+  },
+  "spatial_support": {
+    "W_NUEVA_ECIJA": [
+      [
+        121.05,
+        15.75
+      ]
+    ],
+    "E_AURORA": [
+      [
+        121.35,
+        15.75
+      ],
+      [
+        121.45,
+        15.75
+      ]
+    ],
+    "U_PACIFIC": [
+      [
+        121.85,
+        15.75
+      ]
+    ]
+  },
+  "header_versions": [
+    "07B"
+  ],
+  "filename_revisions": [
+    "V07C"
+  ],
+  "scope": "Descriptive algorithm comparison on two dates, with unequal small native cell samples; not independent truth or terrain attribution"
+}

@@ -1,0 +1,5 @@
+date,product,west_complete_hours,west_24h_depth_mm,east_complete_hours,east_24h_depth_mm,upstream_complete_hours,upstream_24h_depth_mm,east_minus_west_24h_mm,east_minus_upstream_24h_mm
+2026-09-17,CMORPH,24,21.75,24,36.125,24,22.05,14.375,14.075
+2026-09-17,PERSIANN_CCS,24,23.146667,24,25.844168,24,3.050833,2.697501,22.793335
+2026-09-19,CMORPH,24,1.325,24,1.9,24,2.05,0.575,-0.15
+2026-09-19,PERSIANN_CCS,24,0.635,24,0.0,24,0.024167,-0.635,-0.024167
