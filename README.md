@@ -56,9 +56,9 @@ Composite variants are not separate observations. Original pixel data is retaine
 in PNG downloads; WebP previews are lossy presentation assets. Generated map products
 are withheld because scan timestamps/georeferencing have not been validated. The map
 shows predicted orbital geometry only. Orbit/downlink state does not prove reception.
-The station's configured QTH is private to the owner-private hosted Site and LAN portal.
+Exact station coordinates remain in the private local project; this public release uses an approximate observer location.
 
-The hosted Site is an **archive snapshot**, without a route into the Pi or receiver
+The public Vercel deployment is an **archive snapshot**, without a route into the Pi or receiver
 controls. Orbit position is interpolated from 30-second SGP4 samples, and the prediction
 snapshot expires after 48 hours. Rebuild and redeploy to refresh it; no cloud refresh,
 public live feed, automatic capture scheduling, or remote receiver control is implied.
@@ -93,3 +93,7 @@ and stale/unavailable status handling. See `VERIFICATION.md` for observed result
 Public coordinates use an approximate Metro Manila location (14.6, 121.0). For your own local predictions, set `SAGAPSAT_LATITUDE` and `SAGAPSAT_LONGITUDE` before building. Exact antenna coordinates are excluded. Two exported log copies have coordinate values withheld; the manifest hashes the public copies and retains `original_sha256` for comparison with private originals. PNG and CADU downloads remain byte-identical. The private Sites source history is excluded from this public repository.
 
 Production domain: https://sagapsat.adrielmagalona.com
+
+## Independent hosting
+
+Production: https://sagapsat.adrielmagalona.com (Vercel). The site is public and does not require an OpenAI or ChatGPT account. The GitHub `main` branch is connected to Vercel project `sagapsat` in the owner's personal project scope. `vercel.json` serves `dist` as static assets without a framework build. Pushes to `main` deploy the committed snapshot. `https://sagapsat.vercel.app` is the alternate production URL.
