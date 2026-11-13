@@ -47,7 +47,7 @@ original evidence, compressed image previews, and JSON manifests.
 ## Public feeds and automatic publishing
 
 The Vercel site reads `/api/feed?kind=station`, `archive`, and `orbits`. A Pi service
-pushes station health outbound every five minutes while idle and every minute while
+pushes station health outbound every five minutes while idle and approximately every 15 seconds while
 SatDump is running. RF estimates require a native log sample less than 90 seconds old;
 the station heartbeat expires after six minutes. No inbound Pi ports, receiver controls,
 SSH credentials, precise station coordinates, or Blob write credentials are exposed.
@@ -65,7 +65,12 @@ They use the public approximate Metro Manila location, not exact antenna coordin
 If the Pi or uplink is unavailable, feed ages and the 48-hour orbit expiry remain
 visible. Static JSON files provide a deployment fallback, not fabricated live status.
 
-Publisher runtime: `scripts/publisher.py` plus bundled `scripts/upload-assets.cjs`,
+During reception, the monitor shows an MSU-MR quick-look built from complete CADU
+records in the growing file. The preview updates approximately every 35–50 seconds
+as decodable data arrives and expires 110 seconds after its latest frame data.
+See [Operations](OPERATIONS.md) for Pi installation and verification.
+
+Publisher runtime: `scripts/publisher.py` and `scripts/live_preview.py` plus bundled `scripts/upload-assets.cjs`,
 `build.py`, and `analysis.py`. `SAGAPSAT_INGEST_SECRET` is a Vercel production secret;
 the matching Pi secret file has mode 0600. Never commit either secret or `.env*`.
 The Pi uses a dedicated user systemd service, `sagapsat-publisher.service`.

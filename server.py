@@ -37,6 +37,7 @@ def main():
     args=ap.parse_args()
     status={'connected':False,'message':'Live station probe is not configured.'}
     lock=threading.Lock()
+    live_file=Path.home()/'wni-receiver/sagapsat-publisher/station-live.json'
     def probe():
         previous=None
         while True:
@@ -75,7 +76,16 @@ def main():
     class Handler(SimpleHTTPRequestHandler):
         def do_GET(self):
             if self.path.split('?')[0]=='/station.json':
-                with lock:body=json.dumps(status).encode()
+                with lock:data=status.copy()
+                if args.pi=='local':
+                    try:
+                        sample=json.loads(live_file.read_text())
+                        age=time.time()-dt.datetime.fromisoformat(sample['sampled_utc']).timestamp()
+                        if -10 <= age < 90:
+                            data=sample
+                    except (OSError, ValueError, KeyError, TypeError):
+                        pass
+                body=json.dumps(data).encode()
                 self.send_response(200);self.send_header('Content-Type','application/json');self.send_header('Cache-Control','no-store');self.send_header('Content-Length',str(len(body)));self.end_headers();self.wfile.write(body)
             else:super().do_GET()
         def end_headers(self):

@@ -6,6 +6,7 @@ from urllib.request import Request,urlopen
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import build
 from analysis import satellite
+from live_preview import LivePreview, latest_cadu
 
 def command(args):
     try:return subprocess.check_output(args,text=True,timeout=5).strip()
@@ -18,15 +19,15 @@ def main():
     lock_handle=(home/'publisher.lock').open('w')
     fcntl.flock(lock_handle,fcntl.LOCK_EX|fcntl.LOCK_NB)
     secret=home/'secret';state=home/'published.json';done=json.loads(state.read_text()) if state.exists() else {}
-    token=secret.read_text().strip();previous=None;last_station=0;last_orbits=0
+    token=secret.read_text().strip();previous=None;last_station=0;last_orbits=0;last_active=None;preview=LivePreview()
     def post(kind,data):
         req=Request(args.base+'/api/publish',data=json.dumps({'kind':kind,'data':data}).encode(),headers={'Authorization':'Bearer '+token,'Content-Type':'application/json'})
         with urlopen(req,timeout=30) as res:return json.load(res)
     def heartbeat():
-        nonlocal previous,last_station
-        decoded=root/'decoded';files=list(decoded.glob('*/meteor_m2-x_lrpt.cadu'));latest=max(files,key=lambda p:p.stat().st_mtime) if files else None
+        nonlocal previous,last_station,last_active
+        latest,stat=latest_cadu(root)
         running=bool(command(['pgrep','-x','satdump-ui']) or command(['pgrep','-x','satdump']))
-        n=latest.stat().st_size if latest else 0;identity=str(latest) if latest else None
+        n=stat.st_size if stat else 0;identity=(latest,stat.st_ino) if stat else None
         growth=bool(previous and previous[0]==identity and n>previous[1]);previous=(identity,n)
         sample=dict(sampled_utc=dt.datetime.now(dt.timezone.utc).isoformat(),sdr_present=bool(command(['lsusb','-d','0bda:2838'])),satdump_running=running,frames_growing=growth,frames=n//1024,free_gb=round(__import__('shutil').disk_usage(root).free/1e9,1),temperature=command(['vcgencmd','measure_temp']),throttled=command(['vcgencmd','get_throttled']))
         # Only expose recent decoder estimates; saved log values never become live RF.
@@ -43,15 +44,21 @@ def main():
                 lock=re.search(r'Deframer\s*:\s*(NOSYNC|SYNCED|SYNC)',line)
                 if snr:sample.update(snr_db=float(snr[1]),telemetry_utc=timestamp.isoformat())
                 if lock:sample.update(frame_lock=lock[1] in ['SYNC','SYNCED'],telemetry_utc=timestamp.isoformat())
-        sample['phase']='receiving' if growth else 'processing' if command(['pgrep','-x','satdump']) else 'armed' if running else 'idle'
-        if time.time()-last_station>(60 if running else 300) or args.once:
-            post('station',sample);last_station=time.time()
+        image=preview.update(latest,stat,running)
+        sample.update(connected=True, preview=image)
+        sample['phase']='receiving' if growth or image else 'processing' if command(['pgrep','-x','satdump']) else 'armed' if running else 'idle'
+        local_sample=home/'station-live.json'
+        temp=local_sample.with_suffix('.tmp')
+        temp.write_text(json.dumps(sample,separators=(',',':')))
+        temp.replace(local_sample)
+        if running or last_active != running or time.time()-last_station>=275 or args.once:
+            post('station',sample);last_station=time.time();last_active=running
 
     def heartbeat_loop():
         while True:
             try:heartbeat()
             except Exception as exc:print('Heartbeat retry pending:',type(exc).__name__,flush=True)
-            time.sleep(30)
+            time.sleep(15)
     if not args.once:
         import threading
         threading.Thread(target=heartbeat_loop,daemon=True).start()
