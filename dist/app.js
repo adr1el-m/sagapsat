@@ -1,9 +1,9 @@
 'use strict';
 const $=id=>document.getElementById(id), fmt=new Intl.NumberFormat('en-PH');
-let archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass;
+let archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass,inspectedPass,highestPass;
 const date=(v,options={})=>v?new Date(v).toLocaleString('en-PH',{timeZone:'Asia/Manila',day:'2-digit',month:'short',year:'numeric',...options}):'Not recorded';
 const time=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}):'—';
-const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'2-digit',minute:'2-digit',hour12:false}):'—';
+const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'numeric',minute:'2-digit',hour12:true}):'—';
 const snr=v=>Number.isFinite(v)?v.toFixed(2)+' dB':'Not logged';
 const countdown=v=>{const s=Math.floor((new Date(v)-Date.now())/1000);if(s<=0)return 'IN PASS';return `${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor(s%3600/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
 function make(tag,text,className){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e}
@@ -44,10 +44,56 @@ function openCapture(c){
  imageSelection();$('captureDialog').showModal();if(typeof qualityChart==='function')qualityChart(c);if(typeof applyZoom==='function'){zoomScale=1;applyZoom()}$('copyCaptureLink').textContent='Copy capture link ↗';history.replaceState(null,'','#capture='+encodeURIComponent(c.id));
 }
 function exportCalendar(p){const utc=v=>new Date(v).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');const value=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Team Magalona//SagapSat//EN','BEGIN:VEVENT',`UID:${utc(p.aos)}-${p.satellite}@sagapsat.local`,`DTSTAMP:${utc(new Date())}`,`DTSTART:${utc(p.aos)}`,`DTEND:${utc(p.los)}`,`SUMMARY:Meteor ${p.satellite} predicted pass`,`DESCRIPTION:Peak ${p.max_elevation} degrees. 10 degree horizon mask. Predicted geometry only. Recording is not automatically scheduled.`,'END:VEVENT','END:VCALENDAR'].join('\r\n');download(`meteor-${p.satellite}-${utc(p.aos)}.ics`,value,'text/calendar')}
+function passKey(pass){
+ return pass ? pass.satellite+'|'+pass.aos : null;
+}
+function selectSatellite(satellite){
+ selectedSatellite=satellite;
+ for(const button of $('satTabs').children){
+  const selected=button.dataset.sat===satellite;
+  button.classList.toggle('selected',selected);
+  button.setAttribute('aria-pressed',String(selected));
+ }
+}
+function inspectPass(pass){
+ inspectedPass=passKey(pass);
+ selectSatellite(pass.satellite);
+ tick();
+ $('passDetails').focus({preventScroll:true});
+ $('passDetails').scrollIntoView({block:'center'});
+}
+function updatePassSelection(){
+ for(const button of $('passes').querySelectorAll('[data-pass]')){
+  button.setAttribute('aria-pressed',String(button.dataset.pass===passKey(currentPass)));
+ }
+}
 function renderPasses(){
- const all=upcoming(),min=Number($('elevationFilter').value);$('passes').replaceChildren();
- for(const p of all.filter(p=>p.max_elevation>=min)){const row=make('tr');for(const text of ['METEOR '+p.satellite,date(p.aos),shortTime(p.aos),`${p.max_elevation.toFixed(1)}°`,shortTime(p.los),`${Math.floor(p.duration_seconds/60)}m ${p.duration_seconds%60}s`])row.append(make('td',text));const bar=make('span',undefined,'elevation-bar'),fill=make('i');fill.style.width=(p.max_elevation/90*100)+'%';bar.append(fill);row.children[3].append(bar);const cell=make('td'),button=make('button','↓ .ics','text-button');button.setAttribute('aria-label',`Add Meteor ${p.satellite} pass ${date(p.aos)} ${shortTime(p.aos)} to calendar`);button.onclick=()=>exportCalendar(p);cell.append(button);row.append(cell);$('passes').append(row)}
- if(!$('passes').children.length){const td=make('td','No upcoming passes available at this filter. Orbital data may need refreshing.');td.colSpan=7;const tr=make('tr');tr.append(td);$('passes').append(tr)}
+ const all=upcoming(),min=Number($('elevationFilter').value);
+ highestPass=all.reduce((highest,pass)=>!highest||pass.max_elevation>highest.max_elevation?pass:highest,null);
+ $('highestPass').disabled=!highestPass;
+ $('passes').replaceChildren();
+ for(const p of all.filter(p=>p.max_elevation>=min)){
+  const row=make('tr');
+  for(const text of ['METEOR '+p.satellite,date(p.aos),shortTime(p.aos),`${p.max_elevation.toFixed(1)}°`,shortTime(p.los),`${Math.floor(p.duration_seconds/60)}m ${p.duration_seconds%60}s`])row.append(make('td',text));
+  const bar=make('span',undefined,'elevation-bar'),fill=make('i');
+  fill.style.width=(p.max_elevation/90*100)+'%';
+  bar.append(fill);row.children[3].append(bar);
+  const cell=make('td',undefined,'pass-actions');
+  const inspect=make('button','Inspect','text-button'), calendar=make('button','↓ .ics','text-button');
+  const description=`Meteor ${p.satellite} pass ${date(p.aos)} ${shortTime(p.aos)}`;
+  inspect.dataset.pass=passKey(p);
+  inspect.setAttribute('aria-label','Inspect '+description);
+  inspect.onclick=()=>inspectPass(p);
+  calendar.setAttribute('aria-label','Add '+description+' to calendar');
+  calendar.onclick=()=>exportCalendar(p);
+  cell.append(inspect,calendar);row.append(cell);$('passes').append(row);
+ }
+ if(!$('passes').children.length){
+  const td=make('td',all.length?'No upcoming passes meet this elevation filter.':'No upcoming passes in the current forecast.');
+  td.colSpan=7;
+  const row=make('tr');row.append(td);$('passes').append(row);
+ }
+ updatePassSelection();
 }
 function sample(sat,instant){if(!sat)return null;const n=(instant-new Date(sat.start_utc))/1000/sat.step_seconds;if(n<0||n>=sat.points.length-1)return null;const i=Math.floor(n),f=n-i,a=sat.points[i],b=sat.points[i+1];return a.map((v,j)=>{let d=b[j]-v;if(j===1||j===4){if(d>180)d-=360;if(d< -180)d+=360}let x=v+d*f;if(j===1)x=((x+540)%360)-180;if(j===4)x=(x+360)%360;return x})}
 function canvas(id){const c=$(id),r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);c.width=r.width*dpr;c.height=r.height*dpr;const x=c.getContext('2d');x.scale(dpr,dpr);return {x,w:r.width,h:r.height}}
@@ -65,9 +111,16 @@ function drawMap(){
 function drawSky(){const {x,w,h}=canvas('skyplot');x.clearRect(0,0,w,h);const p=currentPass;if(!p)return;const sat=orbital.satellites.find(s=>s.name===p.satellite);const start=+new Date(p.aos),end=+new Date(p.los);x.strokeStyle='#2c4045';x.lineWidth=1;x.beginPath();x.moveTo(18,h-18);x.lineTo(w-12,h-18);x.stroke();x.fillStyle='#91a7a7';x.font='8px system-ui';x.fillText('90°',0,12);x.fillText('10°',0,h-15);x.strokeStyle='#b8edab';x.lineWidth=1.6;x.beginPath();for(let i=0;i<=80;i++){const point=sample(sat,start+(end-start)*i/80);if(!point)continue;const px=22+i*(w-38)/80,py=h-18-(point[3]-10)/80*(h-30);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.fillStyle='#b8edab';x.fillText(`${p.max_elevation.toFixed(1)}° MAX`,w/2-20,14)}
 function tick(){
  $('clock').textContent=time(new Date())+' PHT';const available=upcoming(),first=available[0];$('nextCountdown').textContent=first?countdown(first.aos):'—';$('nextSummary').textContent=first?`Meteor ${first.satellite} · ${first.max_elevation.toFixed(1)}° peak`:'Refresh orbital predictions';
- currentPass=available.find(p=>p.satellite===selectedSatellite);$('calendar').disabled=!currentPass;
+ const selected=available.find(p=>passKey(p)===inspectedPass);
+ if(!selected)inspectedPass=null;
+ const previous=passKey(currentPass);
+ currentPass=selected||available.find(p=>p.satellite===selectedSatellite);
+ if(previous!==passKey(currentPass))updatePassSelection();
+ $('highestPass').disabled=!available.length||!highestPass||new Date(highestPass.los)<=Date.now();
+ $('passHeading').textContent=selected?'SELECTED FORECAST PASS':'NEXT PASS / SELECTED SATELLITE';
+ $('calendar').disabled=!currentPass;
  if(currentPass){$('passSatellite').textContent='METEOR '+currentPass.satellite;$('passCountdown').textContent=countdown(currentPass.aos);$('passDate').textContent=date(currentPass.aos)+' · Philippine time';$('passAos').textContent=shortTime(currentPass.aos);$('passPeak').textContent=shortTime(currentPass.peak);$('passLos').textContent=shortTime(currentPass.los);$('passNote').textContent=`${currentPass.max_elevation.toFixed(1)}° maximum elevation · ${Math.floor(currentPass.duration_seconds/60)}m ${currentPass.duration_seconds%60}s above 10°. Verify the active downlink before recording.`}
- else{$('passSatellite').textContent='METEOR '+selectedSatellite;$('passCountdown').textContent='Unavailable';$('passDate').textContent='No upcoming prediction in this snapshot';for(const id of ['passAos','passPeak','passLos'])$(id).textContent='—'}
+ else{$('passSatellite').textContent='METEOR '+selectedSatellite;$('passCountdown').textContent='Unavailable';$('passDate').textContent='No upcoming prediction in this snapshot';for(const id of ['passAos','passPeak','passLos'])$(id).textContent='—';$('passNote').textContent='Check the forecast again when fresh orbital data is available.'}
  if(orbital){const age=(Date.now()-new Date(orbital.generated_utc))/3600000,expired=Date.now()>new Date(orbital.valid_until_utc);$('orbitState').textContent=expired?'PREDICTIONS EXPIRED':orbital.satellites.length?`COMPUTED TRACKING · ${age.toFixed(1)}H SNAPSHOT`:'ORBIT DATA UNAVAILABLE';if(expired)$('passNote').textContent='Orbital snapshot expired. Rebuild to refresh predictions.'}
  drawMap();drawSky();
 }
@@ -82,15 +135,23 @@ async function stationPoll(){
  }catch(e){$('stationState').textContent='FEED UNAVAILABLE';for(const id of ['liveFrames','liveSnr','liveLock'])$(id).textContent='—';$('livePhase').textContent='OFFLINE';$('probeStatus').textContent='Unavailable';$('probeHealth').hidden=true;$('probeNote').textContent='Live hardware status is unavailable. Archived captures remain accessible.'}
 }
 async function init(){
- try{archive=await get('archive.json');renderArchive();
- }catch(e){$('error').hidden=false;$('error').textContent='Archive unavailable: '+e.message}
- try{orbital=await get('orbits.json');if(orbital.errors.length){$('error').hidden=false;$('error').textContent='Orbit data: '+orbital.errors.join('; ')}renderPasses()}catch(e){$('orbitState').textContent='ORBIT DATA UNAVAILABLE';$('tleInfo').textContent=e.message}
- try{coastline=await get('coastline.json')}catch(e){$('error').hidden=false;$('error').textContent+=' Basemap unavailable; orbit coordinates are still shown.'}
+ const reportError=message=>{$('error').hidden=false;$('error').textContent+=($('error').textContent?' ':'')+message};
+ const loadArchive=get('archive.json').then(data=>{archive=data;renderArchive()}).catch(e=>reportError('Archive unavailable: '+e.message));
+ const loadOrbits=get('orbits.json').then(data=>{
+  orbital=data;
+  if(data.errors.length)reportError('Orbit data: '+data.errors.join('; '));
+  renderPasses();
+  tick();
+ }).catch(e=>{$('orbitState').textContent='ORBIT DATA UNAVAILABLE';$('tleInfo').textContent=e.message});
+ const loadCoastline=get('coastline.json').then(data=>{coastline=data;drawMap()}).catch(()=>reportError('Basemap unavailable; orbit coordinates are still shown.'));
+ await Promise.all([loadArchive,loadOrbits,loadCoastline]);
  if(typeof refreshCoverage==='function')refreshCoverage();const local=/localhost|127\.0\.0\.1|\.local$/.test(location.hostname);$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();stationPoll();setInterval(stationPoll,30000);setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(fresh.generated_utc!==archive?.generated_utc){archive=fresh;renderArchive();$('captureCount').textContent=String(archive.captures.length).padStart(2,'0');$('totalFrames').textContent=fmt.format(archive.captures.reduce((n,c)=>n+c.unique_frames,0));$('updated').textContent='Archive updated '+date(archive.generated_utc,{hour:'2-digit',minute:'2-digit'})+' PHT'}}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
 }
-$('satTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-sat]');if(!b)return;selectedSatellite=b.dataset.sat;for(const button of $('satTabs').children)button.classList.toggle('selected',button===b);tick()});
+$('satTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-sat]');if(!b)return;inspectedPass=null;selectSatellite(b.dataset.sat);tick()});
 $('archiveTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;archiveFilter=b.dataset.filter;for(const button of $('archiveTabs').children)button.classList.toggle('selected',button===b);renderArchive()});
 $('search').addEventListener('input',()=>archive&&renderArchive());$('elevationFilter').addEventListener('change',renderPasses);$('calendar').onclick=()=>currentPass&&exportCalendar(currentPass);
+$('highestPass').onclick=()=>highestPass&&inspectPass(highestPass);
+selectSatellite(selectedSatellite);
 $('closeDialog').onclick=()=>$('captureDialog').close();$('captureDialog').addEventListener('click',e=>{if(e.target===$('captureDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
 $('productSelect').onchange=$('compareSelect').onchange=imageSelection;$('zoomButton').onclick=()=>{const native=$('viewer').classList.toggle('native');$('zoomButton').textContent=native?'Fit to viewer':'View at native size';imageSelection()};
 $('exportCsv').onclick=()=>{if(!archive)return;const rows=[['capture','satellite','started_utc','finished_utc','outcome','cadu_bytes','records','distinct_records','expected_asm','trailing_bytes','peak_logged_snr_db','image_variants','georeferencing'],...archive.captures.map(c=>[c.id,c.satellite,c.started_utc,c.finished_utc,c.outcome,c.cadu_bytes,c.frames,c.unique_frames,c.sync_frames,c.trailing_bytes,c.peak_snr_db,c.images.length,c.georeferencing])];download('sagapsat-capture-index.csv',rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n'),'text/csv')};
