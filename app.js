@@ -7,6 +7,10 @@ const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Mani
 const snr=v=>Number.isFinite(v)?v.toFixed(2)+' dB':'Not logged';
 const countdown=v=>{const s=Math.floor((new Date(v)-Date.now())/1000);if(s<=0)return 'Above horizon';return `${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor(s%3600/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
 function make(tag,text,className){const e=document.createElement(tag);if(text!==undefined)e.textContent=text;if(className)e.className=className;return e}
+function captureThumbnail(c){
+ if(c.thumbnail===undefined)return c.featured;
+ return c.images.find(image=>image.name===c.thumbnail);
+}
 const local=location.port==='8088'||['localhost','127.0.0.1','[::1]'].includes(location.hostname)||location.hostname.endsWith('.local');
 async function get(url){const kind=/^(station|archive|orbits)\.json$/.exec(url)?.[1];if(kind&&!local){try{const r=await fetch('/api/feed?kind='+kind,{cache:'no-cache',signal:AbortSignal.timeout(12000)});if(r.ok)return await r.json()}catch{}}const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error(`${url}: ${r.status}`);return r.json()}
 function download(name,data,type){const u=URL.createObjectURL(new Blob([data],{type})),a=make('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000)}
@@ -46,7 +50,8 @@ function renderReception(){
   }
  }
  const showingLive=displayedPreview&&now-Date.parse(displayedPreview.received_utc)<110000;
- const feature=archive?.captures.find(c=>c.featured);
+ const feature=archive?.captures.find(captureThumbnail);
+ const thumbnail=feature&&captureThumbnail(feature);
  const showArchive=feature&&!active;
  live.hidden=!showingLive;
  $('featureImage').hidden=!showArchive;
@@ -60,7 +65,7 @@ function renderReception(){
   $('featureSat').textContent='MSU-MR · Channel '+displayedPreview.channel;
   $('featureTime').textContent='Updated '+shortTime(displayedPreview.received_utc)+' PHT · Incomplete scan';
  }else if(showArchive){
-  if($('featureImage').getAttribute('src')!==feature.featured.preview)$('featureImage').src=feature.featured.preview;
+  if($('featureImage').getAttribute('src')!==thumbnail.preview)$('featureImage').src=thumbnail.preview;
   $('featureImage').alt='Archived Meteor '+feature.satellite+' satellite image';
   $('featureSat').textContent='Meteor '+feature.satellite;
   $('featureTime').textContent=date(feature.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT · '+fmt.format(feature.unique_frames)+' distinct CADUs';
@@ -88,7 +93,19 @@ function renderArchive(){
  const captures=archive.captures.filter(c=>(archiveFilter==='all'||c.satellite===archiveFilter)&&(`${c.id} ${date(c.started_utc)} ${c.satellite}`).toLowerCase().includes(q));
  $('emptyArchive').hidden=!!captures.length;
  for(const c of captures){const card=make('button',undefined,'capture-card');card.type='button';card.setAttribute('aria-label',`Inspect Meteor ${c.satellite}, ${date(c.started_utc)}`);
- const thumb=make('div',undefined,'capture-thumb');if(c.featured){const img=make('img');img.src=c.featured.preview;img.alt=`Meteor ${c.satellite} partial satellite image`;img.loading='lazy';thumb.append(img)}thumb.append(make('span',c.outcome==='partial'?'PARTIAL CAPTURE':c.outcome==='frames'?'FRAMES ONLY':'NO FRAMES','tag amber'));
+ const thumb=make('div',undefined,'capture-thumb');
+ const thumbnail=captureThumbnail(c);
+ if(thumbnail){
+  const fragment=thumbnail.width>thumbnail.height*8;
+  const img=make('img');img.src=thumbnail.preview;img.alt=`Meteor ${c.satellite} ${fragment?'scan fragment':'partial satellite image'}`;img.loading='lazy';thumb.append(img);
+  if(fragment){
+   thumb.classList.add('capture-fragment');
+   thumb.append(make('span','Short scan fragment','capture-preview-note'));
+  }
+ }else{
+  thumb.append(make('span',c.images.length?'No clear preview':'No image received','capture-preview-note'));
+ }
+ thumb.append(make('span',c.outcome==='partial'?'PARTIAL CAPTURE':c.outcome==='frames'?'FRAMES ONLY':'NO FRAMES','tag amber'));
  const body=make('div',undefined,'capture-body');body.append(make('h3','METEOR '+c.satellite),make('div',date(c.started_utc,{hour:'2-digit',minute:'2-digit'})+' PHT','capture-date'));
  const metrics=make('div',undefined,'capture-meta');for(const [label,value] of [['DISTINCT CADUs',fmt.format(c.unique_frames)],['PEAK SNR',snr(c.peak_snr_db)],['PRODUCTS',c.images.length]]){const item=make('div');item.append(make('small',label),make('b',String(value)));metrics.append(item)}body.append(metrics,make('span','Inspect image & evidence ↗','capture-link'));card.append(thumb,body);card.addEventListener('click',()=>openCapture(c));$('captureGrid').append(card)}
 }
@@ -104,7 +121,7 @@ function imageSelection(){
 function openCapture(c){
  currentCapture=c;$('dialogTitle').textContent=`METEOR ${c.satellite} · ${date(c.started_utc)}`;$('productSelect').replaceChildren();$('compareSelect').replaceChildren(new Option('No comparison',''));
  c.images.forEach((im,i)=>{$('productSelect').add(new Option(im.label,i));$('compareSelect').add(new Option(im.label,i))});
- $('productSelect').value=Math.max(0,c.images.findIndex(im=>im.name===c.featured?.name));
+ $('productSelect').value=Math.max(0,c.images.findIndex(im=>im.name===(captureThumbnail(c)||c.featured)?.name));
  $('viewer').classList.remove('native');$('zoomButton').textContent='View at native size';$('captureNotes').textContent=c.notes;
  $('detailMetrics').replaceChildren();
  for(const [label,value] of [['Distinct CADUs',fmt.format(c.unique_frames)],['Complete records',fmt.format(c.frames)],['Expected ASM',`${fmt.format(c.sync_frames)} / ${fmt.format(c.frames)}`],['Trailing bytes',String(c.trailing_bytes)],['Peak logged SNR',snr(c.peak_snr_db)],['Image variants',String(c.images.length)],['Reported size',c.size_matches_report?'Matches file':'MISMATCH'],['Georeferencing','Unverified']]){const e=make('div');e.append(make('small',label),make('strong',value));$('detailMetrics').append(e)}

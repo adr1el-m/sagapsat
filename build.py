@@ -38,6 +38,13 @@ def digest(path):
 def iso(value):
     return value.astimezone(UTC).isoformat()
 
+def has_thumbnail_detail(image):
+    """Require horizontal detail across enough rows to exclude mostly empty scans."""
+    height = min(160, max(10, image.height // 12))
+    sample = image.convert('L').resize((96, height), Image.Resampling.LANCZOS)
+    row_contrast = np.abs(np.diff(np.asarray(sample, dtype=np.int16), axis=1)).mean(axis=1)
+    return float(np.mean(row_contrast > 3)) >= 0.25
+
 def archive(source, out):
     captures = []
     warnings = []
@@ -75,6 +82,7 @@ def archive(source, out):
                     evidence.append({'name': name, 'bytes': public_file.stat().st_size,
                                      'original_sha256': original_hash, 'sha256': digest(public_file), 'url': 'evidence/'+quote(capture_id)+'/'+quote(name)})
             images = []
+            thumbnail_candidates = set()
             # Index finalizer-declared products only; omit map overlays whose scan
             # timestamps have not been validated. Composites are product variants.
             for rel in sorted(set(meta.get('images', []))):
@@ -87,6 +95,8 @@ def archive(source, out):
                 shutil.copy2(p, target)
                 with Image.open(p) as im:
                     width, height = im.size
+                    if has_thumbnail_detail(im):
+                        thumbnail_candidates.add(p.name)
                     im = im.convert('RGB')
                     im.thumbnail((1600, 1100))
                     preview = target.with_suffix('.webp')
@@ -97,6 +107,12 @@ def archive(source, out):
                                'preview': 'evidence/'+quote(capture_id)+'/'+quote(preview.name)})
             preferred = next((x for x in images if x['name']=='msu_mr_rgb_AVHRR_221_False_Color_corrected.png'),
                              next((x for x in images if x['name']=='MSU-MR-1.png'), images[0] if images else None))
+            thumbnail_order = (
+                'msu_mr_rgb_AVHRR_221_False_Color_corrected.png',
+                'msu_mr_rgb_MCIR_corrected.png', 'MSU-MR-4.png',
+            )
+            thumbnail = next((name for name in thumbnail_order if name in thumbnail_candidates),
+                             min(thumbnail_candidates, default=None))
             log = '\n'.join((folder/name).read_text(errors='replace') for name in names
                             if name.endswith(('native-reception.log', 'progress.jsonl')) and (folder/name).exists())
             snrs = [float(x) for x in re.findall(r'SNR\s*:\s*(-?\d+(?:\.\d+)?)', log)]
@@ -111,7 +127,7 @@ def archive(source, out):
                 'sync_frames': sync, 'trailing_bytes': len(raw)%1024,
                 'size_matches_report': len(raw)==meta.get('cadu_bytes'),
                 'peak_snr_db': max(snrs) if snrs else None,
-                'images': images, 'featured': preferred, 'evidence': evidence,
+                'images': images, 'featured': preferred, 'thumbnail': thumbnail, 'evidence': evidence,
                 'notes': notes or 'Image completeness has not been independently measured. Geographic placement is unverified.',
                 'georeferencing': 'unverified', 'processing_exit_code': meta.get('exit_code')})
         except (OSError, ValueError, KeyError) as e:

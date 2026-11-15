@@ -78,3 +78,7 @@
   .pass-strip { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3px 10px; }
   .pass-strip a { grid-column: 2; grid-row: 1 / span 2; }
 }
+
+.capture-preview-note{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:10px;color:var(--muted)}
+.capture-fragment{display:flex;align-items:center}
+.capture-fragment img{height:64px;object-fit:cover}
