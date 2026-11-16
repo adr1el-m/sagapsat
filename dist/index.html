@@ -15,33 +15,38 @@
   </div>
 </header>
 <main id="main">
-<section id="archive" aria-labelledby="archiveTitle">
+<section id="archive" aria-labelledby="latestTitle">
   <header class="archive-heading">
-    <div>
-      <h1 id="archiveTitle">Reception archive</h1>
-      <p class="archive-location">Meteor LRPT · Metro Manila, Philippines</p>
-    </div>
-    <a class="archive-jump" href="#receptions">Browse all receptions ↓</a>
+    <span>Metro Manila <span aria-hidden="true">/</span> Meteor LRPT</span>
+    <a class="archive-jump" href="#receptions">Reception archive ↓</a>
   </header>
   <div class="archive-masthead">
     <section class="latest-capture" aria-labelledby="latestTitle">
       <header class="latest-heading">
-        <div><h2 id="latestTitle">Latest capture</h2><p id="latestTime"></p></div>
-        <p id="latestSatellite"></p>
+        <div><p class="latest-label">Latest capture</p><h1 id="latestTitle">Meteor reception</h1><p id="latestTime"></p></div>
+        <button class="outline-button" type="button" id="latestOpen" disabled>Open capture ↗</button>
       </header>
       <div class="latest-view">
         <button type="button" id="latestView" aria-label="Open the latest image in the capture viewer" hidden><img id="latestImage" alt="" crossorigin="anonymous" fetchpriority="high"></button>
-        <p id="latestStatus">Loading the latest reception…</p>
+        <div id="latestComparison" hidden>
+          <img id="latestCompareImage" crossorigin="anonymous" alt="">
+          <div class="image-divider" aria-hidden="true"><span>‹ ›</span></div>
+          <input id="latestWipe" type="range" min="0" max="100" value="50" aria-label="Reveal the primary and comparison images">
+        </div>
+        <p id="latestStatus" role="status">Loading the latest reception…</p>
       </div>
+      <div id="latestProducts" class="product-strip" role="group" aria-label="Image products" hidden></div>
       <div class="latest-controls">
-        <label for="latestProduct" id="latestProductLabel"><span>Image product</span><select id="latestProduct" disabled></select></label>
-        <button type="button" class="button" id="latestOpen" disabled>Open capture ↗</button>
+        <label for="latestCompare" id="latestCompareLabel" hidden><span>Compare with</span><select id="latestCompare"></select></label>
+        <div class="latest-evidence">
+          <p id="latestSummary"></p>
+          <a id="latestDownload" class="text-link" target="_blank" rel="noopener" hidden>Original PNG ↗</a>
+        </div>
       </div>
-      <p id="latestSummary"></p>
     </section>
     <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
       <header class="orbit-heading">
-        <div><h2 id="orbitTitle">Orbit tracker</h2><p id="globeHint">Drag to rotate or select a point on the track.</p></div>
+        <div><h2 id="orbitTitle">Orbit tracker</h2><p id="globeHint">Drag to rotate. Select a point to seek.</p></div>
         <div class="segmented" id="satTabs" role="group" aria-label="Track a satellite">
           <button type="button" class="selected" data-sat="M2-3" aria-label="Meteor M2-3" aria-pressed="true">M2-3</button>
           <button type="button" data-sat="M2-4" aria-label="Meteor M2-4" aria-pressed="false">M2-4</button>
@@ -66,18 +71,27 @@
           <button type="button" id="orbitNow" aria-pressed="true" disabled>Now</button>
           <button type="button" id="orbitPlay" disabled>Play</button>
         </div>
-        <input type="range" id="orbitTime" min="-45" max="45" step="0.5" value="0" aria-label="Predicted position time relative to now" disabled>
-        <div class="timeline-ticks" aria-hidden="true"><span id="orbitMin">−45 min</span><span>Now</span><span id="orbitMax">+45 min</span></div>
+        <div class="orbit-chart">
+          <span>Elevation from the station</span>
+          <canvas id="orbitElevation" aria-label="Predicted elevation over time. Use the time slider to inspect the values."></canvas>
+        </div>
+        <input type="range" id="orbitTime" min="-45" max="45" step="0.5" value="0" aria-label="Predicted position time" disabled>
+        <div class="timeline-ticks" aria-hidden="true"><span id="orbitMin">−45 min</span><span id="orbitCenter">Now</span><span id="orbitMax">+45 min</span></div>
       </div>
       <dl class="orbit-readout">
         <div><dt>Lat / Lon</dt><dd id="position">—</dd></div>
         <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
         <div><dt>Az / El</dt><dd id="azel">—</dd></div>
       </dl>
+      <div class="pass-jump">
+        <div><span id="nextOrbitLabel">Next pass</span><strong id="nextOrbitTime">—</strong></div>
+        <button type="button" class="outline-button" id="nextOrbitPass" disabled>Preview pass ↗</button>
+      </div>
       <details class="orbit-source"><summary>Prediction details</summary><p id="tleInfo">Loading orbital data…</p></details>
     </section>
   </div>
-  <div class="archive-toolbar" id="receptions">
+  <h2 class="receptions-heading" id="receptions">Reception archive</h2>
+  <div class="archive-toolbar">
     <div class="segmented" id="archiveTabs" role="group" aria-label="Filter by satellite">
       <button type="button" class="selected" data-filter="all" aria-pressed="true">All satellites</button>
       <button type="button" data-filter="M2-3" aria-pressed="false">Meteor M2-3</button>

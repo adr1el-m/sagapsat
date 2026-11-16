@@ -259,8 +259,11 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
   }
  }
 
- return function update(next){
-  view=next;
-  schedule();
+ return {
+  update(next){
+   view=next;
+   schedule();
+  },
+  center:setMode
  };
 }
