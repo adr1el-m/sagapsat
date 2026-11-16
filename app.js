@@ -270,16 +270,22 @@ function renderPasses(){
 }
 function sample(sat,instant){if(!sat)return null;const n=(instant-new Date(sat.start_utc))/1000/sat.step_seconds;if(n<0||n>=sat.points.length-1)return null;const i=Math.floor(n),f=n-i,a=sat.points[i],b=sat.points[i+1];return a.map((v,j)=>{let d=b[j]-v;if(j===1||j===4){if(d>180)d-=360;if(d< -180)d+=360}let x=v+d*f;if(j===1)x=((x+540)%360)-180;if(j===4)x=(x+360)%360;return x})}
 function canvas(id){const c=$(id),r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);c.width=r.width*dpr;c.height=r.height*dpr;const x=c.getContext('2d');x.scale(dpr,dpr);return {x,w:r.width,h:r.height}}
+const updateGlobe=createOrbitGlobe($('globe'),$('followGlobe'),$('manilaGlobe'));
 function drawMap(){
- const {x,w,h}=canvas('map');x.fillStyle='#eef5fb';x.fillRect(0,0,w,h);const project=(lat,lon)=>[(lon+180)/360*w,(90-lat)/180*h];
- x.strokeStyle='#c9d9e9';x.lineWidth=.5;for(let lon=-180;lon<=180;lon+=30){const px=project(0,lon)[0];x.beginPath();x.moveTo(px,0);x.lineTo(px,h);x.stroke()}for(let lat=-60;lat<=60;lat+=30){const py=project(lat,0)[1];x.beginPath();x.moveTo(0,py);x.lineTo(w,py);x.stroke()}
- x.fillStyle='#dae5ee';x.strokeStyle='#91a9bf';x.lineWidth=.6;
- for(const ring of coastline||[]){x.beginPath();ring.forEach(([lon,lat],i)=>{const [px,py]=project(lat,lon);i?x.lineTo(px,py):x.moveTo(px,py)});x.closePath();x.fill();x.stroke()}
- const now=Date.now(),sat=now<Date.parse(orbital?.valid_until_utc)?orbital.satellites.find(s=>s.name===selectedSatellite):null,point=sample(sat,now);
- if(point){x.strokeStyle='#003a6c';x.lineWidth=1.3;x.setLineDash([4,4]);x.beginPath();let last;for(let t=now-2700000;t<=now+2700000;t+=30000){const p=sample(sat,t);if(!p){last=null;continue}const xy=project(p[0],p[1]);if(!last||Math.abs(xy[0]-last[0])>w/2)x.moveTo(...xy);else x.lineTo(...xy);last=xy}x.stroke();x.setLineDash([]);const xy=project(point[0],point[1]);x.fillStyle='#003a6c';x.beginPath();x.arc(...xy,4,0,Math.PI*2);x.fill();x.strokeStyle='#003a6c66';x.beginPath();x.arc(...xy,10,0,Math.PI*2);x.stroke();x.fillStyle='#003a6c';x.font='9px system-ui';x.fillText(selectedSatellite,Math.min(w-38,xy[0]+10),Math.max(30,xy[1]-8));$('position').textContent=`${point[0].toFixed(2)}° / ${point[1].toFixed(2)}°`;$('altitude').textContent=fmt.format(Math.round(point[2]))+' km';$('azel').textContent=`${point[4].toFixed(1)}° / ${point[3].toFixed(1)}°`}
- else{for(const id of ['position','altitude','azel'])$(id).textContent='Unavailable'}
- if(orbital){const xy=project(orbital.station.latitude,orbital.station.longitude);x.fillStyle='#8a5010';x.beginPath();x.arc(...xy,3,0,Math.PI*2);x.fill();x.font='8px system-ui';x.fillText('PH STATION',Math.max(4,Math.min(w-65,xy[0]-23)),xy[1]+14)}
- $('tleInfo').textContent=sat?`NORAD ${sat.norad} · TLE epoch ${date(sat.epoch,{hour:'2-digit',minute:'2-digit'})} PHT · ${Math.abs((Date.now()-new Date(sat.epoch))/86400000).toFixed(1)} days from epoch. SGP4 geometry; no RF status.`:'Waiting for a fresh orbital snapshot.';
+ const now=Date.now();
+ const valid=now<Date.parse(orbital?.valid_until_utc)&&now>=Date.parse(orbital?.generated_utc)-300000;
+ const sat=valid?orbital.satellites.find(s=>s.name===selectedSatellite):null;
+ const point=sample(sat,now);
+ const track=[];
+ if(point){
+  for(let t=now-2700000;t<=now+2700000;t+=30000)track.push(sample(sat,t));
+ }
+ const station=orbital?.station;
+ updateGlobe({point,track,station:station?[station.latitude,station.longitude]:[14.6,121]});
+ $('position').textContent=point?`${point[0].toFixed(2)}° / ${point[1].toFixed(2)}°`:'Unavailable';
+ $('altitude').textContent=point?fmt.format(Math.round(point[2]))+' km':'Unavailable';
+ $('azel').textContent=point?`${point[4].toFixed(1)}° / ${point[3].toFixed(1)}°`:'Unavailable';
+ $('tleInfo').textContent=point?`SGP4 prediction · NORAD ${sat.norad} · TLE epoch ${date(sat.epoch,{hour:'2-digit',minute:'2-digit'})} PHT`:'Waiting for a fresh orbital snapshot.';
 }
 function drawSky(){const {x,w,h}=canvas('skyplot');x.clearRect(0,0,w,h);const p=currentPass;if(!p)return;const sat=orbital.satellites.find(s=>s.name===p.satellite);const start=+new Date(p.aos),end=+new Date(p.los);x.strokeStyle='#c9d9e9';x.lineWidth=1;x.beginPath();x.moveTo(18,h-18);x.lineTo(w-12,h-18);x.stroke();x.fillStyle='#52647b';x.font='8px system-ui';x.fillText('90°',0,12);x.fillText('10°',0,h-15);x.strokeStyle='#003a6c';x.lineWidth=1.6;x.beginPath();for(let i=0;i<=80;i++){const point=sample(sat,start+(end-start)*i/80);if(!point)continue;const px=22+i*(w-38)/80,py=h-18-(point[3]-10)/80*(h-30);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.fillStyle='#003a6c';x.fillText(`${p.max_elevation.toFixed(1)}° MAX`,w/2-20,14)}
 function tick(){
@@ -308,6 +314,7 @@ async function stationPoll(){
 }
 async function init(){
  const reportError=message=>{$('error').hidden=false;$('error').textContent+=($('error').textContent?' ':'')+message};
+ drawMap();
  stationPoll();
  const loadArchive=get('archive.json').then(updateArchive).catch(()=>{
   $('archiveStatus').textContent='The archive is unavailable. The page will retry automatically.';
@@ -318,7 +325,7 @@ async function init(){
   renderPasses();
   tick();
  }).catch(e=>{$('orbitState').textContent='Orbit data unavailable';$('tleInfo').textContent=e.message});
- const loadCoastline=get('coastline.json').then(data=>{coastline=data;drawMap()}).catch(()=>reportError('Basemap unavailable; orbit coordinates are still shown.'));
+ const loadCoastline=get('coastline.json').then(data=>{coastline=data}).catch(()=>reportError('Observation geography basemap unavailable.'));
  await Promise.all([loadArchive,loadOrbits,loadCoastline]);
  if(typeof refreshCoverage==='function')refreshCoverage();$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(!archive||fresh.generated_utc!==archive.generated_utc)updateArchive(fresh)}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
 }

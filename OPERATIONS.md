@@ -36,8 +36,8 @@ them. Perform the update between passes so archive uploads are idle.
    venv, credentials, configuration and state files.
 2. Copy `server.py` into the existing observatory service directory. Keep the
    service's current `--pi local` and `--refresh-orbits` settings. Copy the built
-   `index.html`, `app.js`, `explorer.js`, `interpretation.js`, `style.css` and
-   `brand.svg` from `dist/` into its `dist/` directory. Copy
+   `index.html`, `app.js`, `explorer.js`, `interpretation.js`, `globe.js`,
+   `earth-blue-marble.jpg`, `style.css` and `brand.svg` from `dist/` into its `dist/` directory. Copy
    `dist/research/interpretation-cases.json` and the other research assets
    referenced by the page into its `dist/research/` directory.
 3. Restart both web/publisher services with

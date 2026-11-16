@@ -16,12 +16,39 @@
 </header>
 <main id="main">
 <section id="archive" aria-labelledby="archiveTitle">
+  <div class="archive-masthead">
   <header class="archive-heading">
     <p class="archive-location">Metro Manila, Philippines <span aria-hidden="true">/</span> Meteor LRPT</p>
     <h1 id="archiveTitle">Reception archive</h1>
-    <p class="archive-intro">Original Meteor imagery, reception logs, and raw frame data from our ground station.</p>
+    <p class="archive-intro">Original Meteor imagery and raw reception files from our ground station.</p>
+    <a class="archive-jump" href="#receptions">Browse receptions ↓</a>
   </header>
-  <div class="archive-toolbar">
+  <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
+    <h2 id="orbitTitle">Orbit tracker</h2>
+    <div class="segmented" id="satTabs" role="group" aria-label="Track a satellite">
+      <button type="button" class="selected" data-sat="M2-3" aria-label="Meteor M2-3" aria-pressed="true">M2-3</button>
+      <button type="button" data-sat="M2-4" aria-label="Meteor M2-4" aria-pressed="false">M2-4</button>
+    </div>
+    <div class="globe-view">
+      <canvas id="globe" tabindex="0" aria-label="Interactive Earth globe with the selected satellite, predicted ground track, and Metro Manila station." aria-describedby="globeHint">The satellite’s position is listed next to the globe.</canvas>
+      <a class="globe-credit" href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>
+    </div>
+    <div class="orbit-readout">
+      <dl>
+        <div><dt>Lat / lon</dt><dd id="position">—</dd></div>
+        <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
+        <div><dt>Azimuth / elevation</dt><dd id="azel">—</dd></div>
+      </dl>
+      <div class="globe-actions" role="group" aria-label="Globe viewpoint">
+        <button type="button" id="followGlobe" aria-pressed="true">Follow satellite</button>
+        <button type="button" id="manilaGlobe" aria-pressed="false">Manila</button>
+      </div>
+    </div>
+    <p id="globeHint">Drag or use arrow keys. Green shows the predicted ground track.</p>
+    <p id="tleInfo">Loading orbital data…</p>
+  </section>
+  </div>
+  <div class="archive-toolbar" id="receptions">
     <div class="segmented" id="archiveTabs" role="group" aria-label="Filter by satellite">
       <button type="button" class="selected" data-filter="all" aria-pressed="true">All satellites</button>
       <button type="button" data-filter="M2-3" aria-pressed="false">Meteor M2-3</button>
@@ -60,8 +87,8 @@
         <button class="outline-button" id="featureDetails" type="button" hidden>Open capture</button>
       </div>
     </article>
-    <aside class="reception-sidebar" aria-label="Orbit and receiver">
-<article class="card map-card"><h3>Orbit tracker</h3><div class="card-heading"><div class="segmented" id="satTabs"><button class="selected" data-sat="M2-3">Meteor M2-3</button><button data-sat="M2-4">Meteor M2-4</button></div></div><div class="map-wrap"><canvas id="map" aria-label="Predicted satellite ground track and Philippine station position"></canvas><div class="map-key"><i></i> Predicted track · ±45 min <i class="station-key"></i> Station</div></div><div class="orbit-metrics"><div><span>Lat / lon</span><b id="position">—</b></div><div><span>Altitude</span><b id="altitude">—</b></div><div><span>Azimuth / elevation</span><b id="azel">—</b></div></div><p class="micro" id="tleInfo">Loading orbital data…</p></article>
+    <aside class="reception-sidebar" aria-label="Receiver telemetry">
+
       <article class="card receiver-card" aria-labelledby="receiverTitle">
         <div class="receiver-heading"><h3 id="receiverTitle">Receiver</h3><span id="probeStatus">Checking SDR</span></div>
         <dl class="receiver-readings" id="receiverReadings" hidden>
@@ -107,4 +134,4 @@
 </footer>
 </main>
 <dialog id="captureDialog" aria-labelledby="dialogTitle"><div class="dialog-top"><div><h2 id="dialogTitle">Capture</h2></div><button id="closeDialog" class="icon-button" aria-label="Close capture detail">✕</button></div><div id="captureProducts"><div class="dialog-controls"><label>Image product <select id="productSelect"></select></label><label>Compare with <select id="compareSelect"><option value="">No comparison</option></select></label><button id="zoomButton" class="outline-button">View at native size</button></div><div class="viewer-toolbar"><button id="zoomOut" class="outline-button" aria-label="Zoom out">−</button><span id="zoomLevel">100%</span><button id="zoomIn" class="outline-button" aria-label="Zoom in">+</button><button id="zoomReset" class="outline-button">Reset view</button><label><input id="syncViews" type="checkbox" checked> Sync scroll position</label></div><p id="productHelp" class="micro"></p><p class="micro">Synchronized scrolling aligns viewport position; these views are not geographically registered.</p><div class="viewer" id="viewer"><figure><img id="detailImage" alt="Selected satellite image product"><figcaption id="imageLabel"></figcaption></figure><figure id="compareFigure" hidden><img id="compareImage" alt="Comparison satellite image product"><figcaption id="compareLabel"></figcaption></figure></div></div><div class="dialog-actions"><a id="downloadImage" class="button" download>↓ Original PNG</a><a id="downloadCadu" class="outline-button" download>↓ CADU evidence</a><button id="copyCaptureLink" class="text-button">Copy capture link ↗</button></div><div id="detailMetrics" class="detail-metrics"></div><section class="quality-panel"><h3>Reception timeline</h3><canvas id="qualityChart" aria-label="Logged SNR, cumulative frames, and sampled loss of lock over time"></canvas><p class="micro" id="qualitySummary"></p></section><details><summary>Capture notes & limitations</summary><pre id="captureNotes"></pre></details><details><summary>Source files & SHA-256 hashes</summary><div id="evidenceFiles"></div></details><p class="micro" id="productHash"></p></dialog>
-<script src="app.js"></script><script src="explorer.js"></script><script src="interpretation.js"></script></body></html>
+<script src="globe.js"></script><script src="app.js"></script><script src="explorer.js"></script><script src="interpretation.js"></script></body></html>

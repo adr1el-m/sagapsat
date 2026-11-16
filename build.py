@@ -216,7 +216,8 @@ def main():
     args = ap.parse_args()
     out = args.output.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    for name in ['index.html', 'app.js', 'style.css', 'coastline.json', 'explorer.js', 'interpretation.js', 'brand.svg']:
+    for name in ['index.html', 'app.js', 'style.css', 'coastline.json', 'explorer.js', 'interpretation.js', 'brand.svg',
+                 'globe.js', 'earth-blue-marble.jpg']:
         if (ROOT/name).exists(): shutil.copy2(ROOT/name, out/name)
     (out/'archive.json').write_text(json.dumps(archive(args.archive, out), indent=2))
     orbital = orbits(ROOT/'.cache')
