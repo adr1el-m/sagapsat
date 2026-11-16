@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#faf9f6"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -39,67 +39,77 @@
           <div class="image-divider" aria-hidden="true"><span>‹ ›</span></div>
           <input id="latestWipe" type="range" min="0" max="100" value="50" aria-label="Reveal the primary and comparison images">
         </div>
-        <div id="scanRuler" aria-hidden="true" hidden></div>
         <p id="latestStatus" role="status">Loading the latest reception…</p>
       </div>
-      <div id="latestProducts" class="product-strip" role="group" aria-label="Image products" hidden></div>
-      <div class="latest-controls">
-        <label for="latestCompare" id="latestCompareLabel" hidden><span>Compare with</span><select id="latestCompare"></select></label>
-        <div class="latest-evidence">
-          <p id="latestSummary"></p>
-          <a id="latestDownload" class="text-link" target="_blank" rel="noopener" hidden>Original PNG ↗</a>
-        </div>
+      <div class="latest-evidence">
+        <p id="latestSummary"></p>
+        <a id="latestDownload" class="text-link" target="_blank" rel="noopener" hidden>Original PNG ↗</a>
       </div>
-      <dl class="capture-specs" id="latestSpecs" hidden>
-        <div><dt>Image size</dt><dd id="latestResolution">—</dd></div>
-        <div><dt>Distinct CADUs</dt><dd id="latestFrames">—</dd></div>
-        <div><dt>Peak logged SNR</dt><dd id="latestSnr">—</dd></div>
-      </dl>
+      <details class="workspace-details" id="captureTools" hidden>
+        <summary>Image products and comparison</summary>
+        <div id="latestProducts" class="product-strip" role="group" aria-label="Image products" hidden></div>
+        <div class="latest-controls">
+          <label for="latestCompare" id="latestCompareLabel" hidden><span>Compare with</span><select id="latestCompare"></select></label>
+        </div>
+        <dl class="capture-specs" id="latestSpecs" hidden>
+          <div><dt>Image size</dt><dd id="latestResolution">—</dd></div>
+          <div><dt>Distinct CADUs</dt><dd id="latestFrames">—</dd></div>
+          <div><dt>Peak logged SNR</dt><dd id="latestSnr">—</dd></div>
+        </dl>
+      </details>
     </section>
     <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
       <header class="orbit-heading">
-        <div><h2 id="orbitTitle">Orbit tracker</h2><p id="globeHint">Drag to rotate. Select a point to seek.</p></div>
+        <h2 id="orbitTitle">Orbit tracker</h2>
         <div class="segmented" id="satTabs" role="group" aria-label="Track a satellite">
           <button type="button" class="selected" data-sat="M2-3" aria-label="Meteor M2-3" aria-pressed="true">M2-3</button>
           <button type="button" data-sat="M2-4" aria-label="Meteor M2-4" aria-pressed="false">M2-4</button>
         </div>
       </header>
       <div class="globe-view">
-        <canvas id="globe" tabindex="0" aria-label="Earth globe with the selected satellite, predicted ground track, and ground station" aria-describedby="globeHint globeKeys">The satellite’s predicted coordinates appear below.</canvas>
-        <div class="globe-zoom" role="group" aria-label="Globe zoom">
-          <button type="button" id="globeZoomIn" aria-label="Zoom in on Earth">+</button>
-          <button type="button" id="globeZoomOut" aria-label="Zoom out from Earth">−</button>
-        </div>
-        <div class="globe-actions" role="group" aria-label="Globe viewpoint">
-          <button type="button" id="followGlobe" aria-pressed="true">Follow satellite</button>
-          <button type="button" id="manilaGlobe" aria-pressed="false">Center Manila</button>
-        </div>
-        <a class="globe-credit" href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>
+        <canvas id="globe" tabindex="0" aria-label="Earth globe with the selected satellite, predicted ground track, and ground station" aria-describedby="globeHint globeKeys">The satellite’s predicted coordinates appear in Orbit controls.</canvas>
         <span id="globeKeys" class="sr-only">Use the arrow keys to rotate and the time slider to select a predicted position.</span>
       </div>
-      <div class="orbit-timeline">
-        <div class="timeline-heading">
-          <output id="orbitMoment" for="orbitTime" aria-live="off">Loading predictions…</output>
-          <button type="button" id="orbitNow" aria-pressed="true" disabled>Now</button>
-          <button type="button" id="orbitPlay" disabled>Play</button>
-        </div>
-        <div class="orbit-chart">
-          <span>Elevation from the station</span>
-          <canvas id="orbitElevation" aria-label="Predicted elevation over time. Use the time slider to inspect the values."></canvas>
-        </div>
-        <input type="range" id="orbitTime" min="-45" max="45" step="0.5" value="0" aria-label="Predicted position time" disabled>
-        <div class="timeline-ticks" aria-hidden="true"><span id="orbitMin">−45 min</span><span id="orbitCenter">Now</span><span id="orbitMax">+45 min</span></div>
+      <div class="globe-caption">
+        <p id="globeHint">Drag to rotate. Select the track to seek.</p>
+        <a class="globe-credit" href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>
       </div>
-      <dl class="orbit-readout">
-        <div><dt>Lat / Lon</dt><dd id="position">—</dd></div>
-        <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
-        <div><dt>Az / El</dt><dd id="azel">—</dd></div>
-      </dl>
       <div class="pass-jump">
         <div><span id="nextOrbitLabel">Next pass</span><strong id="nextOrbitTime">—</strong></div>
         <button type="button" class="outline-button" id="nextOrbitPass" disabled>Preview pass ↗</button>
       </div>
-      <details class="orbit-source"><summary>Prediction details</summary><p id="tleInfo">Loading orbital data…</p></details>
+      <details class="workspace-details" id="orbitTools">
+        <summary>Orbit controls</summary>
+        <div class="globe-tools">
+          <div class="globe-actions" role="group" aria-label="Globe viewpoint">
+            <button type="button" id="followGlobe" aria-pressed="true">Follow satellite</button>
+            <button type="button" id="manilaGlobe" aria-pressed="false">Center Manila</button>
+          </div>
+          <div class="globe-zoom" role="group" aria-label="Globe zoom">
+            <button type="button" id="globeZoomOut" aria-label="Zoom out from Earth">−</button>
+            <button type="button" id="globeZoomIn" aria-label="Zoom in on Earth">+</button>
+          </div>
+        </div>
+        <div class="orbit-timeline">
+          <div class="timeline-heading">
+            <output id="orbitMoment" for="orbitTime" aria-live="off">Loading predictions…</output>
+            <button type="button" id="orbitNow" aria-pressed="true" disabled>Now</button>
+            <button type="button" id="orbitPlay" disabled>Play</button>
+          </div>
+          <div class="orbit-chart">
+            <span>Elevation from the station</span>
+            <canvas id="orbitElevation" aria-label="Predicted elevation over time. Use the time slider to inspect the values."></canvas>
+          </div>
+          <input type="range" id="orbitTime" min="-45" max="45" step="0.5" value="0" aria-label="Predicted position time" disabled>
+          <div class="timeline-ticks" aria-hidden="true"><span id="orbitMin">−45 min</span><span id="orbitCenter">Now</span><span id="orbitMax">+45 min</span></div>
+        </div>
+        <dl class="orbit-readout">
+          <div><dt>Lat / Lon</dt><dd id="position">—</dd></div>
+          <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
+          <div><dt>Az / El</dt><dd id="azel">—</dd></div>
+        </dl>
+        <p id="tleInfo">Loading orbital data…</p>
+      </details>
     </section>
   </div>
   <h2 class="receptions-heading" id="receptions">Reception archive</h2>

@@ -130,7 +130,7 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
     const u=((lon/(2*Math.PI)+1.5)%1)*texture.width;
     const v=Math.min(texture.height-1,(.5-lat/Math.PI)*texture.height);
     const j=4*(Math.floor(v)*texture.width+Math.floor(u));
-    const light=.68+.36*Math.max(0,-.34*east+.45*north+.82*toward);
+    const light=.76+.29*Math.max(0,-.34*east+.45*north+.82*toward);
     data[i]=texture.data[j]*light;
     data[i+1]=texture.data[j+1]*light;
     data[i+2]=texture.data[j+2]*light;
@@ -215,24 +215,6 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
    };
   }
 
-  function gridLine(samples,coordinate){
-   let penDown=false;
-   for(let value=samples[0];value<=samples[1];value+=3){
-    const point=project(...coordinate(value));
-    if(point.facing){
-     if(penDown)context.lineTo(point.x,point.y);
-     else context.moveTo(point.x,point.y);
-    }
-    penDown=point.facing;
-   }
-  }
-  context.beginPath();
-  for(let lat=-60;lat<=60;lat+=30)gridLine([-180,180],lon=>[lat,lon]);
-  for(let lon=-180;lon<180;lon+=30)gridLine([-90,90],lat=>[lat,lon]);
-  context.strokeStyle='#d6efff34';
-  context.lineWidth=.6;
-  context.stroke();
-
   context.beginPath();
   let visible=false;
   for(const [index,sample] of track.entries()){
@@ -248,7 +230,7 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
   context.strokeStyle='#05161b';
   context.lineWidth=3;
   context.stroke();
-  context.strokeStyle='#ffc481';
+  context.strokeStyle='#a4c9e6';
   context.lineWidth=1.3;
   context.stroke();
 

@@ -161,7 +161,7 @@ function updateLatest(capture){
  $('latestTitle').textContent=capture?'Meteor '+capture.satellite:'Meteor reception';
  $('latestTime').textContent=capture?date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT':'';
  $('latestSummary').textContent=capture?captureOutcome(capture):'';
- $('latestSpecs').hidden=!capture;
+ $('captureTools').hidden=$('latestSpecs').hidden=!capture;
  $('latestFrames').textContent=capture?fmt.format(capture.unique_frames):'—';
  $('latestSnr').textContent=capture?snr(capture.peak_snr_db):'—';
  if(!sameCapture){
@@ -184,11 +184,6 @@ function showLatestProduct(compareName){
  $('latestView').hidden=!product;
  $('latestDownload').hidden=!product;
  $('latestResolution').textContent=product?`${fmt.format(product.width)} × ${fmt.format(product.height)} px`:'—';
- $('scanRuler').replaceChildren(...(product?[0,.25,.5,.75,1].map(fraction=>{
-  const tick=make('span',fmt.format(Math.round(fraction*(product.height-1))),'scan-ruler-tick');
-  tick.style.top=fraction*100+'%';
-  return tick;
- }):[]));
  $('latestStatus').hidden=Boolean(product);
  $('latestStatus').classList.remove('preview-note');
  if(product){
@@ -223,12 +218,6 @@ function updateImageWipe(){
  const ratio=primary.naturalWidth/primary.naturalHeight;
  const shownWidth=Number.isFinite(ratio)?Math.min(width,height*ratio):width;
  const inset=(width-shownWidth)/2;
- const shownHeight=Number.isFinite(ratio)?Math.min(height,width/ratio):height;
- const ruler=$('scanRuler');
- ruler.hidden=!(inset>=64&&shownHeight>=96&&primary.naturalHeight&&$('latestComparison').hidden&&!$('latestView').hidden);
- ruler.style.setProperty('--frame-left',inset+'px');
- ruler.style.setProperty('--frame-top',(height-shownHeight)/2+'px');
- ruler.style.setProperty('--frame-height',shownHeight+'px');
  const panel=$('latestComparison');
  panel.style.setProperty('--image-inset',inset+'px');
  panel.style.setProperty('--split',inset+shownWidth*Number(wipe.value)/100+'px');
@@ -264,7 +253,6 @@ for(const id of ['latestImage','latestCompareImage']){
   $('latestStatus').textContent='An image preview is unavailable.';
   $('latestStatus').classList.add('preview-note');
   $('latestStatus').hidden=false;
-  if(id==='latestImage')$('scanRuler').hidden=true;
  });
 }
 $('latestProducts').onclick=event=>{
@@ -474,8 +462,12 @@ function drawMap(){
  const station=orbital?.station;
  const seek=hasTimeline?index=>seekOrbit(min+index*step,reference):null;
  chartSeek=seek;
- drawElevationChart(track,hasTimeline?Math.round((orbitOffset-min)/step):0);
- globe.update({point,track,seek,station:station?[station.latitude,station.longitude]:[14.6,121]});
+ if($('orbitTools').open)drawElevationChart(track,hasTimeline?Math.round((orbitOffset-min)/step):0);
+ const seekFromGlobe=seek?index=>{
+  $('orbitTools').open=true;
+  seek(index);
+ }:null;
+ globe.update({point,track,seek:seekFromGlobe,station:station?[station.latitude,station.longitude]:[14.6,121]});
  const displayTime=point?`${date(instant,{hour:'numeric',minute:'2-digit',hour12:true})} PHT`:'Prediction unavailable';
  const mode=point?(orbitPass?'Pass preview':orbitBase===undefined?'Current prediction':'Orbit preview'):'';
  $('orbitMoment').textContent=mode?`${mode} · ${displayTime}`:displayTime;
@@ -517,9 +509,14 @@ $('nextOrbitPass').onclick=()=>{
   orbitBase=Date.parse(orbitPass.peak);
   orbitOffset=0;
   globe.center('manila');
+  $('orbitTools').open=true;
  }
  drawMap();
 };
+$('orbitTools').addEventListener('toggle',()=>{
+ if(!$('orbitTools').open)stopOrbitPlayback();
+ drawMap();
+});
 $('orbitPlay').onclick=()=>{
  if(orbitPlayback){stopOrbitPlayback();return}
  if(orbitBase===undefined||orbitOffset>=Number(orbitTime.max))orbitOffset=Number(orbitTime.min);
@@ -558,7 +555,7 @@ function drawElevationChart(track,index){
   else x.moveTo(px(i),py(point[3]));
   hasPrevious=true;
  }
- x.strokeStyle='#ffc481';
+ x.strokeStyle='#283f63';
  x.lineWidth=2;
  x.stroke();
  const elevation=track[index]?.[3];
@@ -566,12 +563,12 @@ function drawElevationChart(track,index){
  x.beginPath();
  x.moveTo(px(index),0);
  x.lineTo(px(index),h);
- x.strokeStyle='#f1f2ec';
+ x.strokeStyle='#202a38';
  x.lineWidth=1;
  x.stroke();
  x.beginPath();
  x.arc(px(index),py(elevation),3.5,0,2*Math.PI);
- x.fillStyle='#f1f2ec';
+ x.fillStyle='#202a38';
  x.fill();
 }
 $('orbitElevation').onclick=event=>{
