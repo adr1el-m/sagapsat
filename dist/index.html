@@ -20,6 +20,11 @@
     <div><h1 id="receptionTitle">Reception monitor</h1><p>Meteor LRPT · Philippines</p></div>
     <span class="station-status" id="stationState" role="status">Connecting</span>
   </div>
+  <div class="pass-strip">
+    <div><span id="nextPassLabel">Next pass at or above 40°</span><strong id="nextCountdown">—</strong></div>
+    <span id="nextSummary">Loading orbital elements</span>
+    <a class="outline-button" href="#tracking">View forecast</a>
+  </div>
   <div class="reception-layout">
     <article class="image-card" aria-labelledby="imageTitle">
       <div class="image-heading"><h2 id="imageTitle">Received image</h2><span id="imageState" class="image-state" role="status">Loading archive</span></div>
@@ -37,7 +42,7 @@
 <article class="card map-card"><h2>Orbit tracker</h2><div class="card-heading"><div class="segmented" id="satTabs"><button class="selected" data-sat="M2-3">Meteor M2-3</button><button data-sat="M2-4">Meteor M2-4</button></div></div><div class="map-wrap"><canvas id="map" aria-label="Predicted satellite ground track and Philippine station position"></canvas><div class="map-key"><i></i> Predicted track · ±45 min <i class="station-key"></i> Station</div></div><div class="orbit-metrics"><div><span>Lat / lon</span><b id="position">—</b></div><div><span>Altitude</span><b id="altitude">—</b></div><div><span>Azimuth / elevation</span><b id="azel">—</b></div></div><p class="micro" id="tleInfo">Loading orbital data…</p></article>
       <article class="card receiver-card" aria-labelledby="receiverTitle">
         <div class="receiver-heading"><h2 id="receiverTitle">Receiver</h2><span id="probeStatus">Checking SDR</span></div>
-        <dl class="receiver-readings">
+        <dl class="receiver-readings" id="receiverReadings" hidden>
           <div><dt>Mode</dt><dd id="livePhase">—</dd></div>
           <div><dt>CADUs in pass</dt><dd id="liveFrames">—</dd></div>
           <div><dt>Estimated SNR</dt><dd id="liveSnr">—</dd></div>
@@ -47,11 +52,11 @@
       </article>
     </aside>
   </div>
-  <div class="pass-strip">
-    <div><span id="nextPassLabel">Next predicted pass</span><strong id="nextCountdown">—</strong></div>
-    <span id="nextSummary">Loading orbital elements</span>
-    <a class="outline-button" href="#tracking">View forecast</a>
-  </div>
+  <section class="pass-day card" aria-labelledby="passDayTitle">
+    <div class="pass-day-heading"><h2 id="passDayTitle">Today’s passes</h2><p>40° minimum peak · Manila time</p></div>
+    <ol id="passDayList" class="pass-day-list"></ol>
+    <p id="passDayNote" class="micro">Loading today’s passes…</p>
+  </section>
 </section>
 <section id="tracking"><div class="section-heading"><div><h2>Pass forecast</h2></div><span class="tag" id="orbitState">LOADING PREDICTIONS</span></div><div class="tracking-grid"><article class="card next-card" id="passDetails" tabindex="-1"><div class="eyebrow" id="passHeading">NEXT PASS / SELECTED SATELLITE</div><h3 id="passSatellite">—</h3><div class="pass-countdown" id="passCountdown">—</div><p id="passDate">Calculating…</p><canvas id="skyplot" aria-label="Predicted pass elevation profile"></canvas><div class="pass-times"><div><small>AOS · 10°</small><b id="passAos">—</b></div><div><small>PEAK</small><b id="passPeak">—</b></div><div><small>LOS · 10°</small><b id="passLos">—</b></div></div><div class="note" id="passNote">Predictions describe geometry. Actual downlink frequency and signal availability require verification before recording.</div><button class="outline-button" id="calendar" disabled>↓ Add pass to calendar</button></article></div><div class="table-card"><div class="table-heading"><h3>Next 48 hours</h3><div class="forecast-controls"><button type="button" class="outline-button" id="highestPass" disabled>Inspect highest pass</button><label>Minimum peak elevation <select id="elevationFilter"><option value="10">10° · All visible</option><option value="20" selected>20°</option><option value="35">35°</option><option value="40">40°</option><option value="60">60°</option></select></label></div></div><div class="table-scroll"><table><thead><tr><th>Satellite</th><th>Date · PHT</th><th>Acquisition</th><th>Peak elevation</th><th>Loss of signal</th><th>Duration</th><th>Actions</th></tr></thead><tbody id="passes"></tbody></table></div><p class="micro">Horizon events use a 10° mask; the filter applies to maximum elevation. Passes are predictions, not scheduled recordings.</p></div></section>
 <section id="coverage"><div class="section-heading"><div><h2>Observation geography</h2><p>Received-scan timing is checked before any orbit segment is drawn.</p></div><span class="tag" id="coverageStatus">VALIDATION PENDING</span></div><div class="coverage-layout"><article class="card"><label>Observation<select id="coverageSelect"></select></label><canvas id="coverageMap" aria-label="Satellite subtrack during received scans; not an image footprint"></canvas><p class="micro">Blue line: satellite subtrack for time-checked scans. Amber ring: approximate station region. No image footprint or geographic image overlay is asserted.</p></article><article class="card"><h3>What is verified?</h3><p id="coverageExplanation">Select an observation.</p><p id="coverageWindow" class="micro"></p><div class="note">Scan timing, orbital geometry, and pixel georeferencing are separate checks. Image overlays require independent geographic alignment validation. Missing scan lines remain missing observations.</div></article></div></section>

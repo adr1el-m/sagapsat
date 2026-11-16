@@ -82,3 +82,38 @@
 .capture-preview-note{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-size:10px;color:var(--muted)}
 .capture-fragment{display:flex;align-items:center}
 .capture-fragment img{height:64px;object-fit:cover}
+
+.reception-heading h1 { font-size: clamp(34px, 5.5vw, 74px); letter-spacing: -.065em; }
+.station-status.is-stale { background: #fff3dc; border-color: #e5c89a; color: #6b4108; }
+.station-status.is-stale::before { background: #a96813; }
+.reception-image {
+  background-color: #0c1929;
+  background-image: linear-gradient(#a6c0dc18 1px, transparent 1px), linear-gradient(90deg, #a6c0dc18 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+.reception-image p { color: #cddcf1; }
+.pass-strip { margin: 0 0 18px; background: #10243a; border-color: #10243a; color: #e3edf8; }
+.pass-strip strong { color: #9cf2e0; font-size: 20px; font-family: "IBM Plex Mono", ui-monospace, monospace; }
+#nextSummary { color: #d2dff0; }
+.pass-strip .outline-button { border-color: #65839e; color: #f4f8fd; }
+.pass-strip .outline-button:hover { background: #263e56; }
+.pass-strip .outline-button:focus-visible { outline-color: #9cf2e0; }
+.pass-day { margin-top: 18px; }
+.pass-day-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 8px; }
+.pass-day-heading h2 { font-size: 21px; color: var(--blue); font-weight: 650; }
+.pass-day-heading p { font-size: 12px; margin: 0; }
+.pass-day-list { margin: 0; padding: 0; list-style: none; }
+.pass-day-entry {
+  display: grid; grid-template-columns: 9rem 1fr 4rem minmax(9rem, auto); align-items: center;
+  gap: 6px 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums;
+}
+.pass-day-entry > span:not(.pass-day-status) { color: var(--muted); }
+.pass-day-status { justify-self: start; color: var(--muted); font-size: 12px; }
+button.pass-day-status { padding: 5px 9px; border: 0; border-radius: 4px; background: #d7f3eb; color: #0e5546; font-weight: 650; }
+.pass-day-entry[data-status="Upcoming"] .pass-day-status,
+.pass-day-entry[data-status="Above horizon"] .pass-day-status { color: var(--blue); font-weight: 650; }
+@media (max-width: 580px) {
+  .pass-day-entry { grid-template-columns: 1fr auto; font-size: 13px; }
+  .pass-day-entry > strong { justify-self: end; }
+  .pass-day-status { justify-self: end; }
+}

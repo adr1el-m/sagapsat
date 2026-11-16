@@ -15,6 +15,48 @@ const local=location.port==='8088'||['localhost','127.0.0.1','[::1]'].includes(l
 async function get(url){const kind=/^(station|archive|orbits)\.json$/.exec(url)?.[1];if(kind&&!local){try{const r=await fetch('/api/feed?kind='+kind,{cache:'no-cache',signal:AbortSignal.timeout(12000)});if(r.ok)return await r.json()}catch{}}const r=await fetch(url,{cache:'no-cache'});if(!r.ok)throw Error(`${url}: ${r.status}`);return r.json()}
 function download(name,data,type){const u=URL.createObjectURL(new Blob([data],{type})),a=make('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),5000)}
 function upcoming(){if(!orbital||Date.now()>new Date(orbital.valid_until_utc)||Date.now()<new Date(orbital.generated_utc)-300000)return [];return (orbital.passes||[]).filter(p=>new Date(p.los)>new Date())}
+const recordingElevation=40;
+let passDaySignature;
+function renderPassDay(now){
+ const today=date(now);
+ const captures=(archive?.captures||[]).filter(c=>date(c.started_utc)===today);
+ const predictions=orbital&&Date.parse(orbital.valid_until_utc)>now;
+ const passes=predictions?(orbital.passes||[]).filter(p=>p.max_elevation>=recordingElevation&&date(p.peak)===today):[];
+ const unmatched=new Set(captures);
+ const entries=passes.map(pass=>{
+  const capture=captures.find(c=>c.satellite===pass.satellite&&
+   Date.parse(c.started_utc)>=Date.parse(pass.aos)-120000&&Date.parse(c.started_utc)<=Date.parse(pass.los)+120000);
+  if(capture)unmatched.delete(capture);
+  const status=capture?'Published':now>=Date.parse(pass.los)?(archive?'No capture published':'Archive unavailable'):now>=Date.parse(pass.aos)?'Above horizon':'Upcoming';
+  return {time:pass.peak,satellite:pass.satellite,elevation:pass.max_elevation,status,capture};
+ });
+ for(const capture of unmatched){
+  entries.push({time:capture.started_utc,satellite:capture.satellite,status:'Published',capture});
+ }
+ entries.sort((a,b)=>Date.parse(a.time)-Date.parse(b.time));
+ const signature=JSON.stringify([today,Boolean(predictions),entries.map(({capture,...entry})=>[entry,capture?.id])]);
+ if(signature===passDaySignature)return;
+ passDaySignature=signature;
+ $('passDayList').replaceChildren(...entries.map(entry=>{
+  const row=make('li',undefined,'pass-day-entry');
+  const published=entry.status==='Published';
+  const status=make(published?'button':'span',entry.status,'pass-day-status');
+  if(published){
+   status.type='button';
+   status.setAttribute('aria-label','Open published Meteor '+entry.satellite+' capture at '+shortTime(entry.time));
+   status.onclick=()=>openCapture(entry.capture);
+  }
+  row.dataset.status=entry.status;
+  const timing=make('span',time(entry.time)+(entry.elevation===undefined?' · recorded':' · peak'));
+  const satellite=make('strong','Meteor '+entry.satellite);
+  const elevation=make('span',entry.elevation===undefined?'':entry.elevation.toFixed(1)+'°');
+  row.append(timing,satellite,elevation,status);
+  return row;
+ }));
+ $('passDayNote').textContent=predictions
+  ?entries.length?'Earlier passes appear when the orbital snapshot includes them or a capture was published.':'No qualifying passes or archive entries in the current feeds.'
+  :'Fresh predictions are unavailable. Published captures can still appear here.';
+}
 function renderSummary(){
  $('policy').textContent=archive.policy;
  $('updated').textContent='Archive updated '+date(archive.generated_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT';
@@ -52,11 +94,11 @@ function renderReception(){
  const showingLive=displayedPreview&&now-Date.parse(displayedPreview.received_utc)<110000;
  const feature=archive?.captures.find(captureThumbnail);
  const thumbnail=feature&&captureThumbnail(feature);
- const showArchive=feature&&!active;
+ const showArchive=feature&&!showingLive;
  live.hidden=!showingLive;
  $('featureImage').hidden=!showArchive;
  $('imagePlaceholder').hidden=Boolean(showingLive||showArchive);
- const label=showingLive?'Live preview':active?'Waiting for image':showArchive?'Archived capture':archive?'No image':'Loading archive';
+ const label=showingLive?'Live preview':showArchive?'Archived capture':active?'Waiting for image':archive?'No image':'Loading archive';
  if($('imageState').textContent!==label)$('imageState').textContent=label;
  $('imageState').classList.toggle('is-live',Boolean(showingLive));
  $('imagePlaceholder').textContent=active?'The image will appear as SatDump decodes enough scan lines.':archive?'No archived image is available.':'Loading the latest archived image…';
@@ -75,16 +117,21 @@ function renderReception(){
   $('featureTime').textContent=active?'Waiting for a decodable image':'';
  }
  const mode=!online?'Unavailable':receiving?'Receiving':active&&state.phase==='processing'?'Processing':active?'Listening':'Standby';
- const stationLabel=!state?'Connecting':!online?'Station unavailable':mode;
+ const stationLabel=!state?'Connecting':!online?'Station telemetry unavailable':mode;
  if($('stationState').textContent!==stationLabel)$('stationState').textContent=stationLabel;
  $('stationState').classList.toggle('is-live',Boolean(receiving));
+ $('stationState').classList.toggle('is-stale',Boolean(state&&!online));
+ $('receiverReadings').hidden=!online;
  $('livePhase').textContent=mode;
  $('liveFrames').textContent=receiving&&Number.isSafeInteger(state.frames)?fmt.format(state.frames):'—';
  const rfFresh=active&&Math.abs(now-Date.parse(state.telemetry_utc))<90000;
  $('liveSnr').textContent=rfFresh&&Number.isFinite(state.snr_db)?snr(state.snr_db):'—';
  $('liveLock').textContent=rfFresh&&typeof state.frame_lock==='boolean'?(state.frame_lock?'Locked':'Searching'):'—';
- $('probeStatus').textContent=online?(state.sdr_present?'SDR detected':'SDR unavailable'):'—';
- $('probeNote').textContent=online?'Last station update '+shortTime(state.sampled_utc)+' PHT':'Waiting for a station update';
+ $('probeStatus').textContent=online?(state.sdr_present?'SDR detected':'SDR unavailable'):state?'No recent telemetry':'Connecting';
+ const lastContact=Number.isFinite(age)?date(state.sampled_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT':null;
+ $('probeNote').textContent=online?'Last station update '+lastContact:
+  lastContact?'Last heard '+lastContact+'. Recording status is unknown.':
+  state?'Waiting for the first station update.':'Connecting to the station…';
 }
 function renderArchive(){
  renderSummary();
@@ -196,7 +243,7 @@ function drawMap(){
 }
 function drawSky(){const {x,w,h}=canvas('skyplot');x.clearRect(0,0,w,h);const p=currentPass;if(!p)return;const sat=orbital.satellites.find(s=>s.name===p.satellite);const start=+new Date(p.aos),end=+new Date(p.los);x.strokeStyle='#c9d9e9';x.lineWidth=1;x.beginPath();x.moveTo(18,h-18);x.lineTo(w-12,h-18);x.stroke();x.fillStyle='#52647b';x.font='8px system-ui';x.fillText('90°',0,12);x.fillText('10°',0,h-15);x.strokeStyle='#003a6c';x.lineWidth=1.6;x.beginPath();for(let i=0;i<=80;i++){const point=sample(sat,start+(end-start)*i/80);if(!point)continue;const px=22+i*(w-38)/80,py=h-18-(point[3]-10)/80*(h-30);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.fillStyle='#003a6c';x.fillText(`${p.max_elevation.toFixed(1)}° MAX`,w/2-20,14)}
 function tick(){
- $('clock').textContent=time(new Date())+' PHT';const available=upcoming(),first=available[0];$('nextPassLabel').textContent=first&&Date.parse(first.aos)<=Date.now()?'Predicted pass in progress':'Next predicted pass';$('nextCountdown').textContent=first?countdown(first.aos):'—';$('nextSummary').textContent=first?`Meteor ${first.satellite} · ${first.max_elevation.toFixed(1)}° peak`:'Waiting for fresh predictions';
+ $('clock').textContent=time(new Date())+' PHT';const available=upcoming(),first=available.find(p=>p.max_elevation>=recordingElevation);$('nextPassLabel').textContent=first&&Date.parse(first.aos)<=Date.now()?'Predicted pass in progress':'Next pass at or above 40°';$('nextCountdown').textContent=first?countdown(first.aos):'—';$('nextSummary').textContent=first?`Meteor ${first.satellite} · ${first.max_elevation.toFixed(1)}° peak`:available.length?'No qualifying pass in this forecast':'Waiting for fresh predictions';
  const selected=available.find(p=>passKey(p)===inspectedPass);
  if(!selected)inspectedPass=null;
  const previous=passKey(currentPass);
@@ -208,10 +255,13 @@ function tick(){
  if(currentPass){$('passSatellite').textContent='METEOR '+currentPass.satellite;$('passCountdown').textContent=countdown(currentPass.aos);$('passDate').textContent=date(currentPass.aos)+' · Philippine time';$('passAos').textContent=shortTime(currentPass.aos);$('passPeak').textContent=shortTime(currentPass.peak);$('passLos').textContent=shortTime(currentPass.los);$('passNote').textContent=`${currentPass.max_elevation.toFixed(1)}° maximum elevation · ${Math.floor(currentPass.duration_seconds/60)}m ${currentPass.duration_seconds%60}s above 10°. Verify the active downlink before recording.`}
  else{$('passSatellite').textContent='METEOR '+selectedSatellite;$('passCountdown').textContent='Unavailable';$('passDate').textContent='No upcoming prediction in this snapshot';for(const id of ['passAos','passPeak','passLos'])$(id).textContent='—';$('passNote').textContent='Check the forecast again when fresh orbital data is available.'}
  if(orbital){const age=(Date.now()-new Date(orbital.generated_utc))/3600000,expired=Date.now()>new Date(orbital.valid_until_utc);$('orbitState').textContent=expired?'Predictions expired':orbital.satellites.length?`COMPUTED TRACKING · ${age.toFixed(1)}H SNAPSHOT`:'Orbit data unavailable';if(expired)$('passNote').textContent='Orbital snapshot expired. Rebuild to refresh predictions.'}
- drawMap();drawSky();renderReception();
+ drawMap();drawSky();renderReception();renderPassDay(Date.now());
 }
 async function stationPoll(){
- try{stationSample=await get('station.json')}
+ try{
+  const fresh=await get('station.json');
+  if(Number.isFinite(Date.parse(fresh.sampled_utc))||!stationSample)stationSample=fresh;
+ }
  catch{stationSample??={connected:false}}
  renderReception();
  setTimeout(stationPoll,15000);

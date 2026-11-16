@@ -14,6 +14,7 @@ import shutil
 from pathlib import Path
 from urllib.parse import quote
 from urllib.request import urlopen, Request
+from zoneinfo import ZoneInfo
 
 import numpy as np
 from PIL import Image
@@ -162,6 +163,9 @@ def get_tle(number, cache):
 
 def orbits(cache, now=None):
     now = now or dt.datetime.now(UTC)
+    manila_midnight = now.astimezone(ZoneInfo(STATION['timezone'])).replace(
+        hour=0, minute=0, second=0, microsecond=0)
+    pass_start = manila_midnight - dt.timedelta(minutes=25)
     ts = load.timescale(builtin=True)
     observer = wgs84.latlon(STATION['latitude'], STATION['longitude'], elevation_m=STATION['altitude_m'])
     satellites, passes, errors = [], [], []
@@ -183,7 +187,7 @@ def orbits(cache, now=None):
                                'source': source, 'refresh_error': error, 'tle': lines,
                                'start_utc': iso(now-dt.timedelta(seconds=600)), 'step_seconds': 30,
                                'points': np.round(points, 3).tolist()})
-            t, events = sat.find_events(observer, ts.from_datetime(now-dt.timedelta(minutes=25)),
+            t, events = sat.find_events(observer, ts.from_datetime(pass_start),
                                        ts.from_datetime(now+dt.timedelta(hours=48)), altitude_degrees=STATION['mask_deg'])
             current = {}
             for time, event in zip(t, events):
@@ -194,7 +198,7 @@ def orbits(cache, now=None):
                 elif event == 1 and current:
                     current.update(peak=iso(instant), max_elevation=round(float(a.degrees),1))
                 elif event == 2 and current.get('peak'):
-                    if instant >= now:
+                    if current['peak'] >= iso(manila_midnight) or instant >= now:
                         current.update(los=iso(instant), los_az=round(float(z.degrees),1),
                             duration_seconds=round((instant-dt.datetime.fromisoformat(current['aos'])).total_seconds()))
                         passes.append(current)
