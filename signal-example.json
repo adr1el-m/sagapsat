@@ -1,0 +1,12 @@
+{
+  "capture": "2026-11-15_12-15-00_Meteor-M2-3",
+  "capture_started_utc": "2026-11-15T12:15:00+00:00",
+  "center_frequency_hz": 137900000,
+  "source_sample_rate_hz": 160000,
+  "source_sha256": "2784290c14c428625e4829c1a67804ced29383dc47ca28ea460ff30daf8d2ecc",
+  "recorded_offset_seconds": 478,
+  "recorded_duration_seconds": 8,
+  "audio_sample_rate_hz": 32000,
+  "decoded_cadu_sha256": "5e6b72a285fb44c8130496d3fdf5561a3642fcb2fc091538fce779f05d710db0",
+  "method": "Recorded channel I and Q replayed as stereo at one-fifth speed. The waterfall shows relative FFT power over the same excerpt. Sample time has no validated mapping to the rows of the decoded image."
+}

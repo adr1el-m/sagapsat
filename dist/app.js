@@ -133,7 +133,18 @@ function renderReception(){
   lastContact?'Last heard '+lastContact+'. Recording status is unknown.':
   state?'Waiting for the first station update.':'Connecting to the station…';
 }
-let latestCapture, latestProductIndex=0;
+let latestCapture, latestProductIndex=0, browsedReceptionId;
+const captureExperience=createReceptionExperience(selectReception,openCapture,()=>{
+ if($('latestCompare').value==='')return;
+ $('latestCompare').value='';
+ showLatestComparison();
+});
+initSignalPlayer();
+
+function selectReception(capture){
+ browsedReceptionId=capture?.id===archive?.captures[0]?.id?undefined:capture?.id;
+ updateLatest(capture);
+}
 function updateLatest(capture){
  const compare=$('latestCompare'), choices=$('latestProducts');
  const sameCapture=latestCapture?.id===capture?.id;
@@ -158,6 +169,7 @@ function updateLatest(capture){
   option.append(thumbnail,make('span',image.label));
   return option;
  }));
+ $('latestLabel').textContent=browsedReceptionId?'Archived capture':'Latest capture';
  $('latestTitle').textContent=capture?'Meteor '+capture.satellite:'Meteor reception';
  $('latestTime').textContent=capture?date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT':'';
  $('latestSummary').textContent=capture?captureOutcome(capture):'';
@@ -195,6 +207,7 @@ function showLatestProduct(compareName){
   preview.removeAttribute('src');
   $('latestStatus').textContent=latestCapture?'No image was received for this capture.':'No receptions have been published yet.';
  }
+ captureExperience.setProduct(latestCapture,product);
  showLatestComparison();
 }
 function comparisonIndex(){
@@ -205,6 +218,7 @@ function showLatestComparison(){
  const comparison=$('latestCompareImage');
  $('latestComparison').hidden=!product;
  if(product){
+  captureExperience.comparisonStarted();
   if(comparison.getAttribute('src')!==product.preview){delete comparison.dataset.black;comparison.src=product.preview;}
   comparison.alt=`Comparison image, ${product.label}`;
  }
@@ -265,13 +279,18 @@ $('latestCompare').onchange=showLatestComparison;
 $('latestWipe').oninput=updateImageWipe;
 new ResizeObserver(updateImageWipe).observe($('latestImage').closest('.latest-view'));
 updateImageWipe();
-$('latestView').onclick=$('latestOpen').onclick=()=>{
+$('latestOpen').onclick=()=>{
  if(latestCapture)openCapture(latestCapture,latestProductIndex,comparisonIndex());
+};
+$('latestView').onclick=()=>{
+ if(!captureExperience.inspecting)$('latestOpen').onclick();
 };
 
 function updateArchive(data){
  archive=data;
- updateLatest(data.captures[0]);
+ const chosen=data.captures.find(c=>c.id===browsedReceptionId)||data.captures[0];
+ captureExperience.updateArchive(data,chosen);
+ selectReception(chosen);
  renderSummary();
  if(typeof refreshCoverage==='function')refreshCoverage();
  $('exportCsv').disabled=false;
@@ -338,7 +357,10 @@ function imageSelection(){
 }
 function openCapture(c,productIndex,compareIndex){
  captureReturnHash=location.hash.startsWith('#capture=')?'#archive':location.hash;
- currentCapture=c;$('dialogTitle').textContent=`Meteor ${c.satellite} · ${date(c.started_utc)}`;
+ currentCapture=c;
+ $('dialogPrint').disabled=!c.images.length;
+ $('dialogPrintStatus').hidden=true;
+ $('dialogTitle').textContent=`Meteor ${c.satellite} · ${date(c.started_utc)}`;
  $('captureProducts').hidden=$('downloadImage').hidden=$('productHash').hidden=!c.images.length;$('productSelect').replaceChildren();$('compareSelect').replaceChildren(new Option('No comparison',''));
  c.images.forEach((im,i)=>{$('productSelect').add(new Option(im.label,i));$('compareSelect').add(new Option(im.label,i))});
  $('productSelect').value=productIndex??Math.max(0,c.images.findIndex(im=>im.name===(captureThumbnail(c)||c.featured)?.name));
@@ -406,6 +428,7 @@ function renderPasses(){
 function sample(sat,instant){if(!sat)return null;const n=(instant-new Date(sat.start_utc))/1000/sat.step_seconds;if(n<0||n>=sat.points.length-1)return null;const i=Math.floor(n),f=n-i,a=sat.points[i],b=sat.points[i+1];return a.map((v,j)=>{let d=b[j]-v;if(j===1||j===4){if(d>180)d-=360;if(d< -180)d+=360}let x=v+d*f;if(j===1)x=((x+540)%360)-180;if(j===4)x=(x+360)%360;return x})}
 function canvas(id){const c=$(id),r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);c.width=r.width*dpr;c.height=r.height*dpr;const x=c.getContext('2d');x.scale(dpr,dpr);return {x,w:r.width,h:r.height}}
 const globe=createOrbitGlobe($('globe'),$('followGlobe'),$('manilaGlobe'),$('globeZoomIn'),$('globeZoomOut'));
+const drawAntennaSky=createAntennaSky($('antennaSky'),$('globe'),drawMap);
 const orbitMinute=60000;
 const orbitStep=.5;
 const orbitWindow=45;
@@ -468,6 +491,7 @@ function drawMap(){
   seek(index);
  }:null;
  globe.update({point,track,seek:seekFromGlobe,station:station?[station.latitude,station.longitude]:[14.6,121]});
+ drawAntennaSky(point,track,seekFromGlobe);
  const displayTime=point?`${date(instant,{hour:'numeric',minute:'2-digit',hour12:true})} PHT`:'Prediction unavailable';
  const mode=point?(orbitPass?'Pass preview':orbitBase===undefined?'Current prediction':'Orbit preview'):'';
  $('orbitMoment').textContent=mode?`${mode} · ${displayTime}`:displayTime;
@@ -630,7 +654,8 @@ $('closeDialog').onclick=()=>$('captureDialog').close();$('captureDialog').addEv
 $('captureDialog').addEventListener('close',()=>{
  if(location.hash.startsWith('#capture='))history.replaceState(null,'',captureReturnHash||location.pathname+location.search);
 });
+$('dialogPrint').onclick=()=>captureExperience.exportPrint(currentCapture,currentCapture?.images[Number($('productSelect').value)],$('dialogPrint'),$('dialogPrintStatus'));
 $('productSelect').onchange=$('compareSelect').onchange=imageSelection;$('zoomButton').onclick=()=>{const native=$('viewer').classList.toggle('native');$('zoomButton').textContent=native?'Fit to viewer':'View at native size';imageSelection()};
 $('exportCsv').onclick=()=>{if(!archive)return;const rows=[['capture','satellite','started_utc','finished_utc','outcome','cadu_bytes','records','distinct_records','expected_asm','trailing_bytes','peak_logged_snr_db','image_variants','georeferencing'],...archive.captures.map(c=>[c.id,c.satellite,c.started_utc,c.finished_utc,c.outcome,c.cadu_bytes,c.frames,c.unique_frames,c.sync_frames,c.trailing_bytes,c.peak_snr_db,c.images.length,c.georeferencing])];download('sagapsat-capture-index.csv',rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n'),'text/csv')};
 window.addEventListener('resize',()=>{drawMap();drawSky()});
-const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){for(const a of document.querySelectorAll('nav a')){const active=a.hash==='#'+entry.target.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')}}},{rootMargin:'-10% 0px -60% 0px'});document.querySelectorAll('main>section').forEach(s=>observer.observe(s));init();
+const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){for(const a of document.querySelectorAll('nav a')){const active=a.hash==='#'+entry.target.id;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')}}},{rootMargin:'-10% 0px -60% 0px'});document.querySelectorAll('main>section').forEach(s=>{if(document.querySelector(`nav a[href="#${s.id}"]`))observer.observe(s)});init();
