@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f6f0"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f8fa"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -16,6 +16,12 @@
 </header>
 <main id="main">
 <section id="archive" aria-labelledby="latestTitle">
+  <section class="pass-strip" aria-label="Next predicted satellite pass">
+    <span id="nextPassLabel">Next pass at or above 40°</span>
+    <strong id="nextCountdown">—</strong>
+    <span id="nextSummary">Loading orbital elements</span>
+    <a href="#tracking">View forecast <span aria-hidden="true">↗</span></a>
+  </section>
   <header class="archive-heading">
     <span>Metro Manila <span aria-hidden="true">/</span> Meteor LRPT</span>
     <a class="archive-jump" href="#receptions">Reception archive ↓</a>
@@ -111,11 +117,6 @@
   <div class="reception-heading">
     <div><h2 id="receptionTitle">Live station</h2></div>
     <span class="station-status" id="stationState" role="status">Connecting</span>
-  </div>
-  <div class="pass-strip">
-    <div><span id="nextPassLabel">Next pass at or above 40°</span><strong id="nextCountdown">—</strong></div>
-    <span id="nextSummary">Loading orbital elements</span>
-    <a class="outline-button" href="#tracking">View forecast</a>
   </div>
   <div class="reception-layout">
     <article class="image-card" aria-labelledby="imageTitle">

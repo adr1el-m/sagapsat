@@ -542,7 +542,7 @@ function drawElevationChart(track,index){
   else x.moveTo(px(i),py(point[3]));
   hasPrevious=true;
  }
- x.strokeStyle='#21735d';
+ x.strokeStyle='#315da8';
  x.lineWidth=2;
  x.stroke();
  const elevation=track[index]?.[3];
@@ -550,12 +550,12 @@ function drawElevationChart(track,index){
  x.beginPath();
  x.moveTo(px(index),0);
  x.lineTo(px(index),h);
- x.strokeStyle='#132b23';
+ x.strokeStyle='#1a2e4a';
  x.lineWidth=1;
  x.stroke();
  x.beginPath();
  x.arc(px(index),py(elevation),3.5,0,2*Math.PI);
- x.fillStyle='#132b23';
+ x.fillStyle='#1a2e4a';
  x.fill();
 }
 $('orbitElevation').onclick=event=>{

@@ -230,7 +230,7 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
   context.strokeStyle='#05161b';
   context.lineWidth=3;
   context.stroke();
-  context.strokeStyle='#97f0c1';
+  context.strokeStyle='#9edaff';
   context.lineWidth=1.3;
   context.stroke();
 
