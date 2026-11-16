@@ -133,8 +133,61 @@ function renderReception(){
   lastContact?'Last heard '+lastContact+'. Recording status is unknown.':
   state?'Waiting for the first station update.':'Connecting to the station…';
 }
+let latestCapture;
+function updateLatest(capture){
+ const choice=$('latestProduct');
+ const previous=latestCapture?.id===capture?.id?latestCapture?.images[Number(choice.value)]?.name:null;
+ latestCapture=capture;
+ $('latestOpen').disabled=!capture;
+ const images=capture?.images||[];
+ $('latestProductLabel').hidden=!images.length;
+ choice.disabled=!images.length;
+ choice.replaceChildren(...images.map((image,index)=>new Option(image.label,index)));
+ const selected=previous|| (capture&&(captureThumbnail(capture)||capture.featured)?.name);
+ choice.value=Math.max(0,images.findIndex(image=>image.name===selected));
+ $('latestSatellite').textContent=capture?'Meteor '+capture.satellite:'';
+ $('latestTime').textContent=capture?date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT':'';
+ $('latestSummary').textContent=capture?`${captureOutcome(capture)} · ${fmt.format(capture.unique_frames)} CADUs`:'';
+ showLatestProduct();
+}
+function showLatestProduct(){
+ const product=latestCapture?.images[Number($('latestProduct').value)];
+ const preview=$('latestImage');
+ $('latestView').hidden=!product;
+ $('latestStatus').hidden=Boolean(product);
+ $('latestStatus').classList.remove('preview-note');
+ if(product){
+  preview.src=product.preview;
+  preview.alt=`Meteor ${latestCapture.satellite} satellite image, ${product.label}`;
+ }else{
+  preview.removeAttribute('src');
+  $('latestStatus').textContent=latestCapture?'No image was received for this capture.':'No receptions have been published yet.';
+ }
+}
+$('latestImage').addEventListener('load',event=>{
+ const sample=document.createElement('canvas');
+ sample.width=sample.height=64;
+ const context=sample.getContext('2d');
+ if(!context)return;
+ context.drawImage(event.target,0,0,64,64);
+ const {data}=context.getImageData(0,0,64,64);
+ const hasVisiblePixels=data.some((channel,index)=>index%4!==3&&channel>0);
+ if(hasVisiblePixels)return;
+ $('latestStatus').textContent='This product has an all-black preview.';
+ $('latestStatus').classList.add('preview-note');
+ $('latestStatus').hidden=false;
+});
+$('latestImage').addEventListener('error',()=>{
+ $('latestView').hidden=true;
+ $('latestStatus').hidden=false;
+ $('latestStatus').textContent='This image preview is unavailable.';
+});
+$('latestProduct').onchange=showLatestProduct;
+$('latestView').onclick=$('latestOpen').onclick=()=>{if(latestCapture)openCapture(latestCapture,Number($('latestProduct').value))};
+
 function updateArchive(data){
  archive=data;
+ updateLatest(data.captures[0]);
  renderSummary();
  if(typeof refreshCoverage==='function')refreshCoverage();
  $('exportCsv').disabled=false;
@@ -152,10 +205,12 @@ function renderArchive(){
  $('emptyArchive').textContent=archive.captures.length?'No captures match. Try another satellite or date.':'No receptions have been published yet.';
  $('emptyArchive').hidden=captures.length>0;
  const grid=$('captureGrid');
- grid.classList.toggle('has-feature',archiveFilter==='all'&&!query&&captures.length>=3&&Boolean(captureThumbnail(captures[0])));
  grid.replaceChildren(...captures.map(captureCard));
 }
-function captureCard(capture,index){
+function captureOutcome(capture){
+ return capture.outcome==='partial'?'Partial image':capture.outcome==='frames'?'Frames only':'No frames';
+}
+function captureCard(capture){
  const card=make('button',undefined,'capture-card');
  card.type='button';
  const captureDate=date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT';
@@ -165,9 +220,8 @@ function captureCard(capture,index){
  if(thumbnail){
   const image=make('img');
   image.alt='';
-  image.loading=index<3?'eager':'lazy';
+  image.loading='lazy';
   image.decoding='async';
-  if(index===0)image.fetchPriority='high';
   image.src=thumbnail.preview;
   thumb.append(image);
   if(thumbnail.width>thumbnail.height*8){
@@ -180,16 +234,11 @@ function captureCard(capture,index){
  const heading=make('span',undefined,'capture-title');
  heading.append(make('span','Meteor '+capture.satellite),make('span','↗','capture-arrow'));
  heading.lastElementChild.setAttribute('aria-hidden','true');
- const outcome=capture.outcome==='partial'?'Partial image':capture.outcome==='frames'?'Frames only':'No frames';
  const body=make('span',undefined,'capture-body');
  body.append(heading,make('span',captureDate,'capture-date'));
  const metrics=make('span',undefined,'capture-meta');
- metrics.append(make('span',outcome,'capture-outcome'),make('span',fmt.format(capture.unique_frames)+' CADUs'));
+ metrics.append(make('span',captureOutcome(capture),'capture-outcome'),make('span',fmt.format(capture.unique_frames)+' CADUs'));
  body.append(metrics);
- if(index===0){
-  body.prepend(make('span','Latest reception','capture-latest'));
-  body.append(make('span','Open capture ↗','capture-action'));
- }
  card.append(thumb,body);
  card.onclick=()=>openCapture(capture);
  return card;
@@ -203,12 +252,12 @@ function imageSelection(){
  if(ix!==''){const c=currentCapture.images[Number(ix)];$('compareImage').src=c.preview;$('compareLabel').textContent=`${c.label} · ${c.width} × ${c.height} px`}
  if($('viewer').classList.contains('native')){$('detailImage').src=image.url;if(ix!=='')$('compareImage').src=currentCapture.images[Number(ix)].url}
 }
-function openCapture(c){
+function openCapture(c,productIndex){
  captureReturnHash=location.hash.startsWith('#capture=')?'#archive':location.hash;
  currentCapture=c;$('dialogTitle').textContent=`Meteor ${c.satellite} · ${date(c.started_utc)}`;
  $('captureProducts').hidden=$('downloadImage').hidden=$('productHash').hidden=!c.images.length;$('productSelect').replaceChildren();$('compareSelect').replaceChildren(new Option('No comparison',''));
  c.images.forEach((im,i)=>{$('productSelect').add(new Option(im.label,i));$('compareSelect').add(new Option(im.label,i))});
- $('productSelect').value=Math.max(0,c.images.findIndex(im=>im.name===(captureThumbnail(c)||c.featured)?.name));
+ $('productSelect').value=productIndex??Math.max(0,c.images.findIndex(im=>im.name===(captureThumbnail(c)||c.featured)?.name));
  $('viewer').classList.remove('native');$('zoomButton').textContent='View at native size';$('captureNotes').textContent=c.notes;
  $('detailMetrics').replaceChildren();
  for(const [label,value] of [['Distinct CADUs',fmt.format(c.unique_frames)],['Complete records',fmt.format(c.frames)],['Expected ASM',`${fmt.format(c.sync_frames)} / ${fmt.format(c.frames)}`],['Trailing bytes',String(c.trailing_bytes)],['Peak logged SNR',snr(c.peak_snr_db)],['Image variants',String(c.images.length)],['Reported size',c.size_matches_report?'Matches file':'MISMATCH'],['Georeferencing','Unverified']]){const e=make('div');e.append(make('small',label),make('strong',value));$('detailMetrics').append(e)}
@@ -270,23 +319,89 @@ function renderPasses(){
 }
 function sample(sat,instant){if(!sat)return null;const n=(instant-new Date(sat.start_utc))/1000/sat.step_seconds;if(n<0||n>=sat.points.length-1)return null;const i=Math.floor(n),f=n-i,a=sat.points[i],b=sat.points[i+1];return a.map((v,j)=>{let d=b[j]-v;if(j===1||j===4){if(d>180)d-=360;if(d< -180)d+=360}let x=v+d*f;if(j===1)x=((x+540)%360)-180;if(j===4)x=(x+360)%360;return x})}
 function canvas(id){const c=$(id),r=c.getBoundingClientRect(),dpr=Math.min(devicePixelRatio||1,2);c.width=r.width*dpr;c.height=r.height*dpr;const x=c.getContext('2d');x.scale(dpr,dpr);return {x,w:r.width,h:r.height}}
-const updateGlobe=createOrbitGlobe($('globe'),$('followGlobe'),$('manilaGlobe'));
+const updateGlobe=createOrbitGlobe($('globe'),$('followGlobe'),$('manilaGlobe'),$('globeZoomIn'),$('globeZoomOut'));
+const orbitMinute=60000;
+const orbitStep=.5;
+const orbitWindow=45;
+const orbitTime=$('orbitTime');
+let orbitBase, orbitOffset=0, orbitPlayback;
+
+function stopOrbitPlayback(){
+ clearInterval(orbitPlayback);
+ orbitPlayback=null;
+ $('orbitPlay').textContent='Play';
+ $('orbitPlay').setAttribute('aria-label','Play orbit preview');
+}
+function orbitOffsetLabel(minutes){
+ return minutes===0?'0 min':`${minutes<0?'−':'+'}${Math.abs(minutes)} min`;
+}
 function drawMap(){
  const now=Date.now();
  const valid=now<Date.parse(orbital?.valid_until_utc)&&now>=Date.parse(orbital?.generated_utc)-300000;
  const sat=valid?orbital.satellites.find(s=>s.name===selectedSatellite):null;
- const point=sample(sat,now);
+ const reference=orbitBase??now;
+ const start=Date.parse(sat?.start_utc);
+ const end=sat?start+(sat.points.length-1)*sat.step_seconds*1000-1:NaN;
+ const min=Math.max(-orbitWindow,Math.ceil((start-reference)/(orbitMinute*orbitStep))*orbitStep);
+ const max=Math.min(orbitWindow,Math.floor((end-reference)/(orbitMinute*orbitStep))*orbitStep);
+ const hasTimeline=Number.isFinite(min)&&max>min&&min<=0&&max>=0;
+ orbitTime.disabled=$('orbitPlay').disabled=!hasTimeline;
+ $('orbitNow').disabled=!hasTimeline&&orbitBase===undefined;
+ if(!hasTimeline)stopOrbitPlayback();
+ if(hasTimeline){
+  orbitOffset=Math.min(max,Math.max(min,orbitOffset));
+  orbitTime.min=min;
+  orbitTime.max=max;
+  orbitTime.value=orbitOffset;
+  $('orbitMin').textContent=orbitOffsetLabel(min);
+  $('orbitMax').textContent=orbitOffsetLabel(max);
+ }
+ const instant=reference+orbitOffset*orbitMinute;
+ const point=sample(sat,instant);
  const track=[];
- if(point){
-  for(let t=now-2700000;t<=now+2700000;t+=30000)track.push(sample(sat,t));
+ if(hasTimeline){
+  for(let offset=min;offset<=max;offset+=orbitStep)track.push(sample(sat,reference+offset*orbitMinute));
  }
  const station=orbital?.station;
- updateGlobe({point,track,station:station?[station.latitude,station.longitude]:[14.6,121]});
- $('position').textContent=point?`${point[0].toFixed(2)}° / ${point[1].toFixed(2)}°`:'Unavailable';
- $('altitude').textContent=point?fmt.format(Math.round(point[2]))+' km':'Unavailable';
- $('azel').textContent=point?`${point[4].toFixed(1)}° / ${point[3].toFixed(1)}°`:'Unavailable';
- $('tleInfo').textContent=point?`SGP4 prediction · NORAD ${sat.norad} · TLE epoch ${date(sat.epoch,{hour:'2-digit',minute:'2-digit'})} PHT`:'Waiting for a fresh orbital snapshot.';
+ const seek=hasTimeline?index=>seekOrbit(min+index*orbitStep,reference):null;
+ updateGlobe({point,track,seek,station:station?[station.latitude,station.longitude]:[14.6,121]});
+ const displayTime=point?`${date(instant,{hour:'numeric',minute:'2-digit',hour12:true})} PHT`:'Prediction unavailable';
+ const mode=point?(orbitBase===undefined?'Current prediction':'Orbit preview'):'';
+ $('orbitMoment').textContent=mode?`${mode} · ${displayTime}`:displayTime;
+ orbitTime.setAttribute('aria-valuetext',displayTime);
+ $('orbitNow').setAttribute('aria-pressed',String(orbitBase===undefined));
+ $('position').textContent=point?`${point[0].toFixed(2)}° / ${point[1].toFixed(2)}°`:'—';
+ $('altitude').textContent=point?fmt.format(Math.round(point[2]))+' km':'—';
+ $('azel').textContent=point?`${point[4].toFixed(1)}° / ${point[3].toFixed(1)}°`:'—';
+ $('tleInfo').textContent=point?`NORAD ${sat.norad} · TLE epoch ${date(sat.epoch,{hour:'2-digit',minute:'2-digit'})} PHT · SGP4 prediction`:'Waiting for a fresh orbital snapshot.';
 }
+function seekOrbit(offset,reference=orbitBase??Date.now()){
+ stopOrbitPlayback();
+ orbitBase=reference;
+ orbitOffset=offset;
+ drawMap();
+}
+orbitTime.oninput=()=>seekOrbit(Number(orbitTime.value));
+$('orbitNow').onclick=()=>{
+ stopOrbitPlayback();
+ orbitBase=undefined;
+ orbitOffset=0;
+ drawMap();
+};
+$('orbitPlay').onclick=()=>{
+ if(orbitPlayback){stopOrbitPlayback();return}
+ if(orbitBase===undefined||orbitOffset>=Number(orbitTime.max))orbitOffset=Number(orbitTime.min);
+ orbitBase??=Date.now();
+ $('orbitPlay').textContent='Pause';
+ $('orbitPlay').setAttribute('aria-label','Pause orbit preview');
+ drawMap();
+ if(orbitTime.disabled)return;
+ orbitPlayback=setInterval(()=>{
+  orbitOffset=Math.min(Number(orbitTime.max),orbitOffset+orbitStep);
+  drawMap();
+  if(orbitOffset>=Number(orbitTime.max))stopOrbitPlayback();
+ },200);
+};
 function drawSky(){const {x,w,h}=canvas('skyplot');x.clearRect(0,0,w,h);const p=currentPass;if(!p)return;const sat=orbital.satellites.find(s=>s.name===p.satellite);const start=+new Date(p.aos),end=+new Date(p.los);x.strokeStyle='#c9d9e9';x.lineWidth=1;x.beginPath();x.moveTo(18,h-18);x.lineTo(w-12,h-18);x.stroke();x.fillStyle='#52647b';x.font='8px system-ui';x.fillText('90°',0,12);x.fillText('10°',0,h-15);x.strokeStyle='#003a6c';x.lineWidth=1.6;x.beginPath();for(let i=0;i<=80;i++){const point=sample(sat,start+(end-start)*i/80);if(!point)continue;const px=22+i*(w-38)/80,py=h-18-(point[3]-10)/80*(h-30);i?x.lineTo(px,py):x.moveTo(px,py)}x.stroke();x.fillStyle='#003a6c';x.fillText(`${p.max_elevation.toFixed(1)}° MAX`,w/2-20,14)}
 function tick(){
  $('clock').textContent=time(new Date())+' PHT';const available=upcoming(),first=available.find(p=>p.max_elevation>=recordingElevation);$('nextPassLabel').textContent=first&&Date.parse(first.aos)<=Date.now()?'Predicted pass in progress':'Next pass at or above 40°';$('nextCountdown').textContent=first?countdown(first.aos):'—';$('nextSummary').textContent=first?`Meteor ${first.satellite} · ${first.max_elevation.toFixed(1)}° peak`:available.length?'No qualifying pass in this forecast':'Waiting for fresh predictions';
@@ -318,6 +433,7 @@ async function init(){
  stationPoll();
  const loadArchive=get('archive.json').then(updateArchive).catch(()=>{
   $('archiveStatus').textContent='The archive is unavailable. The page will retry automatically.';
+  $('latestStatus').textContent='The latest capture is unavailable. Retrying automatically…';
  });
  const loadOrbits=get('orbits.json').then(data=>{
   orbital=data;

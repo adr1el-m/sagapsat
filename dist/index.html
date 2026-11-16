@@ -16,37 +16,66 @@
 </header>
 <main id="main">
 <section id="archive" aria-labelledby="archiveTitle">
-  <div class="archive-masthead">
   <header class="archive-heading">
-    <p class="archive-location">Metro Manila, Philippines <span aria-hidden="true">/</span> Meteor LRPT</p>
-    <h1 id="archiveTitle">Reception archive</h1>
-    <p class="archive-intro">Original Meteor imagery and raw reception files from our ground station.</p>
-    <a class="archive-jump" href="#receptions">Browse receptions ↓</a>
+    <div>
+      <h1 id="archiveTitle">Reception archive</h1>
+      <p class="archive-location">Meteor LRPT · Metro Manila, Philippines</p>
+    </div>
+    <a class="archive-jump" href="#receptions">Browse all receptions ↓</a>
   </header>
-  <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
-    <h2 id="orbitTitle">Orbit tracker</h2>
-    <div class="segmented" id="satTabs" role="group" aria-label="Track a satellite">
-      <button type="button" class="selected" data-sat="M2-3" aria-label="Meteor M2-3" aria-pressed="true">M2-3</button>
-      <button type="button" data-sat="M2-4" aria-label="Meteor M2-4" aria-pressed="false">M2-4</button>
-    </div>
-    <div class="globe-view">
-      <canvas id="globe" tabindex="0" aria-label="Interactive Earth globe with the selected satellite, predicted ground track, and Metro Manila station." aria-describedby="globeHint">The satellite’s position is listed next to the globe.</canvas>
-      <a class="globe-credit" href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>
-    </div>
-    <div class="orbit-readout">
-      <dl>
-        <div><dt>Lat / lon</dt><dd id="position">—</dd></div>
-        <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
-        <div><dt>Azimuth / elevation</dt><dd id="azel">—</dd></div>
-      </dl>
-      <div class="globe-actions" role="group" aria-label="Globe viewpoint">
-        <button type="button" id="followGlobe" aria-pressed="true">Follow satellite</button>
-        <button type="button" id="manilaGlobe" aria-pressed="false">Manila</button>
+  <div class="archive-masthead">
+    <section class="latest-capture" aria-labelledby="latestTitle">
+      <header class="latest-heading">
+        <div><h2 id="latestTitle">Latest capture</h2><p id="latestTime"></p></div>
+        <p id="latestSatellite"></p>
+      </header>
+      <div class="latest-view">
+        <button type="button" id="latestView" aria-label="Open the latest image in the capture viewer" hidden><img id="latestImage" alt="" crossorigin="anonymous" fetchpriority="high"></button>
+        <p id="latestStatus">Loading the latest reception…</p>
       </div>
-    </div>
-    <p id="globeHint">Drag or use arrow keys. Green shows the predicted ground track.</p>
-    <p id="tleInfo">Loading orbital data…</p>
-  </section>
+      <div class="latest-controls">
+        <label for="latestProduct" id="latestProductLabel"><span>Image product</span><select id="latestProduct" disabled></select></label>
+        <button type="button" class="button" id="latestOpen" disabled>Open capture ↗</button>
+      </div>
+      <p id="latestSummary"></p>
+    </section>
+    <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
+      <header class="orbit-heading">
+        <div><h2 id="orbitTitle">Orbit tracker</h2><p id="globeHint">Drag to rotate or select a point on the track.</p></div>
+        <div class="segmented" id="satTabs" role="group" aria-label="Track a satellite">
+          <button type="button" class="selected" data-sat="M2-3" aria-label="Meteor M2-3" aria-pressed="true">M2-3</button>
+          <button type="button" data-sat="M2-4" aria-label="Meteor M2-4" aria-pressed="false">M2-4</button>
+        </div>
+      </header>
+      <div class="globe-view">
+        <canvas id="globe" tabindex="0" aria-label="Earth globe with the selected satellite, predicted ground track, and ground station" aria-describedby="globeHint globeKeys">The satellite’s predicted coordinates appear below.</canvas>
+        <div class="globe-zoom" role="group" aria-label="Globe zoom">
+          <button type="button" id="globeZoomIn" aria-label="Zoom in on Earth">+</button>
+          <button type="button" id="globeZoomOut" aria-label="Zoom out from Earth">−</button>
+        </div>
+        <div class="globe-actions" role="group" aria-label="Globe viewpoint">
+          <button type="button" id="followGlobe" aria-pressed="true">Follow satellite</button>
+          <button type="button" id="manilaGlobe" aria-pressed="false">Center Manila</button>
+        </div>
+        <a class="globe-credit" href="https://science.nasa.gov/earth/earth-observatory/the-blue-marble-true-color-global-imagery-at-1km-resolution/">NASA Blue Marble</a>
+        <span id="globeKeys" class="sr-only">Use the arrow keys to rotate and the time slider to select a predicted position.</span>
+      </div>
+      <div class="orbit-timeline">
+        <div class="timeline-heading">
+          <output id="orbitMoment" for="orbitTime" aria-live="off">Loading predictions…</output>
+          <button type="button" id="orbitNow" aria-pressed="true" disabled>Now</button>
+          <button type="button" id="orbitPlay" disabled>Play</button>
+        </div>
+        <input type="range" id="orbitTime" min="-45" max="45" step="0.5" value="0" aria-label="Predicted position time relative to now" disabled>
+        <div class="timeline-ticks" aria-hidden="true"><span id="orbitMin">−45 min</span><span>Now</span><span id="orbitMax">+45 min</span></div>
+      </div>
+      <dl class="orbit-readout">
+        <div><dt>Lat / Lon</dt><dd id="position">—</dd></div>
+        <div><dt>Altitude</dt><dd id="altitude">—</dd></div>
+        <div><dt>Az / El</dt><dd id="azel">—</dd></div>
+      </dl>
+      <details class="orbit-source"><summary>Prediction details</summary><p id="tleInfo">Loading orbital data…</p></details>
+    </section>
   </div>
   <div class="archive-toolbar" id="receptions">
     <div class="segmented" id="archiveTabs" role="group" aria-label="Filter by satellite">

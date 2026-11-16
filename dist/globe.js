@@ -1,6 +1,6 @@
 'use strict';
 
-function createOrbitGlobe(canvas, follow, manila) {
+function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
  const context=canvas.getContext('2d');
  const raster=document.createElement('canvas');
  const surface=raster.getContext('2d');
@@ -8,7 +8,9 @@ function createOrbitGlobe(canvas, follow, manila) {
  const earthRadiusKm=6371;
  let texture, frame, renderedView, view;
  let mode='follow', latitude=14.6, longitude=121;
- let drag, animation;
+ let drag, animation, zoomLevel=0, seekOnTrack;
+ let trackTargets=[];
+ const zoomScales=[1,1.25,1.55];
 
  const image=new Image();
  image.onload=()=>{
@@ -42,21 +44,60 @@ function createOrbitGlobe(canvas, follow, manila) {
   setMode('free');
  }
 
+ function zoom(direction) {
+  zoomLevel=Math.max(0,Math.min(zoomScales.length-1,zoomLevel+direction));
+  zoomOut.disabled=zoomLevel===0;
+  zoomIn.disabled=zoomLevel===zoomScales.length-1;
+  schedule();
+ }
+ zoomIn.onclick=()=>zoom(1);
+ zoomOut.onclick=()=>zoom(-1);
+ zoom(0);
+
  follow.onclick=()=>setMode('follow');
  manila.onclick=()=>setMode('manila');
+ function trackTarget(event) {
+  if(!seekOnTrack)return null;
+  const rect=canvas.getBoundingClientRect();
+  const x=event.clientX-rect.left,y=event.clientY-rect.top;
+  let nearest, distance=11;
+  for(const target of trackTargets){
+   const delta=Math.hypot(target.x-x,target.y-y);
+   if(delta<distance){nearest=target;distance=delta}
+  }
+  return nearest;
+ }
  canvas.addEventListener('pointerdown',event=>{
   if(!event.isPrimary||event.button!==0)return;
-  drag={x:event.clientX,y:event.clientY};
+  drag={x:event.clientX,y:event.clientY,moved:false};
   canvas.setPointerCapture(event.pointerId);
  });
  canvas.addEventListener('pointermove',event=>{
-  if(!event.isPrimary||!drag)return;
-  turn((event.clientY-drag.y)*.55,(drag.x-event.clientX)*.55);
-  drag={x:event.clientX,y:event.clientY};
+  if(!event.isPrimary)return;
+  if(!drag){
+   canvas.style.cursor=trackTarget(event)?'crosshair':'grab';
+   return;
+  }
+  const dx=event.clientX-drag.x,dy=event.clientY-drag.y;
+  if(!drag.moved&&Math.hypot(dx,dy)<4)return;
+  turn(dy*.55,-dx*.55);
+  drag={x:event.clientX,y:event.clientY,moved:true};
+  canvas.style.cursor='grabbing';
  });
- canvas.addEventListener('lostpointercapture',()=>{drag=null});
+ canvas.addEventListener('pointerup',event=>{
+  if(!event.isPrimary||!drag)return;
+  const target=!drag.moved&&trackTarget(event);
+  if(target)seekOnTrack(target.index);
+  canvas.style.cursor='grab';
+ });
+ canvas.addEventListener('lostpointercapture',()=>{drag=null;canvas.style.cursor='grab'});
  canvas.addEventListener('keydown',event=>{
   const directions={ArrowUp:[8,0],ArrowDown:[-8,0],ArrowLeft:[0,-8],ArrowRight:[0,8]};
+  if(event.key==='+'||event.key==='-'){
+   event.preventDefault();
+   zoom(event.key==='+'?1:-1);
+   return;
+  }
   const direction=directions[event.key];
   if(!direction)return;
   event.preventDefault();
@@ -133,7 +174,9 @@ function createOrbitGlobe(canvas, follow, manila) {
   context.setTransform(scale,0,0,scale,0,0);
   context.clearRect(0,0,width,height);
 
-  const {point,track,station}=view;
+  const {point,track,station,seek}=view;
+  seekOnTrack=seek;
+  trackTargets=[];
   if(mode!=='free'){
    const center=mode==='follow'&&point?point:station;
    latitude=center[0];
@@ -149,8 +192,8 @@ function createOrbitGlobe(canvas, follow, manila) {
   const centerLongitude=Math.round(longitude*2)/2*radians;
   const sinLat=Math.sin(centerLatitude),cosLat=Math.cos(centerLatitude);
   const cx=width/2,cy=height/2;
-  const radius=Math.min(cx,cy)*.88;
-  const size=Math.max(2,Math.round(Math.min(480,2*radius*scale)));
+  const radius=Math.min(cx,cy)*.87*zoomScales[zoomLevel];
+  const size=Math.max(2,Math.round(Math.min(640,2*radius*scale)));
   paintEarth(size,centerLatitude,centerLongitude);
 
   context.fillStyle='#163b54';
@@ -174,10 +217,11 @@ function createOrbitGlobe(canvas, follow, manila) {
 
   context.beginPath();
   let visible=false;
-  for(const sample of track){
+  for(const [index,sample] of track.entries()){
    if(!sample){visible=false;continue}
    const projected=project(sample[0],sample[1]);
    if(projected.facing){
+    trackTargets.push({...projected,index});
     if(visible)context.lineTo(projected.x,projected.y);
     else context.moveTo(projected.x,projected.y);
    }
@@ -210,7 +254,7 @@ function createOrbitGlobe(canvas, follow, manila) {
    const ground=project(point[0],point[1]);
    if(ground.facing){
     const spacecraft=project(point[0],point[1],1+point[2]/earthRadiusKm);
-    drawSatellite(Math.max(16,Math.min(width-16,spacecraft.x)),Math.max(15,Math.min(height-15,spacecraft.y)));
+    drawSatellite(spacecraft.x,spacecraft.y);
    }
   }
  }
