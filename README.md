@@ -1,7 +1,6 @@
 # SagapSat Observatory
 
-A read-only ground-station portal built from Team Magalona's original Meteor captures.
-The existing reception dashboard and SatDump settings are separate and untouched.
+An archive of original Meteor satellite receptions by Adriel M. Magalona, Eliazar N. Inso, and Jude Vincent F. Puti.
 
 ## Build and run
 

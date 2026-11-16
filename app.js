@@ -1,6 +1,6 @@
 'use strict';
 const $=id=>document.getElementById(id), fmt=new Intl.NumberFormat('en-PH');
-let archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass,inspectedPass,highestPass;
+let archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass,inspectedPass,highestPass,captureReturnHash;
 const date=(v,options={})=>v?new Date(v).toLocaleString('en-PH',{timeZone:'Asia/Manila',day:'2-digit',month:'short',year:'numeric',...options}):'Not recorded';
 const time=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}):'—';
 const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'numeric',minute:'2-digit',hour12:true}):'—';
@@ -133,28 +133,66 @@ function renderReception(){
   lastContact?'Last heard '+lastContact+'. Recording status is unknown.':
   state?'Waiting for the first station update.':'Connecting to the station…';
 }
-function renderArchive(){
+function updateArchive(data){
+ archive=data;
  renderSummary();
  if(typeof refreshCoverage==='function')refreshCoverage();
- const q=$('search').value.trim().toLowerCase();$('captureGrid').replaceChildren();
- const captures=archive.captures.filter(c=>(archiveFilter==='all'||c.satellite===archiveFilter)&&(`${c.id} ${date(c.started_utc)} ${c.satellite}`).toLowerCase().includes(q));
- $('emptyArchive').hidden=!!captures.length;
- for(const c of captures){const card=make('button',undefined,'capture-card');card.type='button';card.setAttribute('aria-label',`Inspect Meteor ${c.satellite}, ${date(c.started_utc)}`);
- const thumb=make('div',undefined,'capture-thumb');
- const thumbnail=captureThumbnail(c);
+ $('exportCsv').disabled=false;
+ renderArchive();
+}
+function renderArchive(){
+ if(!archive)return;
+ const query=$('search').value.trim().toLowerCase();
+ const captures=archive.captures.filter(capture=>{
+  const terms=[capture.id,'Meteor '+capture.satellite,date(capture.started_utc),
+   date(capture.started_utc,{day:'numeric'}),date(capture.started_utc,{day:'numeric',month:'long'})];
+  return (archiveFilter==='all'||capture.satellite===archiveFilter)&&terms.some(term=>term.toLowerCase().includes(query));
+ });
+ $('archiveStatus').textContent=`${fmt.format(captures.length)} ${captures.length===1?'reception':'receptions'}${captures.length>1?' · Newest first':''}`;
+ $('emptyArchive').textContent=archive.captures.length?'No captures match. Try another satellite or date.':'No receptions have been published yet.';
+ $('emptyArchive').hidden=captures.length>0;
+ const grid=$('captureGrid');
+ grid.classList.toggle('has-feature',archiveFilter==='all'&&!query&&captures.length>=3&&Boolean(captureThumbnail(captures[0])));
+ grid.replaceChildren(...captures.map(captureCard));
+}
+function captureCard(capture,index){
+ const card=make('button',undefined,'capture-card');
+ card.type='button';
+ const captureDate=date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT';
+ card.setAttribute('aria-label',`Open Meteor ${capture.satellite} capture, ${captureDate}`);
+ const thumb=make('span',undefined,'capture-thumb');
+ const thumbnail=captureThumbnail(capture);
  if(thumbnail){
-  const fragment=thumbnail.width>thumbnail.height*8;
-  const img=make('img');img.src=thumbnail.preview;img.alt=`Meteor ${c.satellite} ${fragment?'scan fragment':'partial satellite image'}`;img.loading='lazy';thumb.append(img);
-  if(fragment){
+  const image=make('img');
+  image.alt='';
+  image.loading=index<3?'eager':'lazy';
+  image.decoding='async';
+  if(index===0)image.fetchPriority='high';
+  image.src=thumbnail.preview;
+  thumb.append(image);
+  if(thumbnail.width>thumbnail.height*8){
    thumb.classList.add('capture-fragment');
    thumb.append(make('span','Short scan fragment','capture-preview-note'));
   }
  }else{
-  thumb.append(make('span',c.images.length?'No clear preview':'No image received','capture-preview-note'));
+  thumb.append(make('span',capture.images.length?'Preview unavailable':'No image received','capture-preview-note'));
  }
- thumb.append(make('span',c.outcome==='partial'?'PARTIAL CAPTURE':c.outcome==='frames'?'FRAMES ONLY':'NO FRAMES','tag amber'));
- const body=make('div',undefined,'capture-body');body.append(make('h3','METEOR '+c.satellite),make('div',date(c.started_utc,{hour:'2-digit',minute:'2-digit'})+' PHT','capture-date'));
- const metrics=make('div',undefined,'capture-meta');for(const [label,value] of [['DISTINCT CADUs',fmt.format(c.unique_frames)],['PEAK SNR',snr(c.peak_snr_db)],['PRODUCTS',c.images.length]]){const item=make('div');item.append(make('small',label),make('b',String(value)));metrics.append(item)}body.append(metrics,make('span','Inspect image & evidence ↗','capture-link'));card.append(thumb,body);card.addEventListener('click',()=>openCapture(c));$('captureGrid').append(card)}
+ const heading=make('span',undefined,'capture-title');
+ heading.append(make('span','Meteor '+capture.satellite),make('span','↗','capture-arrow'));
+ heading.lastElementChild.setAttribute('aria-hidden','true');
+ const outcome=capture.outcome==='partial'?'Partial image':capture.outcome==='frames'?'Frames only':'No frames';
+ const body=make('span',undefined,'capture-body');
+ body.append(heading,make('span',captureDate,'capture-date'));
+ const metrics=make('span',undefined,'capture-meta');
+ metrics.append(make('span',outcome,'capture-outcome'),make('span',fmt.format(capture.unique_frames)+' CADUs'));
+ body.append(metrics);
+ if(index===0){
+  body.prepend(make('span','Latest reception','capture-latest'));
+  body.append(make('span','Open capture ↗','capture-action'));
+ }
+ card.append(thumb,body);
+ card.onclick=()=>openCapture(capture);
+ return card;
 }
 function imageSelection(){
  const image=currentCapture.images[Number($('productSelect').value)];if(!image)return;
@@ -166,7 +204,9 @@ function imageSelection(){
  if($('viewer').classList.contains('native')){$('detailImage').src=image.url;if(ix!=='')$('compareImage').src=currentCapture.images[Number(ix)].url}
 }
 function openCapture(c){
- currentCapture=c;$('dialogTitle').textContent=`METEOR ${c.satellite} · ${date(c.started_utc)}`;$('productSelect').replaceChildren();$('compareSelect').replaceChildren(new Option('No comparison',''));
+ captureReturnHash=location.hash.startsWith('#capture=')?'#archive':location.hash;
+ currentCapture=c;$('dialogTitle').textContent=`Meteor ${c.satellite} · ${date(c.started_utc)}`;
+ $('captureProducts').hidden=$('downloadImage').hidden=$('productHash').hidden=!c.images.length;$('productSelect').replaceChildren();$('compareSelect').replaceChildren(new Option('No comparison',''));
  c.images.forEach((im,i)=>{$('productSelect').add(new Option(im.label,i));$('compareSelect').add(new Option(im.label,i))});
  $('productSelect').value=Math.max(0,c.images.findIndex(im=>im.name===(captureThumbnail(c)||c.featured)?.name));
  $('viewer').classList.remove('native');$('zoomButton').textContent='View at native size';$('captureNotes').textContent=c.notes;
@@ -176,7 +216,7 @@ function openCapture(c){
  const cadu=c.evidence.find(f=>f.name.endsWith('.cadu'));$('downloadCadu').hidden=!cadu;if(cadu)$('downloadCadu').href=cadu.url;
  imageSelection();$('captureDialog').showModal();if(typeof qualityChart==='function')qualityChart(c);if(typeof applyZoom==='function'){zoomScale=1;applyZoom()}$('copyCaptureLink').textContent='Copy capture link ↗';history.replaceState(null,'','#capture='+encodeURIComponent(c.id));
 }
-function exportCalendar(p){const utc=v=>new Date(v).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');const value=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Team Magalona//SagapSat//EN','BEGIN:VEVENT',`UID:${utc(p.aos)}-${p.satellite}@sagapsat.local`,`DTSTAMP:${utc(new Date())}`,`DTSTART:${utc(p.aos)}`,`DTEND:${utc(p.los)}`,`SUMMARY:Meteor ${p.satellite} predicted pass`,`DESCRIPTION:Peak ${p.max_elevation} degrees. 10 degree horizon mask. Predicted geometry only. Recording is not automatically scheduled.`,'END:VEVENT','END:VCALENDAR'].join('\r\n');download(`meteor-${p.satellite}-${utc(p.aos)}.ics`,value,'text/calendar')}
+function exportCalendar(p){const utc=v=>new Date(v).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');const value=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SagapSat//Reception archive//EN','BEGIN:VEVENT',`UID:${utc(p.aos)}-${p.satellite}@sagapsat.local`,`DTSTAMP:${utc(new Date())}`,`DTSTART:${utc(p.aos)}`,`DTEND:${utc(p.los)}`,`SUMMARY:Meteor ${p.satellite} predicted pass`,`DESCRIPTION:Peak ${p.max_elevation} degrees. 10 degree horizon mask. Predicted geometry only. Recording is not automatically scheduled.`,'END:VEVENT','END:VCALENDAR'].join('\r\n');download(`meteor-${p.satellite}-${utc(p.aos)}.ics`,value,'text/calendar')}
 function passKey(pass){
  return pass ? pass.satellite+'|'+pass.aos : null;
 }
@@ -269,7 +309,9 @@ async function stationPoll(){
 async function init(){
  const reportError=message=>{$('error').hidden=false;$('error').textContent+=($('error').textContent?' ':'')+message};
  stationPoll();
- const loadArchive=get('archive.json').then(data=>{archive=data;renderArchive()}).catch(e=>reportError('Archive unavailable: '+e.message));
+ const loadArchive=get('archive.json').then(updateArchive).catch(()=>{
+  $('archiveStatus').textContent='The archive is unavailable. The page will retry automatically.';
+ });
  const loadOrbits=get('orbits.json').then(data=>{
   orbital=data;
   if(data.errors.length)reportError('Orbit data: '+data.errors.join('; '));
@@ -278,14 +320,17 @@ async function init(){
  }).catch(e=>{$('orbitState').textContent='Orbit data unavailable';$('tleInfo').textContent=e.message});
  const loadCoastline=get('coastline.json').then(data=>{coastline=data;drawMap()}).catch(()=>reportError('Basemap unavailable; orbit coordinates are still shown.'));
  await Promise.all([loadArchive,loadOrbits,loadCoastline]);
- if(typeof refreshCoverage==='function')refreshCoverage();$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(fresh.generated_utc!==archive?.generated_utc){archive=fresh;renderArchive()}}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
+ if(typeof refreshCoverage==='function')refreshCoverage();$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(!archive||fresh.generated_utc!==archive.generated_utc)updateArchive(fresh)}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
 }
 $('satTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-sat]');if(!b)return;inspectedPass=null;selectSatellite(b.dataset.sat);tick()});
-$('archiveTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;archiveFilter=b.dataset.filter;for(const button of $('archiveTabs').children)button.classList.toggle('selected',button===b);renderArchive()});
+$('archiveTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;archiveFilter=b.dataset.filter;for(const button of $('archiveTabs').children){button.classList.toggle('selected',button===b);button.setAttribute('aria-pressed',String(button===b))}renderArchive()});
 $('search').addEventListener('input',()=>archive&&renderArchive());$('elevationFilter').addEventListener('change',renderPasses);$('calendar').onclick=()=>currentPass&&exportCalendar(currentPass);
 $('highestPass').onclick=()=>highestPass&&inspectPass(highestPass);
 selectSatellite(selectedSatellite);
 $('closeDialog').onclick=()=>$('captureDialog').close();$('captureDialog').addEventListener('click',e=>{if(e.target===$('captureDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
+$('captureDialog').addEventListener('close',()=>{
+ if(location.hash.startsWith('#capture='))history.replaceState(null,'',captureReturnHash||location.pathname+location.search);
+});
 $('productSelect').onchange=$('compareSelect').onchange=imageSelection;$('zoomButton').onclick=()=>{const native=$('viewer').classList.toggle('native');$('zoomButton').textContent=native?'Fit to viewer':'View at native size';imageSelection()};
 $('exportCsv').onclick=()=>{if(!archive)return;const rows=[['capture','satellite','started_utc','finished_utc','outcome','cadu_bytes','records','distinct_records','expected_asm','trailing_bytes','peak_logged_snr_db','image_variants','georeferencing'],...archive.captures.map(c=>[c.id,c.satellite,c.started_utc,c.finished_utc,c.outcome,c.cadu_bytes,c.frames,c.unique_frames,c.sync_frames,c.trailing_bytes,c.peak_snr_db,c.images.length,c.georeferencing])];download('sagapsat-capture-index.csv',rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n'),'text/csv')};
 window.addEventListener('resize',()=>{drawMap();drawSky()});
