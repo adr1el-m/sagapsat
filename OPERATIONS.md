@@ -38,7 +38,8 @@ them. Perform the update between passes so archive uploads are idle.
    service's current `--pi local` and `--refresh-orbits` settings. Copy the built
    `index.html`, `app.js`, `explorer.js`, `interpretation.js`, `globe.js`,
    `earth-blue-marble.jpg`, `style.css`, `brand.svg`, `source-sans-3.woff2` and
-   `source-sans-3-LICENSE.txt` from `dist/` into its `dist/` directory. Copy
+   `source-sans-3-LICENSE.txt`, `barlow-condensed-bold.woff2` and
+   `barlow-condensed-LICENSE.txt` from `dist/` into its `dist/` directory. Copy
    `dist/research/interpretation-cases.json` and the other research assets
    referenced by the page into its `dist/research/` directory.
 3. Restart both web/publisher services with

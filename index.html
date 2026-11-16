@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f8fa"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f1e9"><meta name="description" content="Browse original Meteor LRPT satellite imagery and reception records from the SagapSat ground station in Metro Manila."><link rel="icon" type="image/svg+xml" href="brand.svg"><link rel="stylesheet" href="style.css"><title>SagapSat — Reception archive</title></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -39,6 +39,7 @@
           <div class="image-divider" aria-hidden="true"><span>‹ ›</span></div>
           <input id="latestWipe" type="range" min="0" max="100" value="50" aria-label="Reveal the primary and comparison images">
         </div>
+        <div id="scanRuler" aria-hidden="true" hidden></div>
         <p id="latestStatus" role="status">Loading the latest reception…</p>
       </div>
       <div id="latestProducts" class="product-strip" role="group" aria-label="Image products" hidden></div>
@@ -49,6 +50,11 @@
           <a id="latestDownload" class="text-link" target="_blank" rel="noopener" hidden>Original PNG ↗</a>
         </div>
       </div>
+      <dl class="capture-specs" id="latestSpecs" hidden>
+        <div><dt>Image size</dt><dd id="latestResolution">—</dd></div>
+        <div><dt>Distinct CADUs</dt><dd id="latestFrames">—</dd></div>
+        <div><dt>Peak logged SNR</dt><dd id="latestSnr">—</dd></div>
+      </dl>
     </section>
     <section class="orbit-panel" id="orbit" aria-labelledby="orbitTitle">
       <header class="orbit-heading">

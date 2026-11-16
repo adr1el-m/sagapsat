@@ -160,7 +160,10 @@ function updateLatest(capture){
  }));
  $('latestTitle').textContent=capture?'Meteor '+capture.satellite:'Meteor reception';
  $('latestTime').textContent=capture?date(capture.started_utc,{hour:'numeric',minute:'2-digit',hour12:true})+' PHT':'';
- $('latestSummary').textContent=capture?`${captureOutcome(capture)} · ${fmt.format(capture.unique_frames)} CADUs`:'';
+ $('latestSummary').textContent=capture?captureOutcome(capture):'';
+ $('latestSpecs').hidden=!capture;
+ $('latestFrames').textContent=capture?fmt.format(capture.unique_frames):'—';
+ $('latestSnr').textContent=capture?snr(capture.peak_snr_db):'—';
  if(!sameCapture){
   $('latestWipe').value=50;
   updateImageWipe();
@@ -180,6 +183,12 @@ function showLatestProduct(compareName){
  compare.value=compareIndex>=0&&compareIndex!==index?String(compareIndex):'';
  $('latestView').hidden=!product;
  $('latestDownload').hidden=!product;
+ $('latestResolution').textContent=product?`${fmt.format(product.width)} × ${fmt.format(product.height)} px`:'—';
+ $('scanRuler').replaceChildren(...(product?[0,.25,.5,.75,1].map(fraction=>{
+  const tick=make('span',fmt.format(Math.round(fraction*(product.height-1))),'scan-ruler-tick');
+  tick.style.top=fraction*100+'%';
+  return tick;
+ }):[]));
  $('latestStatus').hidden=Boolean(product);
  $('latestStatus').classList.remove('preview-note');
  if(product){
@@ -205,7 +214,7 @@ function showLatestComparison(){
   comparison.alt=`Comparison image, ${product.label}`;
  }
  if(latestCapture?.images.length)updatePreviewNote();
- if(product)updateImageWipe();
+ updateImageWipe();
 }
 function updateImageWipe(){
  const wipe=$('latestWipe'), primary=$('latestImage');
@@ -214,6 +223,12 @@ function updateImageWipe(){
  const ratio=primary.naturalWidth/primary.naturalHeight;
  const shownWidth=Number.isFinite(ratio)?Math.min(width,height*ratio):width;
  const inset=(width-shownWidth)/2;
+ const shownHeight=Number.isFinite(ratio)?Math.min(height,width/ratio):height;
+ const ruler=$('scanRuler');
+ ruler.hidden=!(inset>=64&&shownHeight>=96&&primary.naturalHeight&&$('latestComparison').hidden&&!$('latestView').hidden);
+ ruler.style.setProperty('--frame-left',inset+'px');
+ ruler.style.setProperty('--frame-top',(height-shownHeight)/2+'px');
+ ruler.style.setProperty('--frame-height',shownHeight+'px');
  const panel=$('latestComparison');
  panel.style.setProperty('--image-inset',inset+'px');
  panel.style.setProperty('--split',inset+shownWidth*Number(wipe.value)/100+'px');
@@ -249,6 +264,7 @@ for(const id of ['latestImage','latestCompareImage']){
   $('latestStatus').textContent='An image preview is unavailable.';
   $('latestStatus').classList.add('preview-note');
   $('latestStatus').hidden=false;
+  if(id==='latestImage')$('scanRuler').hidden=true;
  });
 }
 $('latestProducts').onclick=event=>{
@@ -542,7 +558,7 @@ function drawElevationChart(track,index){
   else x.moveTo(px(i),py(point[3]));
   hasPrevious=true;
  }
- x.strokeStyle='#315da8';
+ x.strokeStyle='#ffc481';
  x.lineWidth=2;
  x.stroke();
  const elevation=track[index]?.[3];
@@ -550,12 +566,12 @@ function drawElevationChart(track,index){
  x.beginPath();
  x.moveTo(px(index),0);
  x.lineTo(px(index),h);
- x.strokeStyle='#1a2e4a';
+ x.strokeStyle='#f1f2ec';
  x.lineWidth=1;
  x.stroke();
  x.beginPath();
  x.arc(px(index),py(elevation),3.5,0,2*Math.PI);
- x.fillStyle='#1a2e4a';
+ x.fillStyle='#f1f2ec';
  x.fill();
 }
 $('orbitElevation').onclick=event=>{

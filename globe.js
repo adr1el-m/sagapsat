@@ -215,6 +215,24 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
    };
   }
 
+  function gridLine(samples,coordinate){
+   let penDown=false;
+   for(let value=samples[0];value<=samples[1];value+=3){
+    const point=project(...coordinate(value));
+    if(point.facing){
+     if(penDown)context.lineTo(point.x,point.y);
+     else context.moveTo(point.x,point.y);
+    }
+    penDown=point.facing;
+   }
+  }
+  context.beginPath();
+  for(let lat=-60;lat<=60;lat+=30)gridLine([-180,180],lon=>[lat,lon]);
+  for(let lon=-180;lon<180;lon+=30)gridLine([-90,90],lat=>[lat,lon]);
+  context.strokeStyle='#d6efff34';
+  context.lineWidth=.6;
+  context.stroke();
+
   context.beginPath();
   let visible=false;
   for(const [index,sample] of track.entries()){
@@ -230,7 +248,7 @@ function createOrbitGlobe(canvas, follow, manila, zoomIn, zoomOut) {
   context.strokeStyle='#05161b';
   context.lineWidth=3;
   context.stroke();
-  context.strokeStyle='#9edaff';
+  context.strokeStyle='#ffc481';
   context.lineWidth=1.3;
   context.stroke();
 
