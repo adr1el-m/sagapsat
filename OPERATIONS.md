@@ -39,7 +39,9 @@ them. Perform the update between passes so archive uploads are idle.
    `index.html`, `app.js`, `explorer.js`, `interpretation.js`, `globe.js`,
    `earth-blue-marble.jpg`, `style.css`, `brand.svg`, `source-sans-3.woff2` and
    `source-sans-3-LICENSE.txt`, `reception-experience.js`, `signal-example.mp3`,
-   `signal-example.json`, `signal-waterfall.webp` and `signal-decoded-preview.webp` from `dist/` into its `dist/` directory. Copy
+   `signal-example.json`, `signal-waterfall.webp`, `signal-decoded-preview.webp`,
+   `pass-watch.js`, `capture-stories.js`, `himawari-20261106.json` and
+   `himawari-20261106.webp` from `dist/` into its `dist/` directory. Copy
    `dist/research/interpretation-cases.json` and the other research assets
    referenced by the page into its `dist/research/` directory.
 3. Restart both web/publisher services with

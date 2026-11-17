@@ -20,12 +20,13 @@
     <span id="nextPassLabel">Next pass at or above 40°</span>
     <strong id="nextCountdown">—</strong>
     <span id="nextSummary">Loading orbital elements</span>
-    <a href="#tracking">View forecast <span aria-hidden="true">↗</span></a>
+    <a id="nextWatch" href="#tracking">View forecast ↗</a>
   </section>
   <header class="archive-heading">
     <span>Metro Manila <span aria-hidden="true">/</span> Meteor LRPT</span>
     <div class="archive-links">
-      <a class="archive-jump" href="#signal">Hear a reception ↓</a>
+      <a class="archive-jump" href="#bestViews">Best views ↓</a>
+      <a class="archive-jump" href="#captureStories">Luzon tour ↓</a>
       <a class="archive-jump" href="#receptions">Reception archive ↓</a>
     </div>
   </header>
@@ -52,6 +53,7 @@
       <div class="capture-actions" id="experienceActions" hidden>
         <button type="button" class="outline-button" id="captureReplay">Replay capture</button>
         <button type="button" class="text-button" id="capturePrint">Export print ↓</button>
+        <button type="button" class="text-button" id="copyLatestView">Copy view link ↗</button><p id="latestLinkStatus" class="capture-feedback" role="status" hidden></p>
         <p id="captureExportStatus" class="capture-feedback" role="status" hidden></p>
       </div>
       <div id="captureReplayPanel" class="capture-replay-panel" hidden>
@@ -170,13 +172,43 @@
   <p class="empty" id="emptyArchive" hidden>No captures match. Try another satellite or date.</p>
   <noscript><p>Enable JavaScript to browse imagery, or <a class="text-link" href="archive.json">open the archive manifest</a>.</p></noscript>
 </section>
+<section id="bestViews" class="section-band" aria-labelledby="bestViewsTitle" hidden>
+  <div class="section-heading"><h2 id="bestViewsTitle">Best views</h2><a class="text-link" href="#captureStories">Take the Luzon tour ↗</a></div>
+  <div id="bestViewList" class="best-view-list"></div>
+</section>
+<section id="captureStories" class="section-band" aria-labelledby="tourTitle" hidden>
+  <div class="section-heading story-heading">
+    <div><h2 id="tourTitle">A pass over Luzon</h2><p>6 November 2026 · Meteor M2-4</p></div>
+    <button type="button" class="outline-button" id="tourSwitch" aria-expanded="false" aria-controls="referenceView">Compare with Himawari-9 ↗</button>
+  </div>
+  <div class="tour-layout" id="tourView">
+    <figure class="tour-image"><img id="tourImage" loading="lazy" width="2800" height="3408" alt=""><div id="tourMarkers" aria-label="Image annotations"></div></figure>
+    <div class="tour-reading">
+      <div id="tourStops" class="tour-stops" role="group" aria-label="Guided view stops"></div>
+      <div id="tourNote" aria-live="polite"><h3 id="tourStopTitle"></h3><p id="tourStopText"></p></div>
+      <a id="tourOpen" class="text-link">Open full capture ↗</a>
+    </div>
+  </div>
+  <div id="referenceView" hidden>
+    <div class="reference-grid">
+      <figure><img id="referenceMeteor" loading="lazy" width="2800" height="3408" alt=""><figcaption><strong>Meteor M2-4</strong><span id="referenceScan"></span><small>SagapSat · AVHRR 221 false-colour composite</small></figcaption></figure>
+      <figure><img src="himawari-20261106.webp" loading="lazy" width="1209" height="1261" alt="Himawari-9 thermal-infrared image of cloud over the Philippines and surrounding seas"><figcaption><strong>Himawari-9</strong><span id="referenceClock"></span><small>Japan Meteorological Agency · AHI thermal infrared</small></figcaption></figure>
+    </div>
+    <div class="reference-caption"><p><strong id="referenceDifference"></strong> using Himawari’s nominal scan time. The images use different projections, channels, and scan directions.</p><a href="himawari-20261106.json" class="text-link">Himawari source files and processing ↗</a></div>
+  </div>
+</section>
 <section id="signal" class="section-band" aria-labelledby="signalTitle">
   <div class="section-heading">
-    <div><h2 id="signalTitle">Listen to a reception</h2><p>15 November 2026 · Meteor M2-3 · 137.9 MHz</p></div>
+    <div><h2 id="signalTitle">From signal to image</h2><p>15 November 2026 · Meteor M2-3 · 137.9 MHz</p></div>
     <a class="text-link" href="https://sagapsat.adrielmagalona.com/#capture=2026-11-15_12-15-00_Meteor-M2-3" id="signalCapture">Open decoded image ↗</a>
   </div>
-  <div class="signal-experience">
-    <div>
+  <div id="signalSteps" class="signal-steps" role="tablist" aria-label="Decoding stages">
+    <button type="button" role="tab" id="stepSignal" aria-controls="signalStage">Recorded signal</button>
+    <button type="button" role="tab" id="stepFrame" aria-controls="frameStage">Decoded frame</button>
+    <button type="button" role="tab" id="stepImage" aria-controls="imageStage">Scan image</button>
+  </div>
+  <div class="signal-experience signal-stages">
+    <div id="signalStage" role="tabpanel" aria-labelledby="stepSignal">
       <p id="signalLegend">Frequency offset from 137.9 MHz · Relative power</p>
       <div class="signal-figure">
         <div class="signal-frequency" aria-hidden="true"><span>+80 kHz</span><span>0</span><span>−80 kHz</span></div>
@@ -192,7 +224,15 @@
       <a class="text-link signal-notes" href="signal-example.json">Processing notes ↗</a>
       <p id="signalError" role="status" hidden></p>
     </div>
-    <figure class="signal-image"><img id="signalImage" src="signal-decoded-preview.webp" alt="Decoded scan fragment from the same Meteor M2-3 reception" loading="lazy"><figcaption id="signalImageCaption">Decoded image from the same reception. Scan-row timing for this excerpt is unverified.</figcaption></figure>
+    <div id="frameStage" role="tabpanel" aria-labelledby="stepFrame" hidden>
+      <p class="frame-label">First archived CADU · 1,024 bytes</p>
+      <pre class="frame-bytes" aria-label="First 32 bytes in hexadecimal"><mark>1A CF FC 1D</mark> 40 05 15 F7 54 00 00 00 00 54 00 95
+1C 00 00 FF F0 5D FC 30 C7 3C 73 8E A3 14 60 12</pre>
+      <p>The highlighted four bytes are the expected sync marker. The decoder uses it to identify the start of a channel access data unit (CADU).</p>
+      <a id="signalCadu" class="text-link" download hidden>Download the 220 archived CADUs ↓</a>
+      <details id="signalOtherLog" hidden><summary>See when frames appeared on a pass with a receiver log</summary><p id="signalFirst"></p><a id="signalLogLink" class="text-link">Open the 6 November reception timeline ↗</a></details>
+    </div>
+    <div id="imageStage" role="tabpanel" aria-labelledby="stepImage" hidden><figure class="signal-image"><img id="signalImage" src="signal-decoded-preview.webp" alt="Decoded scan fragment from the same Meteor M2-3 reception" loading="lazy"><figcaption id="signalImageCaption">Decoded image from the same reception. Scan-row timing for this excerpt is unverified.</figcaption></figure></div>
   </div>
 </section>
 <section id="overview" class="section-band" aria-labelledby="receptionTitle">
@@ -242,7 +282,21 @@
     <li><h3>SagapSat archive</h3><p>Publishes image products, decoded frames, and available reception logs.</p></li>
   </ol>
 </section>
-<section id="tracking" class="section-band"><div class="section-heading"><div><h2>Pass forecast</h2></div><span class="tag" id="orbitState">LOADING PREDICTIONS</span></div><div class="tracking-grid"><article class="card next-card" id="passDetails" tabindex="-1"><div class="eyebrow" id="passHeading">NEXT PASS / SELECTED SATELLITE</div><h3 id="passSatellite">—</h3><div class="pass-countdown" id="passCountdown">—</div><p id="passDate">Calculating…</p><canvas id="skyplot" aria-label="Predicted pass elevation profile"></canvas><div class="pass-times"><div><small>AOS · 10°</small><b id="passAos">—</b></div><div><small>PEAK</small><b id="passPeak">—</b></div><div><small>LOS · 10°</small><b id="passLos">—</b></div></div><div class="note" id="passNote">Predictions describe geometry. Actual downlink frequency and signal availability require verification before recording.</div><button class="outline-button" id="calendar" disabled>↓ Add pass to calendar</button></article></div><div class="table-card"><div class="table-heading"><h3>Next 48 hours</h3><div class="forecast-controls"><button type="button" class="outline-button" id="highestPass" disabled>Inspect highest pass</button><label>Minimum peak elevation <select id="elevationFilter"><option value="10">10° · All visible</option><option value="20" selected>20°</option><option value="35">35°</option><option value="40">40°</option><option value="60">60°</option></select></label></div></div><div class="table-scroll"><table><thead><tr><th>Satellite</th><th>Date · PHT</th><th>Acquisition</th><th>Peak elevation</th><th>Loss of signal</th><th>Duration</th><th>Actions</th></tr></thead><tbody id="passes"></tbody></table></div><p class="micro">Horizon events use a 10° mask; the filter applies to maximum elevation. Passes are predictions, not scheduled recordings.</p></div></section>
+<section id="passWatch" class="section-band" aria-labelledby="watchTitle" hidden>
+  <div class="section-heading story-heading"><div><p class="latest-label">Pass Watch</p><h2 id="watchTitle" tabindex="-1"></h2><p id="watchDate"></p></div><span id="watchPhase" class="station-status"></span></div>
+  <div class="watch-main">
+    <div><strong id="watchCountdown"></strong><p id="watchPosition"></p></div>
+    <dl><div><dt>Above 10°</dt><dd id="watchAos"></dd></div><div><dt>Peak</dt><dd id="watchPeak"></dd></div><div><dt>Below 10°</dt><dd id="watchLos"></dd></div></dl>
+  </div>
+  <div id="watchStation" hidden><p><strong id="watchStationStatus"></strong> · Station-wide telemetry</p><dl><div><dt>Frames</dt><dd id="watchFrames"></dd></div><div><dt>Frame lock</dt><dd id="watchLock"></dd></div></dl></div>
+  <div id="watchRecap"></div>
+  <div class="watch-actions"><button class="outline-button" id="watchOrbit" type="button" hidden>Inspect on globe ↗</button><button class="text-button" id="watchCalendar" type="button" hidden>Add to calendar ↓</button><a class="text-link" href="#tracking">Pass forecast ↓</a></div>
+</section>
+<section id="tracking" class="section-band"><div class="section-heading"><div><h2>Pass forecast</h2></div><span class="tag" id="orbitState">LOADING PREDICTIONS</span></div><div class="night-forecast">
+  <div class="night-heading"><div><h3>Overnight passes</h3><p id="nightDate"></p></div><div class="night-controls"><button type="button" class="outline-button" id="nightBefore" aria-label="Previous night">←</button><button type="button" class="outline-button" id="nightAfter" aria-label="Next night">→</button></div></div>
+  <div class="night-scroll"><svg id="nightChart" viewBox="0 0 960 150" aria-label="Predicted passes by time. Arc height represents peak elevation."></svg></div>
+  <ul id="nightPasses"></ul><p id="nightEmpty"></p>
+</div><div class="tracking-grid"><article class="card next-card" id="passDetails" tabindex="-1"><div class="eyebrow" id="passHeading">NEXT PASS / SELECTED SATELLITE</div><h3 id="passSatellite">—</h3><div class="pass-countdown" id="passCountdown">—</div><p id="passDate">Calculating…</p><canvas id="skyplot" aria-label="Predicted pass elevation profile"></canvas><div class="pass-times"><div><small>AOS · 10°</small><b id="passAos">—</b></div><div><small>PEAK</small><b id="passPeak">—</b></div><div><small>LOS · 10°</small><b id="passLos">—</b></div></div><div class="note" id="passNote">Predictions describe geometry. Actual downlink frequency and signal availability require verification before recording.</div><button class="outline-button" id="calendar" disabled>↓ Add pass to calendar</button></article></div><div class="table-card"><div class="table-heading"><h3>Next 48 hours</h3><div class="forecast-controls"><button type="button" class="outline-button" id="highestPass" disabled>Inspect highest pass</button><label>Minimum peak elevation <select id="elevationFilter"><option value="10">10° · All visible</option><option value="20" selected>20°</option><option value="35">35°</option><option value="40">40°</option><option value="60">60°</option></select></label></div></div><div class="table-scroll"><table><thead><tr><th>Satellite</th><th>Date · PHT</th><th>Acquisition</th><th>Peak elevation</th><th>Loss of signal</th><th>Duration</th><th>Actions</th></tr></thead><tbody id="passes"></tbody></table></div><p class="micro">Horizon events use a 10° mask; the filter applies to maximum elevation. Passes are predictions, not scheduled recordings.</p></div></section>
 <section id="coverage"><div class="section-heading"><div><h2>Observation geography</h2><p>Received-scan timing is checked before any orbit segment is drawn.</p></div><span class="tag" id="coverageStatus">VALIDATION PENDING</span></div><div class="coverage-layout"><article class="card"><label>Observation<select id="coverageSelect"></select></label><canvas id="coverageMap" aria-label="Satellite subtrack during received scans; not an image footprint"></canvas><p class="micro">Blue line: satellite subtrack for time-checked scans. Amber ring: approximate station region. No image footprint or geographic image overlay is asserted.</p></article><article class="card"><h3>What is verified?</h3><p id="coverageExplanation">Select an observation.</p><p id="coverageWindow" class="micro"></p><div class="note">Scan timing, orbital geometry, and pixel georeferencing are separate checks. Image overlays require independent geographic alignment validation. Missing scan lines remain missing observations.</div></article></div></section>
 <section id="research" class="section-band"><div class="section-heading"><div><h2>Sierra Madre cloud and rainfall study</h2><p>Our study examines cloud and rainfall estimates across fixed areas in Nueva Ecija and Aurora.</p><a class="text-link member-link" href="#members">Project members ↓</a></div></div>
 <div class="research-finding card"><div><h3>Agreement depends on how rainfall is sampled</h3><p>Weighting rainfall cells by their overlap with the same study boxes removes three-product east-greater agreement from all four original wet-hour cases. October follow-ups retain null results and opposing estimates. Cloud occupancy alone cannot resolve these rainfall contrasts.</p></div><div class="research-count"><strong>0 / 4</strong><span>original wet-hour cases agree on greater eastern rain<br>across all three area-weighted products</span><small>Selected hours within two dates, not four independent storms.</small></div></div><div class="evidence-grid research-sources"><article class="card"><span class="step">RECEIVE · METEOR</span><h3>Original local imagery</h3><p>Six audited receptions on 4–6 November demonstrate our antenna-to-image pipeline. Missing bands remain visible. These November observations do not enlarge the September weather sample; image pixel registration remains unverified.</p></article><article class="card"><span class="step">MEASURE · HIMAWARI-9</span><h3>123 cloud snapshots</h3><p>48 original September snapshots, all 72 fixed-date October snapshots, and three separately conditioned follow-ups. Provider geolocation supports these measurements; neither pixels nor hours count as independent storms.</p></article><article class="card"><span class="step">COMPARE · GPM / IMERG</span><h3>96 source files verified</h3><p>All 96 original IMERG Late Run files are preserved and hash-checked. Offline replay verifies 144 box/hour records and 2,736 base/shift records. The base sampling uses one western and two eastern native cells, limiting fine-scale interpretation.</p></article></div>
@@ -268,5 +322,5 @@
   </div>
 </footer>
 </main>
-<dialog id="captureDialog" aria-labelledby="dialogTitle"><div class="dialog-top"><div><h2 id="dialogTitle">Capture</h2></div><button id="closeDialog" class="icon-button" aria-label="Close capture detail">✕</button></div><div id="captureProducts"><div class="dialog-controls"><label>Image product <select id="productSelect"></select></label><label>Compare with <select id="compareSelect"><option value="">No comparison</option></select></label><button id="zoomButton" class="outline-button">View at native size</button></div><div class="viewer-toolbar"><button id="zoomOut" class="outline-button" aria-label="Zoom out">−</button><span id="zoomLevel">100%</span><button id="zoomIn" class="outline-button" aria-label="Zoom in">+</button><button id="zoomReset" class="outline-button">Reset view</button><label><input id="syncViews" type="checkbox" checked> Sync scroll position</label></div><p id="productHelp" class="micro"></p><p class="micro">Synchronized scrolling aligns viewport position; these views are not geographically registered.</p><div class="viewer" id="viewer"><figure><img id="detailImage" alt="Selected satellite image product"><figcaption id="imageLabel"></figcaption></figure><figure id="compareFigure" hidden><img id="compareImage" alt="Comparison satellite image product"><figcaption id="compareLabel"></figcaption></figure></div></div><div class="dialog-actions"><a id="downloadImage" class="button" download>↓ Original PNG</a><a id="downloadCadu" class="outline-button" download>↓ CADU evidence</a><button type="button" class="outline-button" id="dialogPrint">Export print ↓</button><span id="dialogPrintStatus" class="capture-feedback" role="status" hidden></span><button id="copyCaptureLink" class="text-button">Copy capture link ↗</button></div><div id="detailMetrics" class="detail-metrics"></div><section class="quality-panel"><h3>Reception timeline</h3><canvas id="qualityChart" aria-label="Logged SNR, cumulative frames, and sampled loss of lock over time"></canvas><p class="micro" id="qualitySummary"></p></section><details><summary>Capture notes & limitations</summary><pre id="captureNotes"></pre></details><details><summary>Source files & SHA-256 hashes</summary><div id="evidenceFiles"></div></details><p class="micro" id="productHash"></p></dialog>
-<script src="globe.js"></script><script src="reception-experience.js"></script><script src="app.js"></script><script src="explorer.js"></script><script src="interpretation.js"></script></body></html>
+<dialog id="captureDialog" aria-labelledby="dialogTitle"><div class="dialog-top"><div><h2 id="dialogTitle">Capture</h2></div><button id="closeDialog" class="icon-button" aria-label="Close capture detail">✕</button></div><div id="captureProducts"><div class="dialog-controls"><label>Image product <select id="productSelect"></select></label><label>Compare with <select id="compareSelect"><option value="">No comparison</option></select></label><button id="zoomButton" class="outline-button">View at native size</button></div><div class="viewer-toolbar"><button id="zoomOut" class="outline-button" aria-label="Zoom out">−</button><span id="zoomLevel">100%</span><button id="zoomIn" class="outline-button" aria-label="Zoom in">+</button><button id="zoomReset" class="outline-button">Reset view</button><label><input id="syncViews" type="checkbox" checked> Sync scroll position</label></div><p id="productHelp" class="micro"></p><p class="micro">Synchronized scrolling aligns viewport position; these views are not geographically registered.</p><div class="viewer" id="viewer"><figure id="detailPane"><img id="detailImage" alt="Selected satellite image product"><figcaption id="imageLabel"></figcaption></figure><figure id="compareFigure" hidden><img id="compareImage" alt="Comparison satellite image product"><figcaption id="compareLabel"></figcaption></figure></div></div><div class="dialog-actions"><a id="downloadImage" class="button" download>↓ Original PNG</a><a id="downloadCadu" class="outline-button" download>↓ CADU evidence</a><button type="button" class="outline-button" id="dialogPrint">Export print ↓</button><span id="dialogPrintStatus" class="capture-feedback" role="status" hidden></span><button id="copyCaptureLink" class="text-button">Copy view link ↗</button><span id="dialogLinkStatus" class="capture-feedback" role="status" hidden></span></div><div id="detailMetrics" class="detail-metrics"></div><section class="quality-panel"><h3>Reception timeline</h3><canvas id="qualityChart" aria-label="Logged SNR, cumulative frames, and sampled loss of lock over time"></canvas><p class="micro" id="qualitySummary"></p></section><details><summary>Capture notes & limitations</summary><pre id="captureNotes"></pre></details><details><summary>Source files & SHA-256 hashes</summary><div id="evidenceFiles"></div></details><p class="micro" id="productHash"></p></dialog>
+<script src="globe.js"></script><script src="reception-experience.js"></script><script src="pass-watch.js"></script><script src="capture-stories.js"></script><script src="app.js"></script><script src="explorer.js"></script><script src="interpretation.js"></script></body></html>

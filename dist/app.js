@@ -1,6 +1,6 @@
 'use strict';
 const $=id=>document.getElementById(id), fmt=new Intl.NumberFormat('en-PH');
-let archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass,inspectedPass,highestPass,captureReturnHash;
+let restoredArchiveHash,archive,orbital,coastline,selectedSatellite='M2-3',archiveFilter='all',currentCapture,currentPass,inspectedPass,highestPass,captureReturnHash;
 const date=(v,options={})=>v?new Date(v).toLocaleString('en-PH',{timeZone:'Asia/Manila',day:'2-digit',month:'short',year:'numeric',...options}):'Not recorded';
 const time=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true}):'—';
 const shortTime=v=>v?new Date(v).toLocaleTimeString('en-PH',{timeZone:'Asia/Manila',hour:'numeric',minute:'2-digit',hour12:true}):'—';
@@ -295,6 +295,8 @@ function updateArchive(data){
  if(typeof refreshCoverage==='function')refreshCoverage();
  $('exportCsv').disabled=false;
  renderArchive();
+ updateCaptureStories();
+ if(restoredArchiveHash!==location.hash&&location.hash.startsWith('#capture='))restoreLinkedView();
 }
 function renderArchive(){
  if(!archive)return;
@@ -355,8 +357,11 @@ function imageSelection(){
  if(ix!==''){const c=currentCapture.images[Number(ix)];$('compareImage').src=c.preview;$('compareLabel').textContent=`${c.label} · ${c.width} × ${c.height} px`}
  if($('viewer').classList.contains('native')){$('detailImage').src=image.url;if(ix!=='')$('compareImage').src=currentCapture.images[Number(ix)].url}
 }
-function openCapture(c,productIndex,compareIndex){
- captureReturnHash=location.hash.startsWith('#capture=')?'#archive':location.hash;
+function openCapture(c,productIndex,compareIndex,params){
+ const dialog=$('captureDialog');
+ if(!dialog.open)captureReturnHash=location.hash.startsWith('#capture=')?'#archive':location.hash;
+ $('dialogLinkStatus').hidden=true;
+ $('copyCaptureLink').removeAttribute('aria-describedby');
  currentCapture=c;
  $('dialogPrint').disabled=!c.images.length;
  $('dialogPrintStatus').hidden=true;
@@ -370,7 +375,15 @@ function openCapture(c,productIndex,compareIndex){
  for(const [label,value] of [['Distinct CADUs',fmt.format(c.unique_frames)],['Complete records',fmt.format(c.frames)],['Expected ASM',`${fmt.format(c.sync_frames)} / ${fmt.format(c.frames)}`],['Trailing bytes',String(c.trailing_bytes)],['Peak logged SNR',snr(c.peak_snr_db)],['Image variants',String(c.images.length)],['Reported size',c.size_matches_report?'Matches file':'MISMATCH'],['Georeferencing','Unverified']]){const e=make('div');e.append(make('small',label),make('strong',value));$('detailMetrics').append(e)}
  $('evidenceFiles').replaceChildren();for(const f of c.evidence){const e=make('div',undefined,'evidence-file'),a=make('a',`${f.name} · ${fmt.format(f.bytes)} bytes ↓`);a.href=f.url;a.download=f.name;e.append(a,make('code',f.sha256));if(f.original_sha256&&f.original_sha256!==f.sha256){e.append(make('p','Public log copy: exact station coordinates withheld.','micro'),make('code','Original SHA-256: '+f.original_sha256))}$('evidenceFiles').append(e)}
  const cadu=c.evidence.find(f=>f.name.endsWith('.cadu'));$('downloadCadu').hidden=!cadu;if(cadu)$('downloadCadu').href=cadu.url;
- imageSelection();$('captureDialog').showModal();if(typeof qualityChart==='function')qualityChart(c);if(typeof applyZoom==='function'){zoomScale=1;applyZoom()}$('copyCaptureLink').textContent='Copy capture link ↗';history.replaceState(null,'','#capture='+encodeURIComponent(c.id));
+ if(params?.get('native')==='1'&&c.images.length){
+  $('viewer').classList.add('native');
+  $('zoomButton').textContent='Fit to viewer';
+ }
+ imageSelection();
+ if(!dialog.open)dialog.showModal();
+ qualityChart(c);
+ restoreCaptureViewport(params);
+ history.replaceState(null,'',params?'#'+params:captureHash(c));
 }
 function exportCalendar(p){const utc=v=>new Date(v).toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');const value=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SagapSat//Reception archive//EN','BEGIN:VEVENT',`UID:${utc(p.aos)}-${p.satellite}@sagapsat.local`,`DTSTAMP:${utc(new Date())}`,`DTSTART:${utc(p.aos)}`,`DTEND:${utc(p.los)}`,`SUMMARY:Meteor ${p.satellite} predicted pass`,`DESCRIPTION:Peak ${p.max_elevation} degrees. 10 degree horizon mask. Predicted geometry only. Recording is not automatically scheduled.`,'END:VEVENT','END:VCALENDAR'].join('\r\n');download(`meteor-${p.satellite}-${utc(p.aos)}.ics`,value,'text/calendar')}
 function passKey(pass){
@@ -616,7 +629,7 @@ function tick(){
  if(currentPass){$('passSatellite').textContent='METEOR '+currentPass.satellite;$('passCountdown').textContent=countdown(currentPass.aos);$('passDate').textContent=date(currentPass.aos)+' · Philippine time';$('passAos').textContent=shortTime(currentPass.aos);$('passPeak').textContent=shortTime(currentPass.peak);$('passLos').textContent=shortTime(currentPass.los);$('passNote').textContent=`${currentPass.max_elevation.toFixed(1)}° maximum elevation · ${Math.floor(currentPass.duration_seconds/60)}m ${currentPass.duration_seconds%60}s above 10°. Verify the active downlink before recording.`}
  else{$('passSatellite').textContent='METEOR '+selectedSatellite;$('passCountdown').textContent='Unavailable';$('passDate').textContent='No upcoming prediction in this snapshot';for(const id of ['passAos','passPeak','passLos'])$(id).textContent='—';$('passNote').textContent='Check the forecast again when fresh orbital data is available.'}
  if(orbital){const age=(Date.now()-new Date(orbital.generated_utc))/3600000,expired=Date.now()>new Date(orbital.valid_until_utc);$('orbitState').textContent=expired?'Predictions expired':orbital.satellites.length?`COMPUTED TRACKING · ${age.toFixed(1)}H SNAPSHOT`:'Orbit data unavailable';if(expired)$('passNote').textContent='Orbital snapshot expired. Rebuild to refresh predictions.'}
- drawMap();drawSky();renderReception();renderPassDay(Date.now());
+ drawMap();drawSky();renderReception();renderPassDay(Date.now());renderPassWatch(Date.now(),available);
 }
 async function stationPoll(){
  try{
@@ -643,13 +656,26 @@ async function init(){
  }).catch(e=>{$('orbitState').textContent='Orbit data unavailable';$('tleInfo').textContent=e.message});
  const loadCoastline=get('coastline.json').then(data=>{coastline=data}).catch(()=>reportError('Observation geography basemap unavailable.'));
  await Promise.all([loadArchive,loadOrbits,loadCoastline]);
- if(typeof refreshCoverage==='function')refreshCoverage();$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';const shared=location.hash.startsWith('#capture=')?decodeURIComponent(location.hash.slice(9)):null;if(shared){const match=archive?.captures.find(c=>c.id===shared||c.aliases?.includes(shared)||((c.started_utc||'').slice(0,16).replace('T','_').replace(':','-')+'_Meteor-'+c.satellite)===shared);if(match)openCapture(match)}tick();setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(!archive||fresh.generated_utc!==archive.generated_utc)updateArchive(fresh)}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
+ if(typeof refreshCoverage==='function')refreshCoverage();$('manifestDownload').href=local?'archive.json':'/api/feed?kind=archive';if(location.hash.startsWith('#watch='))restoreLinkedView();tick();setInterval(tick,1000);setInterval(renderPasses,60000);setInterval(async()=>{try{const fresh=await get('archive.json');if(!archive||fresh.generated_utc!==archive.generated_utc)updateArchive(fresh)}catch{}},60000);setInterval(async()=>{try{orbital=await get('orbits.json');renderPasses();tick()}catch(e){$('orbitState').textContent='ORBIT REFRESH UNAVAILABLE'}},900000);
 }
 $('satTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-sat]');if(!b)return;inspectedPass=null;selectSatellite(b.dataset.sat);tick()});
 $('archiveTabs').addEventListener('click',e=>{const b=e.target.closest('button[data-filter]');if(!b)return;archiveFilter=b.dataset.filter;for(const button of $('archiveTabs').children){button.classList.toggle('selected',button===b);button.setAttribute('aria-pressed',String(button===b))}renderArchive()});
 $('search').addEventListener('input',()=>archive&&renderArchive());$('elevationFilter').addEventListener('change',renderPasses);$('calendar').onclick=()=>currentPass&&exportCalendar(currentPass);
 $('highestPass').onclick=()=>highestPass&&inspectPass(highestPass);
 selectSatellite(selectedSatellite);
+initPassWatch();
+initCaptureStories();
+window.addEventListener('hashchange',restoreLinkedView);
+document.addEventListener('click',e=>{
+ const link=e.target.closest?.('a[href^="#capture="]');
+ if(!link||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||!archive)return;
+ const params=new URLSearchParams(link.hash.slice(1));
+ const c=lookupCapture(params.get('capture'));
+ if(!c)return;
+ e.preventDefault();
+ const i=c.images.findIndex(image=>image.name===params.get('product'));
+ openCapture(c,i<0?undefined:i,undefined,params);
+});
 $('closeDialog').onclick=()=>$('captureDialog').close();$('captureDialog').addEventListener('click',e=>{if(e.target===$('captureDialog')){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close()}});
 $('captureDialog').addEventListener('close',()=>{
  if(location.hash.startsWith('#capture='))history.replaceState(null,'',captureReturnHash||location.pathname+location.search);

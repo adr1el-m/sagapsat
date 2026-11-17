@@ -652,3 +652,83 @@ main { padding-top: 0; }
   .signal-chain li + li { padding-left: 10px; }
   #signal .section-heading { align-items: start; flex-wrap: wrap; }
 }
+
+/* Reception stories and forecast */
+.story-heading { gap: 12px 24px; align-items: end; flex-wrap: wrap; }
+.story-heading p, .night-heading p { color: var(--muted); margin: 4px 0 0; }
+.best-view-list { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: clamp(14px, 3vw, 34px); }
+.best-view { display: grid; align-content: start; gap: 5px; color: var(--ink); text-decoration: none; }
+.best-view img { width: 100%; aspect-ratio: 1.75; object-fit: cover; object-position: 50% 58%; border: 1px solid var(--line); background: var(--panel); }
+.best-view small { color: var(--muted); margin-top: 5px; }
+.best-view strong { font-size: clamp(17px, 2vw, 24px); line-height: 1.15; }
+.best-view span { font-size: 14px; color: var(--muted); }
+.best-view:hover strong, .best-view:focus-visible strong { text-decoration: underline; }
+
+.tour-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, .85fr); align-items: start; gap: clamp(20px, 5vw, 74px); }
+.tour-image { margin: 0; width: min(100%, 460px); position: relative; background: var(--panel); }
+.tour-image img { display: block; width: 100%; height: auto; }
+#tourMarkers { position: absolute; inset: 0; pointer-events: none; }
+.tour-pin { position: absolute; transform: translate(-50%, -50%); pointer-events: auto; border-radius: 50%; border: 2px solid white; background: #182f36; color: white; width: 38px; height: 38px; padding: 0; font-weight: 650; box-shadow: 0 1px 5px #0009; }
+.tour-pin[aria-pressed="true"] { background: white; color: #182f36; outline: 2px solid #182f36; }
+.tour-stops, .watch-actions, .night-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tour-stops .outline-button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+#tourNote { border-block: 1px solid var(--line); margin: 18px 0; padding: 18px 0; min-height: 122px; }
+#tourNote h3 { font-size: 25px; line-height: 1.18; }
+#tourNote p { max-width: 36ch; color: var(--muted); }
+.reference-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.reference-grid figure { margin: 0; }
+.reference-grid img { width: 100%; height: clamp(145px, 49vw, 520px); display: block; object-fit: contain; background: #121716; }
+.reference-grid figcaption { padding: 12px 0; display: grid; gap: 2px; line-height: 1.25; }
+.reference-grid figcaption strong { font-size: clamp(16px, 2.4vw, 23px); }
+.reference-grid figcaption span, .reference-grid figcaption small { color: var(--muted); }
+.reference-caption { border-top: 1px solid var(--line); padding-top: 10px; }
+.reference-caption p { margin: 0 0 5px; color: var(--muted); }
+
+.signal-steps { display: flex; flex-wrap: wrap; gap: 0 18px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.signal-steps button { color: var(--muted); font: inherit; font-weight: 650; border: 0; padding: 10px 2px; background: none; border-bottom: 2px solid transparent; }
+.signal-steps [aria-selected="true"] { color: var(--ink); border-color: var(--ink); }
+.signal-experience.signal-stages { display: block; width: min(100%, 860px); }
+.signal-stages .signal-image { margin: 0; }
+.signal-stages .signal-image img { max-height: 410px; object-fit: contain; }
+.frame-label { margin: 0 0 8px; color: var(--muted); }
+.frame-bytes { color: var(--ink); background: var(--panel); padding: 16px; margin: 0; font: clamp(9px, 2.2vw, 14px)/1.9 ui-monospace, monospace; }
+.frame-bytes mark { color: #162023; background: #c4ded3; padding: 2px 0; }
+#signalOtherLog { margin-top: 16px; }
+
+.watch-main { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border-block: 1px solid var(--line); padding: 18px 0; }
+#watchCountdown { font-size: clamp(27px, 5vw, 54px); font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -.025em; }
+#watchPosition { margin: 6px 0 0; color: var(--muted); }
+#watchPosition:empty, #watchRecap:empty, #nightEmpty:empty { display: none; }
+.watch-main dl, #watchStation dl { display: flex; gap: 10px clamp(12px, 4vw, 34px); margin: 0; flex-wrap: wrap; align-items: center; }
+.watch-main dt, #watchStation dt { color: var(--muted); font-size: 13px; }
+.watch-main dd, #watchStation dd { margin: 0; font-weight: 650; font-variant-numeric: tabular-nums; }
+#watchStation, #watchRecap { border-bottom: 1px solid var(--line); padding: 14px 0; }
+#watchStation p { margin: 0 0 6px; }
+#watchRecap { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.watch-actions { margin-top: 14px; }
+
+.night-forecast { margin: 0 0 24px; padding: 14px 0; border-block: 1px solid var(--line); }
+.night-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.night-heading h3 { font-size: 23px; }
+.night-scroll { overflow-x: auto; }
+#nightChart { display: block; width: 100%; min-width: 562px; }
+#nightChart text { fill: var(--muted); font: 13px 'Source Sans 3', sans-serif; }
+.night-grid { stroke: var(--line); }
+.night-arc { color: #2f6a5b; cursor: pointer; }
+.night-arc[data-satellite="M2-4"] { color: #87482d; }
+.night-stroke { fill: none; stroke: currentColor; stroke-width: 2; pointer-events: none; }
+.night-hit { fill: none; stroke: transparent; stroke-width: 18; }
+.night-arc circle { fill: currentColor; }
+.night-arc:hover .night-stroke { stroke-width: 4; }
+#nightPasses { display: flex; flex-wrap: wrap; gap: 4px 16px; list-style: none; padding: 0; margin: 0; }
+#nightEmpty { color: var(--muted); margin: 5px 0 0; }
+.dialog-actions { flex-wrap: wrap; }
+#dialogLinkStatus input, #latestLinkStatus input { width: min(100%, 24rem); }
+
+@media (max-width: 630px) {
+ .best-view-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ .best-view:first-child { grid-column: 1 / -1; }
+ .tour-layout, .watch-main { grid-template-columns: 1fr; }
+ .tour-image { width: min(100%, 340px); }
+ .frame-bytes { padding-inline: 5px; }
+}

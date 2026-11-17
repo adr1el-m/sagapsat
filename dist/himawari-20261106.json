@@ -1,0 +1,32 @@
+{
+  "satellite": "Himawari-9",
+  "provider": "Japan Meteorological Agency",
+  "dataset": "https://registry.opendata.aws/noaa-himawari/",
+  "nominal_utc": "2026-11-06T06:40:00Z",
+  "band": "AHI Band 13 (10.4 \u00b5m)",
+  "display": "Native fixed-grid crop. HSD calibration coefficients convert counts to brightness temperature. Grayscale maps 302 K to black and 195 K to white.",
+  "crop": {
+    "left": 1209,
+    "top": 1435,
+    "right": 2418,
+    "bottom": 2696,
+    "origin": "zero-based, right and bottom exclusive"
+  },
+  "files": [
+    {
+      "url": "https://noaa-himawari9.s3.amazonaws.com/AHI-L1b-FLDK/2026/11/06/0640/HS_H09_20261106_0640_B13_FLDK_R20_S0310.DAT.bz2",
+      "sha256": "850695d20984241ad4365f9aa42179d24f7b9cead4146a8b0462e3860cbe92e6",
+      "first_line": 1101
+    },
+    {
+      "url": "https://noaa-himawari9.s3.amazonaws.com/AHI-L1b-FLDK/2026/11/06/0640/HS_H09_20261106_0640_B13_FLDK_R20_S0410.DAT.bz2",
+      "sha256": "f2b0c9939b9acdf43062cca4aad0ec8d83bf78b1d8e9cf9c1af3ff9690fd077b",
+      "first_line": 1651
+    },
+    {
+      "url": "https://noaa-himawari9.s3.amazonaws.com/AHI-L1b-FLDK/2026/11/06/0640/HS_H09_20261106_0640_B13_FLDK_R20_S0510.DAT.bz2",
+      "sha256": "293b8ef93dad7a10f44feb5832bd788c46b4d511fabb13dd61301b01b50005e6",
+      "first_line": 2201
+    }
+  ]
+}
